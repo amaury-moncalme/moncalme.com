@@ -81,7 +81,7 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "8",
+      "reviewCount": "9",
       "bestRating": "5",
       "worstRating": "1"
     },
@@ -99,6 +99,13 @@
         "reviewRating": { "@type": "Rating", "ratingValue": "5" },
         "reviewBody": "A moment for yourself outside of time, in a warm, zen space. Amaury's professionalism is present throughout the session. Mon Calme: a space where you feel at home, but a home of peace with your inner self.",
         "datePublished": "2026-04-01"
+      },
+      {
+        "@type": "Review",
+        "author": { "@type": "Person", "name": "D Alizé" },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5" },
+        "reviewBody": "A wonderful discovery! The sound massage session was an incredible experience, the music let me let go completely and reconnect with myself. Mon Calme gives off a lovely energy, a welcome full of warmth and gentleness.",
+        "datePublished": "2026-06-01"
       }
     ],
     "sameAs": [
@@ -567,6 +574,9 @@ body {
   gap: 1px;
   background: var(--sep);
 }
+.avis-card-wide {
+  grid-column: 1 / -1;
+}
 
 .avis-card {
   background: var(--dark);
@@ -918,8 +928,11 @@ body {
 <style>
 @media (max-width: 900px) {
   #experience > div > div > div[style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr 1fr !important; gap: 18px !important; }
-  #experience > div > div[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+  #experience > div > div > div[style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
   #experience h2 { font-size: 28px !important; }
+}
+@media (max-width: 420px) {
+  #experience > div > div > div[style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr !important; }
 }
 </style>
 <!-- BOOKING / CONFIGURATOR -->
@@ -2028,7 +2041,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     <p class="avis-score">5.0</p>
     <div class="avis-stars">
       <span class="stars">★★★★★</span>
-      <span class="avis-count">Google rating · 8 reviews</span>
+      <span class="avis-count">Google rating · 9 reviews</span>
     </div>
   </div>
   <p class="section-label">What Clients Say</p>
@@ -2052,7 +2065,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         <div class="avis-avatar">C</div>
         <div class="avis-info">
           <p class="avis-name">Camille D.</p>
-          <p class="avis-meta">12 reviews</p>
+          <p class="avis-meta">Local Guide · 14 reviews</p>
         </div>
         <span class="avis-stars-small">★★★★★</span>
       </div>
@@ -2081,6 +2094,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         <span class="avis-stars-small">★★★★★</span>
       </div>
       <p class="avis-text">"Thank you Amaury for this bubble outside of time. I highly recommend his sessions. I felt completely at ease. I appreciated the precision of the touch and how attentively he listened."</p>
+    </div>
+
+    <div class="avis-card avis-card-wide">
+      <div class="avis-top">
+        <div class="avis-avatar">D</div>
+        <div class="avis-info">
+          <p class="avis-name">D Alizé</p>
+          <p class="avis-meta">7 reviews</p>
+        </div>
+        <span class="avis-stars-small">★★★★★</span>
+      </div>
+      <p class="avis-text long">"A wonderful discovery! The website is really well designed and makes it easy to choose the options that fit our needs in the moment. The sound massage session was an incredible experience: the music is beautiful, it let me let go completely and reconnect with myself. Mon Calme gives off a lovely energy, a welcome full of warmth and gentleness. I left feeling calm and recharged, and I'll be back with great pleasure!"</p>
     </div>
 
   </div>
@@ -2221,12 +2246,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   line-height: 1.3;
   color: var(--cream);
   margin-bottom: 8px;
+  overflow-wrap: anywhere;
 }
 
 .acces-value-small {
   font-size: 13px;
   color: var(--cream);
   line-height: 1.7;
+  overflow-wrap: anywhere;
 }
 
 .acces-detail {
@@ -2240,6 +2267,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   .acces-wrap { grid-template-columns: 1fr; }
   .acces-info { grid-template-columns: 1fr 1fr; }
   .acces-map { min-height: 280px; }
+}
+@media (max-width: 420px) {
+  .acces-info { grid-template-columns: 1fr; }
 }
 </style>
 
