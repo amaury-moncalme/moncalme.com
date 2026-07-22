@@ -246,6 +246,28 @@ body {
   padding: 80px 60px 80px 40px;
 }
 
+.hero-cta {
+  display: inline-block;
+  align-self: flex-start;
+  background: transparent;
+  border: 0.5px solid rgba(201,169,110,0.6);
+  color: var(--gold-light);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 15px 28px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 22px 0 24px;
+}
+.hero-cta:hover {
+  background: rgba(201,169,110,0.12);
+  border-color: var(--gold-light);
+}
+
 .hero-logo {
   width: 132px;
   height: auto;
@@ -720,6 +742,7 @@ body {
     <h1 class="hero-title">Mon<em>Calme</em></h1>
     <p class="hero-subtitle">Massages Sonores Électroniques</p>
     <p class="hero-desc">Des expériences sensorielles construites autour du son, du souffle et de la présence. Au cœur de chaque séance, un voyage sonore unique composé par Amaury, diffusé au casque ou via l'enceinte Harman Kardon Luna. Le toucher et la musique live sont des options à ajouter selon vos envies.</p>
+    <a href="#rdv" class="hero-cta">Réserver ma séance →</a>
     <div class="location-pill">
       <span class="dot"></span>
       Cabinet le vendredi · 21 rue Véron, 75018 Paris
@@ -920,6 +943,7 @@ body {
         <div class="toucher-toggle">
           <label class="toggle-pill"><input type="radio" name="toucher" value="toucher" data-label="Toucher intuitif" checked><span>Toucher intuitif</span></label>
           <label class="toggle-pill"><input type="radio" name="toucher" value="energie" data-label="Travail énergétique"><span>Travail énergétique</span></label>
+          <label class="toggle-pill"><input type="radio" name="toucher" value="aucun" data-label="Sans toucher"><span>Sans toucher</span></label>
         </div>
         <p class="toucher-desc" id="toucher-desc">Contact corporel plus large et enveloppant, sur des zones plus étendues.</p>
 
@@ -1279,8 +1303,12 @@ body {
 
 .toucher-toggle {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 10px;
+}
+.toucher-toggle .toggle-pill {
+  min-width: 100px;
 }
 
 .toggle-pill {
@@ -1647,7 +1675,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   const toucherDesc = document.getElementById('toucher-desc');
   const toucherDescriptions = {
     toucher: 'Contact corporel plus large et enveloppant, sur des zones plus étendues.',
-    energie: 'Libération émotionnelle par les points de tension. Approche douce.'
+    energie: 'Libération émotionnelle par les points de tension. Approche douce.',
+    aucun: 'Séance sans aucun contact corporel, entièrement portée par le son.'
   };
 
   function applyLiveConstraint() {
@@ -1699,7 +1728,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
     // Ce qui est inclus (sans supplément)
     html += '<div class="cart-line included"><span class="name">Voyage olfactif</span><span class="price">Inclus</span></div>';
-    if (selectedToucher) {
+    if (selectedToucher && selectedToucher.value !== 'aucun') {
       html += '<div class="cart-line included"><span class="name">' + selectedToucher.dataset.label + '</span><span class="price">Inclus</span></div>';
     }
     if (selectedMasque) {
@@ -1858,7 +1887,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     const basePrice = parseFloat(massage.dataset.price);
     let total = basePrice;
     let includedLabels = ['Voyage olfactif'];
-    if (toucher) includedLabels.push(toucher.dataset.label);
+    if (toucher && toucher.value !== 'aucun') includedLabels.push(toucher.dataset.label);
     if (masque) includedLabels.push('Masque occultant');
     let modsLabels = [];
 
