@@ -246,6 +246,28 @@ body {
   padding: 80px 60px 80px 40px;
 }
 
+.hero-cta {
+  display: inline-block;
+  align-self: flex-start;
+  background: transparent;
+  border: 0.5px solid rgba(201,169,110,0.6);
+  color: var(--gold-light);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 15px 28px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin: 22px 0 24px;
+}
+.hero-cta:hover {
+  background: rgba(201,169,110,0.12);
+  border-color: var(--gold-light);
+}
+
 .hero-logo {
   width: 132px;
   height: auto;
@@ -720,6 +742,7 @@ body {
     <h1 class="hero-title">Mon<em>Calme</em></h1>
     <p class="hero-subtitle">Electronic Sound Massages</p>
     <p class="hero-desc">Sensory experiences built around sound, breath and presence. At the heart of every session, a unique sound journey composed by Amaury, played through headphones or the Harman Kardon Luna speaker. Touch and live music are options you can add according to your wishes.</p>
+    <a href="#rdv" class="hero-cta">Book my session →</a>
     <div class="location-pill">
       <span class="dot"></span>
       Cabin on Fridays · 21 rue Véron, 75018 Paris
@@ -920,6 +943,7 @@ body {
         <div class="toucher-toggle">
           <label class="toggle-pill"><input type="radio" name="toucher" value="toucher" data-label="Intuitive touch" checked><span>Intuitive touch</span></label>
           <label class="toggle-pill"><input type="radio" name="toucher" value="energie" data-label="Energy work"><span>Energy work</span></label>
+          <label class="toggle-pill"><input type="radio" name="toucher" value="aucun" data-label="No touch"><span>No touch</span></label>
         </div>
         <p class="toucher-desc" id="toucher-desc">Broader, enveloping bodywork over wider areas.</p>
 
@@ -1279,8 +1303,12 @@ body {
 
 .toucher-toggle {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
   margin-bottom: 10px;
+}
+.toucher-toggle .toggle-pill {
+  min-width: 100px;
 }
 
 .toggle-pill {
@@ -1647,7 +1675,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   const toucherDesc = document.getElementById('toucher-desc');
   const toucherDescriptions = {
     toucher: 'Broader, enveloping bodywork over wider areas.',
-    energie: 'Emotional release through tension points. Gentle approach.'
+    energie: 'Emotional release through tension points. Gentle approach.',
+    aucun: 'A session with no physical contact at all, fully carried by the sound.'
   };
 
   function applyLiveConstraint() {
@@ -1699,7 +1728,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
     // What's included (no extra charge)
     html += '<div class="cart-line included"><span class="name">Scent journey</span><span class="price">Included</span></div>';
-    if (selectedToucher) {
+    if (selectedToucher && selectedToucher.value !== 'aucun') {
       html += '<div class="cart-line included"><span class="name">' + selectedToucher.dataset.label + '</span><span class="price">Included</span></div>';
     }
     if (selectedMasque) {
@@ -1858,7 +1887,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     const basePrice = parseFloat(massage.dataset.price);
     let total = basePrice;
     let includedLabels = ['Scent journey'];
-    if (toucher) includedLabels.push(toucher.dataset.label);
+    if (toucher && toucher.value !== 'aucun') includedLabels.push(toucher.dataset.label);
     if (masque) includedLabels.push('Blackout mask');
     let modsLabels = [];
 
