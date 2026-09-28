@@ -48,8 +48,21 @@
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "Massage sonore électronique",
-    "provider": { "@type": "Person", "name": "Amaury", "worksFor": { "@type": "Organization", "name": "Mon Calme" } },
-    "areaServed": { "@type": "City", "name": "Paris" },
+    "provider": {
+      "@type": "HealthAndBeautyBusiness",
+      "@id": "https://moncalme.com/#business",
+      "name": "Mon Calme",
+      "url": "https://moncalme.com/",
+      "founder": {
+        "@type": "Person",
+        "@id": "https://moncalme.com/a-propos/#amaury",
+        "name": "Amaury"
+      }
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Paris" },
+      { "@type": "Place", "name": "Montmartre, Paris 18e" }
+    ],
     "description": "Expérience sensorielle combinant un voyage sonore composé ou mixé en live, la respiration guidée et le toucher intuitif optionnel, pratiquée à Montmartre, Paris 18e.",
     "url": "https://moncalme.com/massage-sonore/"
   }
@@ -667,13 +680,14 @@ body {
 
   <div class="page-section">
     <h2 class="page-h2">Qu'est-ce qu'un massage sonore électronique ?</h2>
-    <p class="page-p">Mon Calme n'est pas un massage classique avec une playlist en fond. C'est l'inverse : la musique est l'expérience, le toucher est une option pour aller plus loin. Chaque séance repose sur un voyage sonore — un set ambient composé et enregistré à l'avance par Amaury — diffusé pendant toute la durée de la séance, au casque audio ou via l'enceinte Harman Kardon Luna.</p>
+    <p class="page-p">Un massage sonore électronique est une expérience sensorielle dans laquelle le son constitue le fil conducteur de la séance. Chez Mon Calme, le voyage sonore est créé par Amaury, DJ et artiste ambient, puis associé à une respiration guidée et, selon la formule choisie, à un toucher intuitif ou à un travail énergétique.</p>
+    <p class="page-p">Ce n'est donc pas un massage classique accompagné d'une musique de fond : ici, la musique fait partie intégrante de l'expérience. Le voyage sonore est généralement composé et enregistré à l'avance, puis diffusé au casque ou via l'enceinte Harman Kardon Luna.</p>
     <p class="page-p">La séance se déroule dans un espace dédié : table de massage à mémoire de forme, lumière tamisée, ambiance feutrée. Vous restez habillé du début à la fin.</p>
   </div>
 
   <div class="page-section">
     <h2 class="page-h2">Comment se déroule une séance</h2>
-    <p class="page-p">Chaque séance commence par quelques minutes de respiration guidée, pour poser le corps et entrer dans l'écoute. Le voyage sonore composé se déroule ensuite, avec ou sans toucher selon la formule choisie.</p>
+    <p class="page-p">Chaque séance commence par quelques minutes de respiration guidée, pour poser le corps et entrer dans l'écoute. Le voyage sonore se déroule ensuite, avec ou sans toucher selon la formule choisie. L'expérience peut être pratiquée au cabinet de Mon Calme à Montmartre ou à domicile à Paris, selon le jour et la disponibilité.</p>
     <p class="page-p">Deux options de toucher peuvent être ajoutées : le <strong>toucher intuitif</strong>, un contact corporel enveloppant sur des zones plus larges pour ancrer la musique dans le corps, ou le <strong>travail énergétique</strong>, une approche douce par les points de tension, sans contact appuyé. Un <strong>voyage olfactif</strong> (huiles essentielles, encens, olfaction guidée) et un masque occultant pour l'isolation visuelle peuvent également être intégrés.</p>
   </div>
 
