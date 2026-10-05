@@ -12,7 +12,7 @@
   <meta name="description" content="Massages sonores électroniques à Montmartre, Paris 18e, par Amaury, DJ ambient : respiration guidée, toucher intuitif, voyage olfactif. 21 rue Véron.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Amaury — Mon Calme">
-  <link rel="canonical" href="https://moncalme.com">
+  <link rel="canonical" href="https://moncalme.com/">
 
   <!-- Geo / Local SEO -->
   <meta name="geo.region" content="FR-75">
@@ -24,7 +24,7 @@
   <meta property="og:type" content="business.business">
   <meta property="og:title" content="Mon Calme | Massage Sonore à Montmartre — Paris 18e">
   <meta property="og:description" content="Des massages sonores électroniques uniques à Montmartre. Voyages sonores mixés en live, respiration guidée, toucher intuitif. Par Amaury, DJ ambient.">
-  <meta property="og:url" content="https://moncalme.com">
+  <meta property="og:url" content="https://moncalme.com/">
   <meta property="og:site_name" content="Mon Calme">
   <meta property="og:locale" content="fr_FR">
   <meta property="business:contact_data:street_address" content="21 rue Véron">
@@ -71,9 +71,9 @@
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+        "dayOfWeek": "Friday",
         "opens": "10:00",
-        "closes": "21:00"
+        "closes": "20:00"
       }
     ],
     "hasMap": "https://maps.google.com/?q=Mon+Calme+21+rue+Veron+Paris+75018",
@@ -119,7 +119,8 @@
     "sameAs": [
       "https://www.instagram.com/moncalme.possible",
       "https://g.page/moncalme",
-      "https://www.treatwell.fr/salon/mon-calme/"
+      "https://www.treatwell.fr/salon/mon-calme/",
+      "https://www.linkedin.com/company/111609376"
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -179,11 +180,17 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
+    "@id": "https://moncalme.com/a-propos/#amaury",
     "name": "Amaury",
     "jobTitle": "Masseur sonore & DJ ambient",
-    "worksFor": { "@type": "Organization", "name": "Mon Calme" },
+    "worksFor": {
+      "@type": "HealthAndBeautyBusiness",
+      "@id": "https://moncalme.com/#business",
+      "name": "Mon Calme",
+      "url": "https://moncalme.com/"
+    },
     "description": "DJ et artiste ambient depuis plus de 8 ans, Amaury crée des massages sonores électroniques uniques à Montmartre, Paris 18e.",
-    "sameAs": ["https://www.instagram.com/moncalme.possible"]
+    "sameAs": ["https://www.instagram.com/moncalme.possible", "https://fr.linkedin.com/in/amauryperret", "https://soundcloud.com/inategu"]
   }
   </script>
 <link rel="preconnect" href="https://www.googletagmanager.com">
@@ -801,7 +808,7 @@ body {
     <img class="hero-logo" src="/logo.png" alt="Mon Calme" width="560" height="259" loading="eager">
     <p class="eyebrow">Montmartre · Paris 18e</p>
     <h1 class="hero-title">Mon<em>Calme</em></h1>
-    <p class="hero-subtitle">Massages Sonores Électroniques</p>
+    <h2 class="hero-subtitle">Massages Sonores Électroniques</h2>
     <p class="hero-desc">Des expériences sensorielles construites autour du son, du souffle, du toucher et des odeurs. Au cœur de chaque séance, un voyage sonore unique réalisé par Amaury.</p>
     <a href="#rdv" class="hero-cta">Réserver ma séance →</a>
     <div class="location-pill">
