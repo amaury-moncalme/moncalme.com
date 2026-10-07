@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mon Calme · Rencontré à Big</title>
+<meta name="description" content="Ravi de vous avoir croisé à Big 2026. Laissez vos coordonnées, Amaury vous recontacte pour une pause sonore.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#120f0b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#120f0b; --panel:#1b1711; --line:#3d3426;
+    --gold:#c9a961; --cream:#ecdfc4; --soft:#d8c9a8; --muted:#b8a682;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--cream)}
+  body{font-family:'Jost',system-ui,sans-serif;font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased}
+  main{max-width:520px;margin:0 auto;padding:48px 22px 56px}
+  .brand{text-align:center;margin-bottom:36px}
+  .brand svg{display:block;margin:0 auto 10px}
+  .brand .name{font-family:'Cormorant Garamond',serif;font-size:38px;letter-spacing:6px;line-height:1}
+  .brand .rule{width:34px;height:1px;background:var(--gold);margin:12px auto}
+  .brand .tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--muted)}
+  h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;color:var(--gold);font-size:40px;line-height:1.08;margin:0 0 14px;text-align:center;text-wrap:balance}
+  .intro{color:var(--soft);font-size:16px;text-align:center;margin:0 0 30px;text-wrap:pretty}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px 20px}
+  .field{display:flex;flex-direction:column;gap:7px;margin-bottom:18px}
+  label,.legend{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--muted)}
+  .opt{text-transform:none;letter-spacing:0;font-size:13px;color:#8f8063}
+  input[type=text],input[type=email],input[type=tel],textarea{
+    width:100%;font:inherit;font-size:16px;color:var(--cream);background:var(--bg);
+    border:1px solid var(--line);border-radius:10px;padding:13px 14px;min-height:48px;outline:none}
+  textarea{min-height:84px;resize:vertical}
+  input:focus,textarea:focus{border-color:var(--gold)}
+  fieldset{border:0;padding:0;margin:0 0 20px}
+  .choices{display:flex;flex-direction:column;gap:9px;margin-top:9px}
+  .choice{position:relative}
+  .choice input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+  .choice span{display:flex;align-items:center;gap:12px;min-height:50px;padding:10px 14px;border:1px solid var(--line);border-radius:10px;font-size:15px;color:var(--soft)}
+  .choice span::before{content:"";width:16px;height:16px;flex:none;border:1px solid var(--muted);border-radius:50%}
+  .choice input:checked + span{border-color:var(--gold);color:var(--cream)}
+  .choice input:checked + span::before{background:var(--gold);border-color:var(--gold);box-shadow:inset 0 0 0 3px var(--panel)}
+  .choice input:focus-visible + span{outline:2px solid var(--gold);outline-offset:2px}
+  .choice small{display:block;color:var(--muted);font-size:13px}
+  button{width:100%;min-height:54px;border:0;border-radius:10px;background:var(--gold);color:#14110c;font:inherit;font-size:16px;font-weight:500;letter-spacing:1px;cursor:pointer}
+  button:disabled{opacity:.6}
+  .hint{font-size:13px;color:#8f8063;text-align:center;margin:12px 0 0}
+  .err{color:#e8a27c;font-size:14px;text-align:center;margin:12px 0 0;display:none}
+  .thanks{display:none;text-align:center;padding:12px 4px}
+  .thanks h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;color:var(--gold);font-size:34px;margin:0 0 10px}
+  .thanks p{color:var(--soft);margin:0 0 6px}
+  .hp{position:absolute;left:-9999px}
+  .contact{text-align:center;margin-top:30px;font-size:14px;color:var(--soft)}
+  .contact a{color:var(--gold);text-decoration:none}
+  .contact a:hover{text-decoration:underline}
+  .contact .sep{color:var(--line);margin:0 6px}
+</style>
+</head>
+<body>
+<main>
+  <div class="brand">
+    <svg width="72" height="29" viewBox="0 0 100 40" aria-hidden="true"><path d="M50 20 C 36 2, 2 2, 2 20 C 2 38, 36 38, 50 20 C 64 2, 98 2, 98 20 C 98 38, 64 38, 50 20 Z" fill="none" stroke="#c9a961" stroke-width="2"/></svg>
+    <div class="name">Mon Calme</div>
+    <div class="rule"></div>
+    <div class="tag">Massages sonores électroniques</div>
+  </div>
+
+  <h1>Ravi de vous avoir croisé à Big&nbsp;!</h1>
+  <p class="intro">Laissez-moi vos coordonnées, je vous recontacte cette semaine pour vous faire découvrir une pause sonore, pour vous ou pour votre équipe.</p>
+
+  <div class="card">
+    <form id="big-form" novalidate>
+      <input type="hidden" name="_subject" value="Contact Big 2026 — Mon Calme">
+      <input type="hidden" name="source" value="Big 2026 (QR code)">
+      <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="field">
+        <label for="prenom">Prénom</label>
+        <input id="prenom" name="prenom" type="text" autocomplete="given-name" required>
+      </div>
+      <div class="field">
+        <label for="contact">Email ou téléphone</label>
+        <input id="contact" name="contact" type="text" autocomplete="email" inputmode="email" required>
+      </div>
+      <div class="field">
+        <label for="entreprise">Entreprise <span class="opt">(facultatif)</span></label>
+        <input id="entreprise" name="entreprise" type="text" autocomplete="organization">
+      </div>
+
+      <fieldset>
+        <div class="legend" id="interet-legend">Ça m’intéresse pour…</div>
+        <div class="choices" role="radiogroup" aria-labelledby="interet-legend">
+          <label class="choice"><input type="radio" name="interet" value="Moi" required><span>Moi<small>Une séance au cabinet à Montmartre</small></span></label>
+          <label class="choice"><input type="radio" name="interet" value="Mon équipe"><span>Mon équipe<small>Pauses express, semaine QVT</small></span></label>
+          <label class="choice"><input type="radio" name="interet" value="Un événement"><span>Un événement<small>Séminaire, soirée, festival</small></span></label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label for="message">Un mot <span class="opt">(facultatif)</span></label>
+        <textarea id="message" name="message" placeholder="Ex. : on s’est parlé au stand Cap Créa…"></textarea>
+      </div>
+
+      <button type="submit" id="send">Être recontacté</button>
+      <p class="hint">Vos infos servent uniquement à vous recontacter.</p>
+      <p class="err" id="err" role="alert"></p>
+    </form>
+
+    <div class="thanks" id="thanks" role="status">
+      <h2>Merci&nbsp;!</h2>
+      <p>C’est bien reçu, je reviens vers vous très vite.</p>
+      <p>À bientôt pour une pause calme.</p>
+    </div>
+  </div>
+
+  <div class="contact">
+    <a href="/">moncalme.com</a><span class="sep">·</span><a href="https://instagram.com/moncalme.possible">@moncalme.possible</a><br>
+    <a href="mailto:amaury@moncalme.com">amaury@moncalme.com</a><span class="sep">·</span><a href="tel:+33615707974">06 15 70 79 74</a>
+  </div>
+</main>
+
+<script>
+(function(){
+  var form=document.getElementById('big-form'), btn=document.getElementById('send'), err=document.getElementById('err');
+  function fail(msg){ err.textContent=msg; err.style.display='block'; }
+  form.addEventListener('submit', async function(e){
+    e.preventDefault(); err.style.display='none';
+    var d=new FormData(form);
+    if(!String(d.get('prenom')||'').trim()) return fail('Indiquez votre prénom.');
+    if(!String(d.get('contact')||'').trim()) return fail('Indiquez un email ou un téléphone.');
+    if(!d.get('interet')) return fail('Choisissez ce qui vous intéresse.');
+    var c=String(d.get('contact')).trim();
+    if(c.indexOf('@')>-1) d.append('email', c);
+    btn.disabled=true; btn.textContent='Envoi…';
+    try{
+      var r=await fetch('https://formspree.io/f/mykvzlzo',{method:'POST',body:d,headers:{'Accept':'application/json'}});
+      if(!r.ok) throw new Error();
+      form.style.display='none'; document.getElementById('thanks').style.display='block';
+    }catch(_){
+      btn.disabled=false; btn.textContent='Être recontacté';
+      fail('Oups, l’envoi a échoué. Réessayez, ou écrivez à amaury@moncalme.com.');
+    }
+  });
+})();
+</script>
+</body>
+</html>
