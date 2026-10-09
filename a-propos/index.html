@@ -649,9 +649,17 @@ body {
 [data-theme="light"] .theme-toggle .icon-moon{display:inline;}
 </style>
 
+<style>
+/* Ajouts octobre 2026 : lien Entreprises, pied de page, boutons */
+.footer-info{flex-wrap:wrap;row-gap:12px;}
+.lang-switch a.nav-b2b{color:var(--gold-light);}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:1px solid var(--gold-light);outline-offset:3px;}
+.page-cta{display:inline-block;margin-top:8px;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding:13px 24px;text-decoration:none;transition:background .3s,border-color .3s;}
+.page-cta:hover{background:rgba(201,169,110,0.12);border-color:var(--gold-light);}
+</style>
 </head>
 <body>
-<div class="lang-switch"><a href="/">Accueil</a><span class="divider"></span><button type="button" class="theme-toggle" aria-label="Basculer entre le mode sombre et le mode clair" title="Mode clair / sombre"><span class="icon-sun">☀</span><span class="icon-moon">🌙</span></button></div>
+<div class="lang-switch"><a href="/">Accueil</a><span class="divider"></span><a href="/entreprises/" class="nav-b2b">Entreprises</a><span class="divider"></span><button type="button" class="theme-toggle" aria-label="Basculer entre le mode sombre et le mode clair" title="Mode clair / sombre"><span class="icon-sun">☀</span><span class="icon-moon">🌙</span></button></div>
 <script>
 (function(){
   var btn = document.querySelector('.theme-toggle');
@@ -698,6 +706,14 @@ body {
   </div>
 
 
+  <div class="page-section" id="vision">
+    <p class="page-eyebrow" style="margin-bottom:12px;">Demain</p>
+    <h2 class="page-h2">Vers des espaces immersifs</h2>
+    <p class="page-p">Demain : des espaces immersifs de relaxation conçus et installés pour les entreprises et les événements.</p>
+    <p class="page-p">L'ambition : faire de Mon Calme la référence dans la conception d'espaces immersifs de relaxation.</p>
+    <a href="/entreprises/#contact" class="page-cta">Échanger sur un projet →</a>
+  </div>
+
   <div class="inline-links">
     <a href="/">← Retour à l'accueil</a>
     <a href="/massage-sonore/">Le massage sonore</a>
@@ -714,6 +730,7 @@ body {
     <span>🏠 Lun–Jeu · Domicile (Paris)</span>
     <a href="/">Accueil</a>
     <a href="/massage-sonore/">Le massage sonore</a>
+    <a href="/entreprises/">Entreprises</a>
     <a href="/faq/">FAQ</a>
     <a href="/a-propos/">À propos</a>
     <a href="https://www.instagram.com/moncalme.possible" target="_blank">@moncalme.possible</a>

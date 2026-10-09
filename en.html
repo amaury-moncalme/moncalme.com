@@ -771,9 +771,17 @@ body {
 [data-theme="light"] .theme-toggle .icon-sun{display:none;}
 [data-theme="light"] .theme-toggle .icon-moon{display:inline;}
 </style>
+<style>
+/* Ajouts octobre 2026 : lien Entreprises, pied de page, boutons */
+.footer-info{flex-wrap:wrap;row-gap:12px;}
+.lang-switch a.nav-b2b{color:var(--gold-light);}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:1px solid var(--gold-light);outline-offset:3px;}
+.page-cta{display:inline-block;margin-top:8px;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding:13px 24px;text-decoration:none;transition:background .3s,border-color .3s;}
+.page-cta:hover{background:rgba(201,169,110,0.12);border-color:var(--gold-light);}
+</style>
 </head>
 <body>
-<div class="lang-switch"><a href="/">FR</a><span class="sep">/</span><a href="/en.html" class="active">EN</a><span class="divider"></span><button type="button" class="theme-toggle" aria-label="Toggle between dark and light mode" title="Light / dark mode"><span class="icon-sun">☀</span><span class="icon-moon">🌙</span></button></div>
+<div class="lang-switch"><a href="/">FR</a><span class="sep">/</span><a href="/en.html" class="active">EN</a><span class="divider"></span><a href="/entreprises/en.html" class="nav-b2b">For companies</a><span class="divider"></span><button type="button" class="theme-toggle" aria-label="Toggle between dark and light mode" title="Light / dark mode"><span class="icon-sun">☀</span><span class="icon-moon">🌙</span></button></div>
 <script>
 (function(){
   var btn = document.querySelector('.theme-toggle');
@@ -811,6 +819,16 @@ body {
     <p style="font-size: 12px; color: var(--muted); margin-top: 14px; font-style: italic; line-height: 1.7;">On other days, Amaury travels to you anywhere in Paris.</p>
   </div>
 </section>
+
+<!-- BANDEAU ENTREPRISES -->
+<aside class="b2b-band" aria-label="Business offer">
+  <a href="/entreprises/en.html" class="b2b-band-link">Mon Calme for your company →</a>
+</aside>
+<style>
+.b2b-band{border-top:0.5px solid var(--sep);border-bottom:0.5px solid var(--sep);background:rgba(201,169,110,0.05);text-align:center;padding:18px 24px;}
+.b2b-band-link{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:var(--gold-light);text-decoration:none;border-bottom:0.5px solid rgba(201,169,110,0.45);transition:border-color .3s;}
+.b2b-band-link:hover{border-color:var(--gold-light);}
+</style>
 
 <!-- THE EXPERIENCE -->
 <section class="section" id="experience" aria-label="The core experience and options" style="background: rgba(201,169,110,0.02);">
@@ -941,6 +959,111 @@ body {
   #experience > div > div > div[style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr !important; }
 }
 </style>
+<style>
+/* Extraits audio */
+.audio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--sep);border:0.5px solid var(--sep);margin-top:28px;}
+.audio-card{background:var(--dark);padding:30px 28px;display:flex;flex-direction:column;gap:12px;}
+.audio-name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:28px;color:var(--cream);line-height:1.1;}
+.audio-meta{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);}
+.audio-card audio{width:100%;height:40px;}
+.audio-fallback{font-size:12.5px;color:var(--muted);font-style:italic;line-height:1.6;}
+.audio-card details{font-size:12.5px;color:rgba(var(--cream-rgb),0.75);line-height:1.7;}
+.audio-card summary{cursor:pointer;color:var(--gold-light);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;}
+.audio-card details p{margin-top:8px;}
+.audio-actions{margin-top:auto;}
+.audio-actions a{font-size:12px;color:var(--gold-light);text-decoration:none;border-bottom:0.5px solid rgba(201,169,110,0.4);}
+.todo{display:inline-block;font-family:'Jost',sans-serif;font-style:normal;font-size:11px;letter-spacing:0.04em;line-height:1.5;color:var(--gold-light);border:1px dashed rgba(201,169,110,0.6);padding:3px 8px;}
+@media (max-width:900px){.audio-grid{grid-template-columns:1fr;}}
+</style>
+<!-- LISTEN -->
+<section class="section" id="ecouter" aria-labelledby="ecouter-title">
+  <p class="section-label">Listen</p>
+  <div style="max-width:1100px; margin:0 auto;">
+    <h2 id="ecouter-title" style="font-family:'Cormorant Garamond',serif; font-weight:300; font-size:34px; line-height:1.2; color:var(--cream);">Three excerpts, <em>before you come</em></h2>
+    <p style="font-size:14px; color:rgba(var(--cream-rgb),0.7); margin-top:8px;">Two minutes of each journey, on headphones if you can.</p>
+    <div class="audio-grid">
+    <div class="audio-card" data-audio-card data-voyage="moncalme">
+      <p class="audio-name">Mon Calme</p>
+      <p class="audio-meta">Signature · Excerpt · about 2 min</p>
+      <!-- Fichier : /audio/mon-calme-extrait.mp3 (mp3) -->
+      <audio controls preload="none" aria-label="Mon Calme — Excerpt · about 2 min"><source src="/audio/mon-calme-extrait.mp3" type="audio/mpeg"></audio>
+      <p class="audio-fallback" hidden>Excerpt temporarily unavailable.</p>
+      <details>
+        <summary>Description of the excerpt (text)</summary>
+        <p>Excerpt from the signature set, first played at sunset in Imsouane, on the Moroccan coast: from the first breath to the calls of the seagulls. <span class="todo">[TO COMPLETE BY AMAURY — describe what you hear in this excerpt: instruments, mood, progression]</span></p>
+      </details>
+      <div class="audio-actions"><button type="button" class="express-btn" data-voyage="moncalme" aria-label="Book Mon Calme in 30 seconds">Book in 30 seconds</button></div>
+    </div>
+    <div class="audio-card" data-audio-card data-voyage="bugatti">
+      <p class="audio-name">Bugatti</p>
+      <p class="audio-meta">Musée National de l'Automobile · Excerpt · about 2 min</p>
+      <!-- Fichier : /audio/bugatti-extrait.mp3 (mp3) -->
+      <audio controls preload="none" aria-label="Bugatti — Excerpt · about 2 min"><source src="/audio/bugatti-extrait.mp3" type="audio/mpeg"></audio>
+      <p class="audio-fallback" hidden>Excerpt temporarily unavailable.</p>
+      <details>
+        <summary>Description of the excerpt (text)</summary>
+        <p>Excerpt from the ambient playlist designed for the Musée National de l'Automobile: vibrant, powerful and organic. <span class="todo">[TO COMPLETE BY AMAURY — describe what you hear in this excerpt: instruments, mood, progression]</span></p>
+      </details>
+      <div class="audio-actions"><button type="button" class="express-btn" data-voyage="bugatti" aria-label="Book Bugatti in 30 seconds">Book in 30 seconds</button></div>
+    </div>
+    <div class="audio-card" data-audio-card data-voyage="tendre">
+      <p class="audio-name">Tendre Distance</p>
+      <p class="audio-meta">Intimate · Excerpt · about 2 min</p>
+      <!-- Fichier : /audio/tendre-distance-extrait.mp3 (mp3) -->
+      <audio controls preload="none" aria-label="Tendre Distance — Excerpt · about 2 min"><source src="/audio/tendre-distance-extrait.mp3" type="audio/mpeg"></audio>
+      <p class="audio-fallback" hidden>Excerpt temporarily unavailable.</p>
+      <details>
+        <summary>Description of the excerpt (text)</summary>
+        <p>Excerpt from a crystalline, intimate set, inspired by the beauty of a human relationship. <span class="todo">[TO COMPLETE BY AMAURY — describe what you hear in this excerpt: instruments, mood, progression]</span></p>
+      </details>
+      <div class="audio-actions"><button type="button" class="express-btn" data-voyage="tendre" aria-label="Book Tendre Distance in 30 seconds">Book in 30 seconds</button></div>
+    </div>
+    </div>
+  </div>
+</section>
+<script>
+(function(){
+  // Masque le lecteur tant que le fichier n'est pas en ligne, et affiche le texte de remplacement.
+  document.querySelectorAll('[data-audio-card]').forEach(function(card){
+    var audio = card.querySelector('audio');
+    var fb = card.querySelector('.audio-fallback');
+    var src = audio.querySelector('source').getAttribute('src');
+    function missing(){ audio.hidden = true; fb.hidden = false; }
+    fetch(src, { method: 'HEAD' }).then(function(r){ if (!r.ok) missing(); }).catch(missing);
+    audio.addEventListener('error', missing, true);
+    audio.addEventListener('play', function(){
+      document.querySelectorAll('[data-audio-card] audio').forEach(function(a){ if (a !== audio) a.pause(); });
+      if (typeof gtag === 'function') gtag('event', 'audio_play', { voyage: card.dataset.voyage });
+    });
+  });
+})();
+</script>
+
+<!-- THE MON CALME BREAK -->
+<section class="section" id="pause" aria-labelledby="pause-title" style="padding-top:20px;">
+  <div class="pause-card">
+    <div>
+      <p class="section-label" style="margin-bottom:14px;">Short formats</p>
+      <h2 id="pause-title" class="pause-title">The Mon Calme <em>break</em></h2>
+      <p class="pause-text">5 to 10 minutes to switch off: a short format designed as an alternative to the cigarette break or the lunch break. A brief sound journey, guided breathing, and you're on your way.</p>
+    </div>
+    <div class="pause-side">
+      <p class="pause-price"><span class="todo">[TO COMPLETE BY AMAURY — price]</span></p>
+      <a href="mailto:amaury@moncalme.com?subject=The%20Mon%20Calme%20break" class="hero-cta" style="margin:14px 0 12px;">Ask me for a break</a>
+      <a href="/entreprises/en.html" class="pause-b2b">For your team? See the business offer →</a>
+    </div>
+  </div>
+</section>
+<style>
+.pause-card{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr;gap:40px;align-items:center;border:0.5px solid rgba(201,169,110,0.35);background:rgba(201,169,110,0.04);padding:40px;}
+.pause-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:36px;line-height:1.15;color:var(--cream);margin-bottom:12px;}
+.pause-title em{font-style:italic;color:var(--gold-light);}
+.pause-text{font-size:14px;color:rgba(var(--cream-rgb),0.75);line-height:1.85;max-width:560px;}
+.pause-side{display:flex;flex-direction:column;align-items:flex-start;}
+.pause-b2b{font-size:12px;color:var(--gold-light);text-decoration:none;border-bottom:0.5px solid rgba(201,169,110,0.4);}
+@media (max-width:900px){.pause-card{grid-template-columns:1fr;gap:20px;padding:28px 22px;}.pause-title{font-size:30px;}}
+</style>
+
 <!-- BOOKING / CONFIGURATOR -->
 <section class="section" id="rdv" aria-label="Build your session and book" style="background: rgba(201,169,110,0.03);">
   <p class="section-label">Build Your Session</p>
@@ -965,6 +1088,7 @@ body {
               </div>
               <p class="m-option-story">A crystalline, intimate set, inspired by the beauty of a human relationship.</p>
               <p class="m-option-price">35 €</p>
+              <button type="button" class="express-btn" aria-label="Book Tendre Distance in 30 seconds">Book in 30 seconds</button>
             </div>
           </label>
           <label class="m-option"><input type="radio" name="massage" value="bugatti" data-price="40" data-duration="25" data-label="Bugatti">
@@ -975,6 +1099,7 @@ body {
               </div>
               <p class="m-option-story">An ambient playlist designed for the Musée National de l'Automobile. Vibrant, powerful and organic.</p>
               <p class="m-option-price">40 €</p>
+              <button type="button" class="express-btn" aria-label="Book Bugatti in 30 seconds">Book in 30 seconds</button>
             </div>
           </label>
           <label class="m-option"><input type="radio" name="massage" value="dome" data-price="20" data-duration="17" data-label="Dôme">
@@ -985,6 +1110,7 @@ body {
               </div>
               <p class="m-option-story">The final chapter of the Sacré Cœur project, composed for an exhibition at the Theatre of Digital Art in Dubai. Angelic, jazzy, white.</p>
               <p class="m-option-price">20 €</p>
+              <button type="button" class="express-btn" aria-label="Book Dôme in 30 seconds">Book in 30 seconds</button>
             </div>
           </label>
           <label class="m-option"><input type="radio" name="massage" value="moncalme" data-price="70" data-duration="54" data-label="Mon Calme">
@@ -995,6 +1121,7 @@ body {
               </div>
               <p class="m-option-story">First played at sunset in Imsouane, on the Moroccan coast. The foundation of the whole project: from the first breath to the cry of the seagulls.</p>
               <p class="m-option-price">70 €</p>
+              <button type="button" class="express-btn" aria-label="Book Mon Calme in 30 seconds">Book in 30 seconds</button>
             </div>
           </label>
         </div>
@@ -1140,7 +1267,7 @@ body {
             <span class="cart-total-label">Total</span>
             <span class="cart-total-value" id="cart-total-value">0 €</span>
           </div>
-          <p class="cart-note">Payment on-site on the day of the session</p>
+          <p class="cart-note">Pay online (secure link sent for confirmation) or on-site</p>
         </div>
         <button type="button" id="cart-submit" class="cart-btn" disabled>
           <span id="cart-btn-text">Book my session</span>
@@ -1148,6 +1275,8 @@ body {
         <div id="rdv-confirm" style="display:none; text-align:center; padding:20px; border:0.5px solid rgba(201,169,110,0.4); margin-top:12px;">
           <p style="font-family:\'Cormorant Garamond\',serif; font-size:20px; color:var(--gold-light); margin-bottom:8px;">Request sent ✦</p>
           <p style="font-size:13px; color:var(--muted);">Amaury will get back to you within 24h to confirm.</p>
+          <p style="font-size:13px; color:var(--muted); margin-top:8px;">A secure payment link will be sent to you to confirm your booking. You can also pay on-site.</p>
+          <a href="#" class="pay-link" data-pay-link hidden target="_blank" rel="noopener">Pay online now</a>
         </div>
       </div>
     </aside>
@@ -1976,7 +2105,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
       massage.dataset.label + ' (' + massage.dataset.duration + ' min) — ' + basePrice + ' €\n\n' +
       '— INCLUDED —\n' + includedLabels.join('\n') + '\n\n' +
       (modsLabels.length ? '— ADD-ON OPTIONS —\n' + modsLabels.join('\n') + '\n\n' : '') +
-      '— TOTAL —\n' + total + ' €\n(Payment on-site)';
+      '— TOTAL —\n' + total + ' €\n(Payment: secure link or on-site)';
 
     const formData = new FormData();
     const lieuChecked = document.querySelector('input[name="lieu"]:checked');
@@ -2004,6 +2133,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
       });
 
       if (response.ok) {
+        if (typeof gtag === 'function') gtag('event', 'generate_lead_particulier', { method: 'configurateur', voyage: massage.dataset.label, value: total, currency: 'EUR', page_language: 'en' });
         document.querySelector('.rdv-steps').style.display = 'none';
         cartContent.style.display = 'none';
         cartTotal.style.display = 'none';
@@ -2016,6 +2146,168 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     } catch(e) {
       document.getElementById('cart-btn-text').textContent = 'Error — please try again';
       cartBtn.disabled = false;
+    }
+  });
+})();
+</script>
+
+<style>
+/* Réservation express */
+.express-btn{display:inline-block;margin-top:12px;background:transparent;border:0.5px solid rgba(201,169,110,0.45);color:var(--gold-light);font-family:'Jost',sans-serif;font-weight:300;font-size:10.5px;letter-spacing:0.16em;text-transform:uppercase;padding:9px 14px;cursor:pointer;transition:background .25s,border-color .25s;}
+.express-btn:hover{background:rgba(201,169,110,0.12);border-color:var(--gold-light);}
+.express-dialog{border:0.5px solid rgba(201,169,110,0.45);background:var(--dark);color:var(--cream);padding:0;width:min(560px,calc(100% - 32px));max-height:calc(100vh - 32px);margin:auto;}
+.express-dialog::backdrop{background:rgba(0,0,0,0.65);}
+.express-inner{padding:34px 30px 28px;position:relative;}
+.express-close{position:absolute;top:12px;right:14px;background:none;border:none;color:var(--muted);font-size:22px;line-height:1;cursor:pointer;padding:6px;}
+.express-close:hover{color:var(--gold-light);}
+.express-title{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:28px;color:var(--gold-light);margin-bottom:6px;}
+.express-lede{font-size:13px;color:rgba(var(--cream-rgb),0.72);line-height:1.7;margin-bottom:20px;}
+.express-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 16px;}
+.express-grid .full{grid-column:1 / -1;}
+.express-field{display:flex;flex-direction:column;gap:6px;}
+.express-field label{font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(var(--cream-rgb),0.7);}
+.express-note{font-size:11.5px;color:var(--muted);font-style:italic;line-height:1.65;margin:16px 0 0;}
+.express-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:18px;padding-top:14px;border-top:0.5px solid var(--sep);font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.express-total strong{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;letter-spacing:0;color:var(--gold-light);text-transform:none;}
+.express-status{font-size:12.5px;color:#E3A08C;min-height:1em;margin-top:10px;}
+[data-theme="light"] .express-status{color:#9A3A22;}
+.express-full{display:inline-block;margin-top:14px;font-size:12px;color:var(--gold-light);text-decoration:none;border-bottom:0.5px solid rgba(201,169,110,0.4);}
+.express-done{display:none;text-align:center;padding:10px 0 4px;}
+.express-done-title{font-family:'Cormorant Garamond',serif;font-size:26px;color:var(--gold-light);margin-bottom:8px;}
+.express-done p{font-size:13.5px;color:rgba(var(--cream-rgb),0.78);line-height:1.7;margin-bottom:8px;}
+.pay-link{display:inline-block;margin-top:10px;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);text-decoration:none;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;padding:11px 18px;}
+.pay-link[hidden]{display:none;}
+@media (max-width:520px){.express-grid{grid-template-columns:1fr;}.express-inner{padding:30px 20px 24px;}}
+</style>
+<!-- RÉSERVATION EXPRESS -->
+<dialog class="express-dialog" id="express-dialog" aria-labelledby="express-title">
+  <div class="express-inner">
+    <button type="button" class="express-close" id="express-close" aria-label="Close">×</button>
+    <form id="express-form" novalidate>
+      <p class="express-title" id="express-title">Express booking</p>
+      <p class="express-lede">Choose your journey and a time slot: Amaury will confirm the session, the place and the exact time.</p>
+      <div class="express-grid">
+        <div class="express-field full">
+          <label for="express-voyage">Sound journey</label>
+          <select id="express-voyage" name="voyage" class="rdv-input rdv-select" required><option value="tendre" data-price="35" data-duration="24">Tendre Distance · 24 min · 35 €</option><option value="bugatti" data-price="40" data-duration="25">Bugatti · 25 min · 40 €</option><option value="dome" data-price="20" data-duration="17">Dôme · 17 min · 20 €</option><option value="moncalme" data-price="70" data-duration="54">Mon Calme · 54 min · 70 €</option></select>
+        </div>
+        <div class="express-field">
+          <label for="express-date">Preferred date</label>
+          <input type="date" id="express-date" name="date" class="rdv-input">
+        </div>
+        <div class="express-field">
+          <label for="express-creneau">Preferred time slot</label>
+          <select id="express-creneau" name="creneau" class="rdv-input rdv-select"><option value="">Choose…</option><option value="matin">Morning (10am–1pm)</option><option value="apres-midi">Afternoon (1pm–5pm)</option><option value="soir">Evening (5pm–9pm)</option><option value="flexible">Flexible</option></select>
+        </div>
+        <div class="express-field">
+          <label for="express-prenom">First name *</label>
+          <input type="text" id="express-prenom" name="prenom" class="rdv-input" autocomplete="given-name" required>
+        </div>
+        <div class="express-field">
+          <label for="express-email">Email *</label>
+          <input type="email" id="express-email" name="email" class="rdv-input" autocomplete="email" required>
+        </div>
+        <div class="express-field full">
+          <label for="express-tel">Phone</label>
+          <input type="tel" id="express-tel" name="tel" class="rdv-input" autocomplete="tel">
+        </div>
+      </div>
+      <p class="express-note">Studio on Fridays (21 rue Véron, Paris 18th), at your home Monday to Thursday in Paris. Intuitive touch and olfactory journey included; you can share your wishes when replying to the confirmation. Your details are used only to organise your session.</p>
+      <p class="express-total"><span>Total</span><strong id="express-total-value"></strong></p>
+      <button type="submit" class="cart-btn" id="express-submit">Send my request</button>
+      <p class="express-status" id="express-status" role="status" aria-live="polite"></p>
+      <a href="#rdv" class="express-full" id="express-full">Build my session in detail (options, place) →</a>
+    </form>
+    <div class="express-done" id="express-done" tabindex="-1">
+      <p class="express-done-title">Request sent ✦</p>
+      <p>Amaury will get back to you within 24h to confirm.</p>
+      <p>A secure payment link will be sent to you to confirm your booking. You can also pay on-site.</p>
+      <a href="#" class="pay-link" data-pay-link hidden target="_blank" rel="noopener">Pay online now</a>
+    </div>
+  </div>
+</dialog>
+<script>
+// [À COMPLÉTER PAR AMAURY] Lien de paiement Stripe / SumUp (Payment Link générique).
+// Laisser vide tant qu'il n'existe pas : le bouton « payer » reste alors masqué.
+window.MONCALME_PAYMENT_LINK = '';
+(function(){
+  if (window.MONCALME_PAYMENT_LINK) {
+    document.querySelectorAll('[data-pay-link]').forEach(function(a){ a.href = window.MONCALME_PAYMENT_LINK; a.hidden = false; });
+  }
+  var dlg = document.getElementById('express-dialog');
+  var form = document.getElementById('express-form');
+  var sel = document.getElementById('express-voyage');
+  var totalEl = document.getElementById('express-total-value');
+  var status = document.getElementById('express-status');
+  var submit = document.getElementById('express-submit');
+  var done = document.getElementById('express-done');
+  if (!dlg || !form) return;
+  var opener = null;
+
+  function updateTotal(){ var o = sel.options[sel.selectedIndex]; totalEl.textContent = o.dataset.price + ' €'; }
+  function openExpress(voyage, btn){
+    opener = btn || null;
+    if (voyage) sel.value = voyage;
+    updateTotal();
+    status.textContent = '';
+    if (typeof dlg.showModal === 'function') { dlg.showModal(); } else { location.hash = 'rdv'; return; }
+    setTimeout(function(){ document.getElementById('express-date').focus(); }, 30);
+    if (typeof gtag === 'function') gtag('event', 'express_booking_open', { voyage: voyage || '' });
+  }
+  function closeExpress(){ dlg.close(); }
+  dlg.addEventListener('close', function(){ if (opener) opener.focus(); });
+  dlg.addEventListener('click', function(e){ if (e.target === dlg) closeExpress(); });
+  document.getElementById('express-close').addEventListener('click', closeExpress);
+  document.getElementById('express-full').addEventListener('click', function(){
+    var radio = document.querySelector('input[name="massage"][value="' + sel.value + '"]');
+    if (radio && !radio.checked) { radio.checked = true; radio.dispatchEvent(new Event('change', { bubbles: true })); }
+    opener = null; closeExpress();
+  });
+  sel.addEventListener('change', updateTotal);
+
+  document.querySelectorAll('.express-btn').forEach(function(btn){
+    btn.addEventListener('click', function(e){
+      e.preventDefault(); e.stopPropagation();
+      var v = btn.dataset.voyage;
+      if (!v) { var card = btn.closest('.m-option'); var input = card && card.querySelector('input[name="massage"]'); v = input ? input.value : ''; }
+      openExpress(v, btn);
+    });
+  });
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    status.textContent = '';
+    if (!form.checkValidity()) {
+      status.textContent = 'Please fill in your first name and a valid email.';
+      var inv = form.querySelector(':invalid'); if (inv) inv.focus();
+      return;
+    }
+    var o = sel.options[sel.selectedIndex];
+    var label = o.textContent.split(' · ')[0];
+    var price = o.dataset.price;
+    var data = new FormData();
+    data.append('Prénom', form.prenom.value.trim());
+    data.append('Email', form.email.value.trim());
+    data.append('Téléphone', form.tel.value.trim() || 'non renseigné');
+    data.append('Lieu', 'à confirmer (réservation express)');
+    data.append('Date souhaitée', form.date.value || 'flexible');
+    data.append('Créneau', form.creneau.value || 'flexible');
+    data.append('Récapitulatif commande', '— RÉSERVATION EXPRESS —\n' + label + ' (' + o.dataset.duration + ' min) — ' + price + ' €\nVoyage olfactif et toucher intuitif inclus\n\n— TOTAL —\n' + price + ' €\n(Payment: secure link or on-site)');
+    data.append('_replyto', form.email.value.trim());
+    data.append('_subject', 'Réservation express [EN] — ' + label + ' (' + price + ' €)');
+    submit.disabled = true;
+    submit.textContent = 'Sending…';
+    try {
+      var res = await fetch('https://formspree.io/f/mykvzlzo', { method: 'POST', body: data, headers: { 'Accept': 'application/json' } });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      if (typeof gtag === 'function') gtag('event', 'generate_lead_particulier', { method: 'express', voyage: label, value: Number(price), currency: 'EUR', page_language: 'en' });
+      form.style.display = 'none';
+      done.style.display = 'block';
+      done.focus();
+    } catch (err) {
+      status.textContent = 'Sending failed. Please try again, or write to amaury@moncalme.com.';
+      submit.disabled = false;
+      submit.textContent = 'Send my request';
     }
   });
 })();
@@ -2287,6 +2579,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     <span>📍 Fridays · 21 rue Véron, 75018 Paris</span>
     <span>🏠 Mon–Thu · At your place (Paris)</span>
     <a href="/massage-sonore/en.html">Sound massage</a>
+    <a href="/entreprises/en.html">For companies</a>
     <a href="/faq/en.html">FAQ</a>
     <a href="/a-propos/en.html">About</a>
     <a href="https://www.instagram.com/moncalme.possible" target="_blank">@moncalme.possible</a>

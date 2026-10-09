@@ -639,9 +639,17 @@ body {
 [data-theme="light"] .theme-toggle .icon-moon{display:inline;}
 </style>
 
+<style>
+/* Ajouts octobre 2026 : lien Entreprises, pied de page, boutons */
+.footer-info{flex-wrap:wrap;row-gap:12px;}
+.lang-switch a.nav-b2b{color:var(--gold-light);}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:1px solid var(--gold-light);outline-offset:3px;}
+.page-cta{display:inline-block;margin-top:8px;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding:13px 24px;text-decoration:none;transition:background .3s,border-color .3s;}
+.page-cta:hover{background:rgba(201,169,110,0.12);border-color:var(--gold-light);}
+</style>
 </head>
 <body>
-<div class="lang-switch"><a href="/en.html">Home</a><span class="divider"></span><button type="button" class="theme-toggle" aria-label="Toggle dark / light mode" title="Dark / light mode"><span class="icon-sun">☀</span><span class="icon-moon">🌙</span></button></div>
+<div class="lang-switch"><a href="/en.html">Home</a><span class="divider"></span><a href="/entreprises/en.html" class="nav-b2b">For companies</a><span class="divider"></span><button type="button" class="theme-toggle" aria-label="Toggle dark / light mode" title="Dark / light mode"><span class="icon-sun">☀</span><span class="icon-moon">🌙</span></button></div>
 <script>
 (function(){
   var btn = document.querySelector('.theme-toggle');
@@ -689,6 +697,82 @@ body {
     <a href="/en.html#rdv" class="page-cta" style="margin-top:0;">See the 4 sound journeys and their prices →</a>
   </div>
 
+<style>
+/* Extraits audio */
+.audio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--sep);border:0.5px solid var(--sep);margin-top:28px;}
+.audio-card{background:var(--dark);padding:30px 28px;display:flex;flex-direction:column;gap:12px;}
+.audio-name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:28px;color:var(--cream);line-height:1.1;}
+.audio-meta{font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);}
+.audio-card audio{width:100%;height:40px;}
+.audio-fallback{font-size:12.5px;color:var(--muted);font-style:italic;line-height:1.6;}
+.audio-card details{font-size:12.5px;color:rgba(var(--cream-rgb),0.75);line-height:1.7;}
+.audio-card summary{cursor:pointer;color:var(--gold-light);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;}
+.audio-card details p{margin-top:8px;}
+.audio-actions{margin-top:auto;}
+.audio-actions a{font-size:12px;color:var(--gold-light);text-decoration:none;border-bottom:0.5px solid rgba(201,169,110,0.4);}
+.todo{display:inline-block;font-family:'Jost',sans-serif;font-style:normal;font-size:11px;letter-spacing:0.04em;line-height:1.5;color:var(--gold-light);border:1px dashed rgba(201,169,110,0.6);padding:3px 8px;}
+@media (max-width:900px){.audio-grid{grid-template-columns:1fr;}}
+</style>
+  <div class="page-section" id="ecouter">
+    <h2 class="page-h2">Three excerpts, <em>before you come</em></h2>
+    <p class="page-p">Two minutes of each journey, on headphones if you can.</p>
+    <div class="audio-grid">
+    <div class="audio-card" data-audio-card data-voyage="moncalme">
+      <p class="audio-name">Mon Calme</p>
+      <p class="audio-meta">Signature · Excerpt · about 2 min</p>
+      <!-- Fichier : /audio/mon-calme-extrait.mp3 (mp3) -->
+      <audio controls preload="none" aria-label="Mon Calme — Excerpt · about 2 min"><source src="/audio/mon-calme-extrait.mp3" type="audio/mpeg"></audio>
+      <p class="audio-fallback" hidden>Excerpt temporarily unavailable.</p>
+      <details>
+        <summary>Description of the excerpt (text)</summary>
+        <p>Excerpt from the signature set, first played at sunset in Imsouane, on the Moroccan coast: from the first breath to the calls of the seagulls. <span class="todo">[TO COMPLETE BY AMAURY — describe what you hear in this excerpt: instruments, mood, progression]</span></p>
+      </details>
+      <div class="audio-actions"><a href="/en.html#rdv">Book this journey →</a></div>
+    </div>
+    <div class="audio-card" data-audio-card data-voyage="bugatti">
+      <p class="audio-name">Bugatti</p>
+      <p class="audio-meta">Musée National de l'Automobile · Excerpt · about 2 min</p>
+      <!-- Fichier : /audio/bugatti-extrait.mp3 (mp3) -->
+      <audio controls preload="none" aria-label="Bugatti — Excerpt · about 2 min"><source src="/audio/bugatti-extrait.mp3" type="audio/mpeg"></audio>
+      <p class="audio-fallback" hidden>Excerpt temporarily unavailable.</p>
+      <details>
+        <summary>Description of the excerpt (text)</summary>
+        <p>Excerpt from the ambient playlist designed for the Musée National de l'Automobile: vibrant, powerful and organic. <span class="todo">[TO COMPLETE BY AMAURY — describe what you hear in this excerpt: instruments, mood, progression]</span></p>
+      </details>
+      <div class="audio-actions"><a href="/en.html#rdv">Book this journey →</a></div>
+    </div>
+    <div class="audio-card" data-audio-card data-voyage="tendre">
+      <p class="audio-name">Tendre Distance</p>
+      <p class="audio-meta">Intimate · Excerpt · about 2 min</p>
+      <!-- Fichier : /audio/tendre-distance-extrait.mp3 (mp3) -->
+      <audio controls preload="none" aria-label="Tendre Distance — Excerpt · about 2 min"><source src="/audio/tendre-distance-extrait.mp3" type="audio/mpeg"></audio>
+      <p class="audio-fallback" hidden>Excerpt temporarily unavailable.</p>
+      <details>
+        <summary>Description of the excerpt (text)</summary>
+        <p>Excerpt from a crystalline, intimate set, inspired by the beauty of a human relationship. <span class="todo">[TO COMPLETE BY AMAURY — describe what you hear in this excerpt: instruments, mood, progression]</span></p>
+      </details>
+      <div class="audio-actions"><a href="/en.html#rdv">Book this journey →</a></div>
+    </div>
+    </div>
+  </div>
+<script>
+(function(){
+  // Masque le lecteur tant que le fichier n'est pas en ligne, et affiche le texte de remplacement.
+  document.querySelectorAll('[data-audio-card]').forEach(function(card){
+    var audio = card.querySelector('audio');
+    var fb = card.querySelector('.audio-fallback');
+    var src = audio.querySelector('source').getAttribute('src');
+    function missing(){ audio.hidden = true; fb.hidden = false; }
+    fetch(src, { method: 'HEAD' }).then(function(r){ if (!r.ok) missing(); }).catch(missing);
+    audio.addEventListener('error', missing, true);
+    audio.addEventListener('play', function(){
+      document.querySelectorAll('[data-audio-card] audio').forEach(function(a){ if (a !== audio) a.pause(); });
+      if (typeof gtag === 'function') gtag('event', 'audio_play', { voyage: card.dataset.voyage });
+    });
+  });
+})();
+</script>
+
   <div class="page-section">
     <h2 class="page-h2">How is it different from a classic massage?</h2>
     <p class="page-p">In a classic massage, music accompanies the touch. At Mon Calme, it's the reverse: the sound journey is the thread running through the session, and touch — intuitive or energy work — is added as an option to anchor the music in the body.</p>
@@ -717,6 +801,7 @@ body {
     <span>🏠 Mon–Thu · At your place (Paris)</span>
     <a href="/en.html">Home</a>
     <a href="/massage-sonore/en.html">Sound massage</a>
+    <a href="/entreprises/en.html">For companies</a>
     <a href="/faq/en.html">FAQ</a>
     <a href="/a-propos/en.html">About</a>
     <a href="https://www.instagram.com/moncalme.possible" target="_blank">@moncalme.possible</a>
