@@ -643,6 +643,7 @@ body {
 /* Ajouts octobre 2026 : lien Entreprises, pied de page, boutons */
 .footer-info{flex-wrap:wrap;row-gap:12px;}
 .lang-switch a.nav-b2b{color:var(--gold-light);}
+@media (max-width:600px){.lang-switch{font-size:10px;letter-spacing:0.08em;gap:5px;padding:5px 9px;top:10px;right:10px;}}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:1px solid var(--gold-light);outline-offset:3px;}
 .page-cta{display:inline-block;margin-top:8px;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding:13px 24px;text-decoration:none;transition:background .3s,border-color .3s;}
 .page-cta:hover{background:rgba(201,169,110,0.12);border-color:var(--gold-light);}
@@ -715,41 +716,41 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </style>
   <div class="page-section" id="ecouter">
     <h2 class="page-h2">Three excerpts, <em>before you come</em></h2>
-    <p class="page-p">Two minutes of each journey, on headphones if you can.</p>
+    <p class="page-p">The first two minutes of each journey, on headphones if you can.</p>
     <div class="audio-grid">
     <div class="audio-card" data-audio-card data-voyage="moncalme">
       <p class="audio-name">Mon Calme</p>
-      <p class="audio-meta">Signature · Excerpt · about 2 min</p>
+      <p class="audio-meta">Signature · The first 2 minutes</p>
       <!-- Fichier : /audio/mon-calme-extrait.mp3 (mp3) -->
-      <audio controls preload="none" aria-label="Mon Calme — Excerpt · about 2 min"><source src="/audio/mon-calme-extrait.mp3" type="audio/mpeg"></audio>
+      <audio controls preload="none" aria-label="Mon Calme — The first 2 minutes"><source src="/audio/mon-calme-extrait.mp3" type="audio/mpeg"></audio>
       <p class="audio-fallback" hidden>Excerpt temporarily unavailable.</p>
       <details>
         <summary>Description of the excerpt (text)</summary>
-        <p>Excerpt from the signature set, first played at sunset in Imsouane, on the Moroccan coast: from the first breath to the calls of the seagulls. <span class="todo">[TO COMPLETE BY AMAURY — describe what you hear in this excerpt: instruments, mood, progression]</span></p>
+        <p>The opening of the signature set, first played at sunset in Imsouane, on the Moroccan coast.</p>
       </details>
       <div class="audio-actions"><a href="/en.html#rdv">Book this journey →</a></div>
     </div>
     <div class="audio-card" data-audio-card data-voyage="bugatti">
       <p class="audio-name">Bugatti</p>
-      <p class="audio-meta">Musée National de l'Automobile · Excerpt · about 2 min</p>
+      <p class="audio-meta">Musée National de l'Automobile · The first 2 minutes</p>
       <!-- Fichier : /audio/bugatti-extrait.mp3 (mp3) -->
-      <audio controls preload="none" aria-label="Bugatti — Excerpt · about 2 min"><source src="/audio/bugatti-extrait.mp3" type="audio/mpeg"></audio>
+      <audio controls preload="none" aria-label="Bugatti — The first 2 minutes"><source src="/audio/bugatti-extrait.mp3" type="audio/mpeg"></audio>
       <p class="audio-fallback" hidden>Excerpt temporarily unavailable.</p>
       <details>
         <summary>Description of the excerpt (text)</summary>
-        <p>Excerpt from the ambient playlist designed for the Musée National de l'Automobile: vibrant, powerful and organic. <span class="todo">[TO COMPLETE BY AMAURY — describe what you hear in this excerpt: instruments, mood, progression]</span></p>
+        <p>The opening of the ambient playlist designed for the Musée National de l'Automobile: vibrant, powerful and organic.</p>
       </details>
       <div class="audio-actions"><a href="/en.html#rdv">Book this journey →</a></div>
     </div>
     <div class="audio-card" data-audio-card data-voyage="tendre">
       <p class="audio-name">Tendre Distance</p>
-      <p class="audio-meta">Intimate · Excerpt · about 2 min</p>
+      <p class="audio-meta">Intimate · The first 2 minutes</p>
       <!-- Fichier : /audio/tendre-distance-extrait.mp3 (mp3) -->
-      <audio controls preload="none" aria-label="Tendre Distance — Excerpt · about 2 min"><source src="/audio/tendre-distance-extrait.mp3" type="audio/mpeg"></audio>
+      <audio controls preload="none" aria-label="Tendre Distance — The first 2 minutes"><source src="/audio/tendre-distance-extrait.mp3" type="audio/mpeg"></audio>
       <p class="audio-fallback" hidden>Excerpt temporarily unavailable.</p>
       <details>
         <summary>Description of the excerpt (text)</summary>
-        <p>Excerpt from a crystalline, intimate set, inspired by the beauty of a human relationship. <span class="todo">[TO COMPLETE BY AMAURY — describe what you hear in this excerpt: instruments, mood, progression]</span></p>
+        <p>The opening of a crystalline, intimate set, inspired by the beauty of a human relationship.</p>
       </details>
       <div class="audio-actions"><a href="/en.html#rdv">Book this journey →</a></div>
     </div>
@@ -832,5 +833,37 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .journey-list strong{color:var(--gold-light);font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;}
 @media (max-width:900px){.page-wrap{padding:120px 24px 70px;}}
 </style>
+<!-- BARRE MOBILE -->
+<nav class="mobile-bar" aria-label="Book or message">
+  <a href="/en.html#rdv" class="mobile-bar-book">Book my session</a>
+  <a href="https://wa.me/33615707974?text=Hello%20Amaury%2C%20I%27d%20like%20to%20book%20a%20Mon%20Calme%20session." class="mobile-bar-wa" target="_blank" rel="noopener" aria-label="Message Amaury on WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg><span>WhatsApp</span></a>
+</nav>
+<style>
+.mobile-bar{display:none;}
+@media (max-width:900px){
+  .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:250;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(var(--dark-rgb),0.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:0.5px solid rgba(201,169,110,0.35);transition:transform .3s ease;}
+  .mobile-bar.is-hidden{transform:translateY(110%);}
+  .mobile-bar a{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;padding:13px 10px;}
+  .mobile-bar-book{flex:1.6;background:var(--gold);color:var(--dark);font-weight:400;}
+  .mobile-bar-wa{flex:1;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);}
+  body{padding-bottom:72px;}
+}
+</style>
+<script>
+(function(){
+  var bar = document.querySelector('.mobile-bar');
+  if (!bar) return;
+  bar.querySelector('.mobile-bar-wa').addEventListener('click', function(){
+    if (typeof gtag === 'function') gtag('event', 'contact_whatsapp', { page_language: 'en' });
+  });
+  // Masquée pendant que le formulaire de réservation est à l'écran, pour ne rien cacher
+  var rdv = document.getElementById('rdv');
+  if (rdv && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function(entries){
+      bar.classList.toggle('is-hidden', entries[0].isIntersecting);
+    }, { threshold: 0.05 }).observe(rdv);
+  }
+})();
+</script>
 </body>
 </html>
