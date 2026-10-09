@@ -52,7 +52,7 @@
 { "@type": "Question", "name": "What is Mon Calme?", "acceptedAnswer": { "@type": "Answer", "text": "Mon Calme is an electronic sound massage practice created by Amaury, DJ and ambient artist, in Montmartre, Paris 18th. Every session combines a composed sound journey, guided breathwork and optional touch." } },
 { "@type": "Question", "name": "What is a sound massage?", "acceptedAnswer": { "@type": "Answer", "text": "An electronic sound massage reverses the logic of a classic massage: the music — a composed or live-mixed sound journey — is the heart of the experience, and touch (intuitive or energy work) is an option to anchor it in the body." } },
 { "@type": "Question", "name": "Where can I get a sound massage in Paris?", "acceptedAnswer": { "@type": "Answer", "text": "Mon Calme offers sound massages in Montmartre, Paris 18th: at the cabin on Fridays (21 rue Véron), or at your home Monday to Thursday, Paris only." } },
-{ "@type": "Question", "name": "How does a Mon Calme session unfold?", "acceptedAnswer": { "@type": "Answer", "text": "The session opens with a few minutes of guided breathwork, then continues with the chosen sound journey, played through headphones or the Harman Kardon Luna speaker. Touch, scent journey and blackout mask are customizable options." } },
+{ "@type": "Question", "name": "How does a Mon Calme session unfold?", "acceptedAnswer": { "@type": "Answer", "text": "The session opens with a few minutes of guided breathwork, then continues with the chosen sound journey, played through headphones or an audiophile sound system suited to the space. Touch, scent journey and blackout mask are customizable options." } },
 { "@type": "Question", "name": "What's the difference between the session lengths?", "acceptedAnswer": { "@type": "Answer", "text": "Four sound journeys are available: Dôme (17 min, 20€, angelic and jazzy), Tendre Distance (24 min, 35€, crystalline and intimate), Bugatti (25 min, 40€, vibrant and organic) and Mon Calme, the signature session (54 min, 70€), originally composed in Imsouane, Morocco." } },
 { "@type": "Question", "name": "Where is Mon Calme located?", "acceptedAnswer": { "@type": "Answer", "text": "The cabin is at 21 rue Véron, 75018 Paris, between rue Lepic and rue des Abbesses (metro Blanche line 2, Abbesses line 12), open on Fridays. Monday to Thursday, Amaury travels to your home in Paris." } },
 { "@type": "Question", "name": "Is the music mixed live?", "acceptedAnswer": { "@type": "Answer", "text": "By default, the sound journey is a set composed and recorded in advance. The \"Semi-improvised live set\" option (+20€) lets Amaury remix the set live on the decks, in response to the person's energy during the session." } },
@@ -92,7 +92,7 @@
   --gold-light: #E8D5B0;
   --cream: #F5EFE4;
   --dark: #1A1612;
-  --muted: #9C8B78;
+  --muted: #B5A590;
   --sep: rgba(201,169,110,0.15);
   --cream-rgb: 245,239,228;
   --dark-rgb: 26,22,18;
@@ -114,7 +114,7 @@ body {
   background: var(--dark);
   color: var(--cream);
   font-family: 'Jost', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.7;
   overflow-x: hidden;
   transition: background-color 0.35s ease, color 0.35s ease;
@@ -163,8 +163,8 @@ body {
   border: 0.5px solid rgba(201,169,110,0.6);
   color: var(--gold-light);
   font-family: 'Jost', sans-serif;
-  font-weight: 300;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 15px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   padding: 15px 28px;
@@ -189,12 +189,12 @@ body {
 }
 
 .eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.38em;
+  font-size: 13.5px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 28px;
-  font-weight: 200;
+  font-weight: 400;
 }
 
 .hero-title {
@@ -213,14 +213,14 @@ body {
 .hero-subtitle {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 18px;
+  font-size: 20px;
   color: var(--muted);
   margin-bottom: 36px;
 }
 
 .hero-desc {
-  font-size: 14px;
-  color: rgba(var(--cream-rgb),0.72);
+  font-size: 17px;
+  color: rgba(var(--cream-rgb),0.88);
   max-width: 380px;
   margin-bottom: 44px;
   line-height: 1.9;
@@ -232,7 +232,7 @@ body {
   gap: 10px;
   border: 0.5px solid rgba(201,169,110,0.4);
   padding: 11px 18px;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 0.06em;
   color: var(--gold-light);
 }
@@ -242,12 +242,12 @@ body {
 .section { padding: 80px 60px; }
 
 .section-label {
-  font-size: 10px;
-  letter-spacing: 0.42em;
+  font-size: 12.5px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
   margin-bottom: 40px;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 /* ── GRILLE MASSAGES ──────────────────────── */
@@ -274,8 +274,8 @@ body {
 
 .card-num {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 11px;
-  letter-spacing: 0.3em;
+  font-size: 13.5px;
+  letter-spacing: 0.2em;
   color: var(--muted);
   margin-bottom: 14px;
 }
@@ -292,16 +292,16 @@ body {
   display: inline-block;
   border: 0.5px solid rgba(201,169,110,0.4);
   color: var(--gold);
-  font-size: 9px;
-  letter-spacing: 0.3em;
+  font-size: 12px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   padding: 3px 11px;
   margin-bottom: 14px;
 }
 
 .card-duration {
-  font-size: 10px;
-  letter-spacing: 0.22em;
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
   color: var(--gold);
   margin-bottom: 18px;
 }
@@ -309,15 +309,15 @@ body {
 .card-story {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 15px;
-  color: rgba(var(--cream-rgb),0.62);
+  font-size: 17.5px;
+  color: rgba(var(--cream-rgb),0.88);
   margin-bottom: 10px;
   line-height: 1.6;
 }
 
 .card-exp {
-  font-size: 13px;
-  color: rgba(var(--cream-rgb),0.8);
+  font-size: 16px;
+  color: rgba(var(--cream-rgb),0.88);
   line-height: 1.75;
   margin-bottom: 24px;
 }
@@ -361,8 +361,8 @@ body {
   justify-content: center;
 }
 .artist-text p {
-  font-size: 14px;
-  color: rgba(var(--cream-rgb),0.75);
+  font-size: 17px;
+  color: rgba(var(--cream-rgb),0.88);
   line-height: 1.9;
   margin-bottom: 18px;
 }
@@ -372,15 +372,15 @@ body {
   border-top: 0.5px solid rgba(201,169,110,0.2);
 }
 .artist-text .artist-award-label {
-  font-size: 10px;
-  letter-spacing: 0.3em;
+  font-size: 12.5px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold-light);
   margin-bottom: 12px;
 }
 .artist-text .artist-award-text {
-  font-size: 13px;
-  color: rgba(var(--cream-rgb),0.7);
+  font-size: 16px;
+  color: rgba(var(--cream-rgb),0.88);
   line-height: 1.8;
   margin-bottom: 20px;
 }
@@ -437,12 +437,12 @@ body {
 
 .stars {
   color: var(--gold);
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 2px;
 }
 
 .avis-count {
-  font-size: 12px;
+  font-size: 15px;
   color: var(--muted);
   letter-spacing: 0.06em;
 }
@@ -479,7 +479,7 @@ body {
   align-items: center;
   justify-content: center;
   font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   flex-shrink: 0;
   background: rgba(201,169,110,0.15);
@@ -490,34 +490,34 @@ body {
 .avis-info { flex: 1; }
 
 .avis-name {
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
   color: var(--cream);
   margin-bottom: 2px;
 }
 
 .avis-meta {
-  font-size: 11px;
+  font-size: 13.5px;
   color: var(--muted);
   letter-spacing: 0.04em;
 }
 
 .avis-stars-small {
   color: var(--gold);
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 1px;
 }
 
 .avis-text {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
-  font-size: 15px;
-  color: rgba(var(--cream-rgb),0.78);
+  font-size: 17.5px;
+  color: rgba(var(--cream-rgb),0.88);
   line-height: 1.75;
   flex: 1;
 }
 
-.avis-text.long { font-size: 14px; }
+.avis-text.long { font-size: 17px; }
 
 .avis-cta {
   text-align: center;
@@ -530,7 +530,7 @@ body {
   gap: 10px;
   border: 0.5px solid rgba(201,169,110,0.4);
   padding: 13px 28px;
-  font-size: 12px;
+  font-size: 15px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--gold-light);
@@ -554,8 +554,8 @@ body {
   background: var(--dark);
   padding: 22px;
 }
-.option-name { font-size: 13px; color: var(--cream); margin-bottom: 5px; }
-.option-desc { font-size: 11.5px; color: var(--muted); margin-bottom: 10px; line-height: 1.55; }
+.option-name { font-size: 16px; color: var(--cream); margin-bottom: 5px; }
+.option-desc { font-size: 14px; color: var(--muted); margin-bottom: 10px; line-height: 1.55; }
 .option-price { font-family: 'Cormorant Garamond', serif; font-size: 19px; color: var(--gold-light); }
 
 /* ── FORMULES ─────────────────────────────── */
@@ -575,8 +575,8 @@ body {
   border-color: rgba(201,169,110,0.5);
   background: rgba(201,169,110,0.04);
 }
-.f-name { font-size: 9px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-.f-content { font-size: 12px; color: rgba(var(--cream-rgb),0.72); line-height: 1.6; margin-bottom: 18px; }
+.f-name { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.f-content { font-size: 15px; color: rgba(var(--cream-rgb),0.88); line-height: 1.6; margin-bottom: 18px; }
 .f-price { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--gold-light); }
 
 /* ── FOOTER ───────────────────────────────── */
@@ -597,14 +597,14 @@ body {
   font-family: 'Cormorant Garamond', serif;
   font-style: italic;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 36px;
 }
 .footer-info {
   display: flex;
   justify-content: center;
   gap: 44px;
-  font-size: 12px;
+  font-size: 15px;
   color: var(--muted);
   letter-spacing: 0.05em;
 }
@@ -631,13 +631,13 @@ body {
 </style>
 
 <style>
-.lang-switch{position:fixed;top:14px;right:16px;z-index:300;display:flex;gap:7px;align-items:center;font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.18em;background:rgba(var(--dark-rgb),0.62);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);padding:6px 12px;border:0.5px solid rgba(201,169,110,0.28);border-radius:2px;transition:background-color 0.35s ease;}
-.lang-switch a{color:rgba(var(--cream-rgb),0.5);text-decoration:none;transition:color .2s;}
+.lang-switch{position:fixed;top:14px;right:16px;z-index:300;display:flex;gap:7px;align-items:center;font-family:'Jost',sans-serif;font-size:13.5px;letter-spacing:0.18em;background:rgba(var(--dark-rgb),0.62);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);padding:6px 12px;border:0.5px solid rgba(201,169,110,0.28);border-radius:2px;transition:background-color 0.35s ease;}
+.lang-switch a{color:rgba(var(--cream-rgb),0.88);text-decoration:none;transition:color .2s;}
 .lang-switch a:hover{color:var(--gold-light);}
 .lang-switch a.active{color:var(--gold-light);}
 .lang-switch span.sep{color:rgba(var(--cream-rgb),0.22);}
 .lang-switch span.divider{width:1px;height:11px;background:rgba(var(--cream-rgb),0.22);margin:0 1px;}
-.theme-toggle{background:none;border:none;padding:0;margin:0 0 0 2px;cursor:pointer;color:rgba(var(--cream-rgb),0.6);font-size:13px;line-height:1;display:flex;align-items:center;transition:color .2s;}
+.theme-toggle{background:none;border:none;padding:0;margin:0 0 0 2px;cursor:pointer;color:rgba(var(--cream-rgb),0.88);font-size:16px;line-height:1;display:flex;align-items:center;transition:color .2s;}
 .theme-toggle:hover{color:var(--gold-light);}
 .theme-toggle .icon-moon{display:none;}
 [data-theme="light"] .theme-toggle .icon-sun{display:none;}
@@ -648,14 +648,42 @@ body {
 /* Ajouts octobre 2026 : lien Entreprises, pied de page, boutons */
 .footer-info{flex-wrap:wrap;row-gap:12px;}
 .lang-switch a.nav-b2b{color:var(--gold-light);}
-@media (max-width:600px){.lang-switch{font-size:10px;letter-spacing:0.08em;gap:5px;padding:5px 9px;top:10px;right:10px;}}
+@media (max-width:600px){.lang-switch{font-size:12.5px;letter-spacing:0.08em;gap:5px;padding:5px 9px;top:10px;right:10px;}}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:1px solid var(--gold-light);outline-offset:3px;}
-.page-cta{display:inline-block;margin-top:8px;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);font-family:'Jost',sans-serif;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;padding:13px 24px;text-decoration:none;transition:background .3s,border-color .3s;}
+.page-cta{display:inline-block;margin-top:8px;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);font-family:'Jost',sans-serif;font-size:15px;letter-spacing:0.16em;text-transform:uppercase;padding:13px 24px;text-decoration:none;transition:background .3s,border-color .3s;}
 .page-cta:hover{background:rgba(201,169,110,0.12);border-color:var(--gold-light);}
+</style>
+<style>
+/* ── EN-TÊTE ─────────────────────────────── */
+html{scroll-padding-top:76px;}
+.lang-switch{display:none !important;}
+.site-header{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;gap:28px;height:62px;padding:0 28px;background:rgba(var(--dark-rgb),0.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(201,169,110,0.22);font-family:'Jost',sans-serif;transition:background-color .35s ease;}
+.site-brand{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:24px;letter-spacing:0.08em;color:var(--gold-light);text-decoration:none;white-space:nowrap;}
+.site-nav{display:flex;align-items:center;gap:26px;margin-left:auto;}
+.site-nav a{font-size:14px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(var(--cream-rgb),0.88);text-decoration:none;padding:6px 0;border-bottom:0.5px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;}
+.site-nav a:hover,.site-nav a[aria-current="page"]{color:var(--gold-light);border-bottom-color:rgba(201,169,110,0.5);}
+.site-nav a.site-nav-cta{border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);padding:9px 16px;}
+.site-nav a.site-nav-cta:hover{background:rgba(201,169,110,0.12);}
+.site-tools{display:flex;align-items:center;gap:8px;font-size:13.5px;letter-spacing:0.16em;}
+.site-tools a{color:rgba(var(--cream-rgb),0.88);text-decoration:none;}
+.site-tools a:hover,.site-tools a.active{color:var(--gold-light);}
+.site-tools .sep{color:rgba(var(--cream-rgb),0.25);}
+.site-tools .theme-toggle{margin-left:8px;}
+.nav-burger{display:none;background:none;border:0.5px solid rgba(201,169,110,0.45);color:var(--gold-light);font-family:'Jost',sans-serif;font-size:13px;letter-spacing:0.18em;text-transform:uppercase;padding:8px 12px;cursor:pointer;margin-left:6px;}
+@media (max-width:1000px){
+  .site-header{height:56px;padding:0 16px;gap:12px;}
+  .site-brand{font-size:21px;}
+  .site-tools{margin-left:auto;}
+  .nav-burger{display:block;}
+  .site-nav{display:none;position:absolute;top:56px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;margin:0;padding:8px 20px 20px;background:var(--dark);border-bottom:0.5px solid rgba(201,169,110,0.3);}
+  .site-nav.is-open{display:flex;}
+  .site-nav a{font-size:16px;padding:15px 2px;border-bottom:0.5px solid rgba(201,169,110,0.15);}
+  .site-nav a.site-nav-cta{margin-top:14px;text-align:center;background:var(--gold);color:var(--dark);border-color:var(--gold);}
+}
 </style>
 </head>
 <body>
-<div class="lang-switch"><a href="/en.html">Home</a><span class="divider"></span><a href="/entreprises/en.html" class="nav-b2b">For companies</a><span class="divider"></span><button type="button" class="theme-toggle" aria-label="Toggle dark / light mode" title="Dark / light mode"><span class="icon-sun">☀</span><span class="icon-moon">🌙</span></button></div>
+<header class="site-header"><a href="/en.html" class="site-brand" aria-label="Mon Calme — home">Mon Calme</a><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="/massage-sonore/en.html">Sound massage</a><a href="/entreprises/en.html">For companies</a><a href="/faq/en.html" aria-current="page">FAQ</a><a href="/a-propos/en.html">About</a><a href="/en.html#rdv" class="site-nav-cta">Book</a></nav><div class="site-tools"><a href="/faq/" lang="fr">FR</a><span class="sep">/</span><a href="/faq/en.html" lang="en" class="active">EN</a><button type="button" class="theme-toggle" aria-label="Toggle dark / light mode" title="Light / dark mode"><span class="icon-sun">☀</span><span class="icon-moon">🌙</span></button><button type="button" class="nav-burger" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close">Menu</button></div></header>
 <script>
 (function(){
   var btn = document.querySelector('.theme-toggle');
@@ -695,7 +723,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </div>
   <div class="faq-item">
     <p class="faq-q">How does a Mon Calme session unfold?</p>
-    <p class="faq-a">The session opens with a few minutes of guided breathwork, then continues with the chosen sound journey, played through headphones or the Harman Kardon Luna speaker. Touch, scent journey and blackout mask are customizable options.</p>
+    <p class="faq-a">The session opens with a few minutes of guided breathwork, then continues with the chosen sound journey, played through headphones or an audiophile sound system suited to the space. Touch, scent journey and blackout mask are customizable options.</p>
   </div>
   <div class="faq-item">
     <p class="faq-q">What's the difference between the session lengths?</p>
@@ -742,26 +770,26 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </footer>
 <style>
 .page-wrap{max-width:900px;margin:0 auto;padding:140px 60px 100px;}
-.page-eyebrow{font-size:11px;letter-spacing:0.38em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
+.page-eyebrow{font-size:13.5px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
 .page-title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(38px,6vw,58px);line-height:1.05;margin-bottom:22px;}
 .page-title em{font-style:italic;color:var(--gold-light);}
-.page-lede{font-size:15px;color:rgba(var(--cream-rgb),0.75);line-height:1.9;max-width:640px;margin-bottom:56px;}
-.breadcrumb{font-size:11px;letter-spacing:0.06em;color:var(--muted);margin-bottom:26px;}
+.page-lede{font-size:17.5px;color:rgba(var(--cream-rgb),0.88);line-height:1.9;max-width:640px;margin-bottom:56px;}
+.breadcrumb{font-size:13.5px;letter-spacing:0.06em;color:var(--muted);margin-bottom:26px;}
 .breadcrumb a{color:var(--muted);text-decoration:none;border-bottom:0.5px solid rgba(201,169,110,0.3);}
 .breadcrumb a:hover{color:var(--gold-light);}
 .page-section{margin-bottom:52px;}
 .page-h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:26px;color:var(--gold-light);margin-bottom:16px;}
-.page-p{font-size:14px;color:rgba(var(--cream-rgb),0.78);line-height:1.9;margin-bottom:16px;max-width:680px;}
+.page-p{font-size:17px;color:rgba(var(--cream-rgb),0.88);line-height:1.9;margin-bottom:16px;max-width:680px;}
 .faq-item{border-top:0.5px solid rgba(201,169,110,0.2);padding:26px 0;}
 .faq-item:last-child{border-bottom:0.5px solid rgba(201,169,110,0.2);}
 .faq-q{font-family:'Cormorant Garamond',serif;font-size:19px;color:var(--cream);margin-bottom:10px;}
-.faq-a{font-size:14px;color:rgba(var(--cream-rgb),0.78);line-height:1.85;max-width:680px;}
+.faq-a{font-size:17px;color:rgba(var(--cream-rgb),0.88);line-height:1.85;max-width:680px;}
 .inline-links{margin-top:56px;padding-top:32px;border-top:0.5px solid rgba(201,169,110,0.2);display:flex;gap:28px;flex-wrap:wrap;}
-.inline-links a{color:var(--gold-light);text-decoration:none;font-size:12px;letter-spacing:0.06em;border-bottom:0.5px solid rgba(201,169,110,0.4);}
+.inline-links a{color:var(--gold-light);text-decoration:none;font-size:15px;letter-spacing:0.06em;border-bottom:0.5px solid rgba(201,169,110,0.4);}
 .inline-links a:hover{border-color:var(--gold-light);}
 .journey-list{list-style:none;margin:0 0 16px;padding:0;}
-.journey-list li{padding:14px 0;border-top:0.5px solid rgba(201,169,110,0.15);font-size:14px;color:rgba(var(--cream-rgb),0.8);}
-.journey-list strong{color:var(--gold-light);font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;}
+.journey-list li{padding:14px 0;border-top:0.5px solid rgba(201,169,110,0.15);font-size:17px;color:rgba(var(--cream-rgb),0.88);}
+.journey-list strong{color:var(--gold-light);font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:400;}
 @media (max-width:900px){.page-wrap{padding:120px 24px 70px;}}
 </style>
 <!-- BARRE MOBILE -->
@@ -774,7 +802,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 @media (max-width:900px){
   .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:250;gap:8px;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(var(--dark-rgb),0.92);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-top:0.5px solid rgba(201,169,110,0.35);transition:transform .3s ease;}
   .mobile-bar.is-hidden{transform:translateY(110%);}
-  .mobile-bar a{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-family:'Jost',sans-serif;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;padding:13px 10px;}
+  .mobile-bar a{display:flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;font-family:'Jost',sans-serif;font-size:13.5px;letter-spacing:0.07em;text-transform:uppercase;padding:13px 10px;}
   .mobile-bar-book{flex:1.6;background:var(--gold);color:var(--dark);font-weight:400;}
   .mobile-bar-wa{flex:1;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);}
   body{padding-bottom:72px;}
@@ -794,6 +822,16 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       bar.classList.toggle('is-hidden', entries[0].isIntersecting);
     }, { threshold: 0.05 }).observe(rdv);
   }
+})();
+</script>
+<script>
+(function(){
+  var b = document.querySelector('.nav-burger'), n = document.getElementById('site-nav');
+  if (!b || !n) return;
+  function set(open){ n.classList.toggle('is-open', open); b.setAttribute('aria-expanded', open ? 'true' : 'false'); b.textContent = open ? b.dataset.close : b.dataset.open; }
+  b.addEventListener('click', function(){ set(!n.classList.contains('is-open')); });
+  n.addEventListener('click', function(e){ if (e.target.closest('a')) set(false); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && n.classList.contains('is-open')) { set(false); b.focus(); } });
 })();
 </script>
 </body>
