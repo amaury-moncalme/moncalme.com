@@ -794,6 +794,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <style>
 /* ── EN-TÊTE ─────────────────────────────── */
 html{scroll-padding-top:76px;}
+/* Décale la photo d’accueil sous l’en-tête fixe */
+.hero{margin-top:62px;}
+@media (max-width:1000px){.hero{margin-top:56px;}}
 .lang-switch{display:none !important;}
 .site-header{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;gap:28px;height:62px;padding:0 28px;background:rgba(var(--dark-rgb),0.82);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:0.5px solid rgba(201,169,110,0.22);font-family:'Jost',sans-serif;transition:background-color .35s ease;}
 .site-brand{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:24px;letter-spacing:0.08em;color:var(--gold-light);text-decoration:none;white-space:nowrap;}
