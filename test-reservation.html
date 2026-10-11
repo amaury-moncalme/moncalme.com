@@ -1007,7 +1007,7 @@ html{scroll-padding-top:76px;}
         <summary>Description de l'extrait (texte)</summary>
         <p>Début du set signature, joué pour la première fois au coucher du soleil à Imsouane, sur la côte marocaine.</p>
       </details>
-      <div class="audio-actions"><button type="button" class="express-btn" data-voyage="moncalme" aria-label="Réserver Mon Calme en 30 secondes">Réserver en 30 secondes</button></div>
+      <div class="audio-actions"><button type="button" class="voyage-book" data-book-voyage="moncalme" aria-label="Réserver Mon Calme">Réserver ce voyage</button></div>
     </div>
     <div class="audio-card" data-audio-card data-voyage="bugatti">
       <p class="audio-name">Bugatti</p>
@@ -1019,7 +1019,7 @@ html{scroll-padding-top:76px;}
         <summary>Description de l'extrait (texte)</summary>
         <p>Début de la playlist ambient conçue pour le Musée National de l'Automobile : vibratoire, puissant et organique.</p>
       </details>
-      <div class="audio-actions"><button type="button" class="express-btn" data-voyage="bugatti" aria-label="Réserver Bugatti en 30 secondes">Réserver en 30 secondes</button></div>
+      <div class="audio-actions"><button type="button" class="voyage-book" data-book-voyage="bugatti" aria-label="Réserver Bugatti">Réserver ce voyage</button></div>
     </div>
     <div class="audio-card" data-audio-card data-voyage="tendre">
       <p class="audio-name">Tendre Distance</p>
@@ -1031,7 +1031,7 @@ html{scroll-padding-top:76px;}
         <summary>Description de l'extrait (texte)</summary>
         <p>Début d'un set cristallin et intimiste, inspiré par la beauté d'une relation humaine.</p>
       </details>
-      <div class="audio-actions"><button type="button" class="express-btn" data-voyage="tendre" aria-label="Réserver Tendre Distance en 30 secondes">Réserver en 30 secondes</button></div>
+      <div class="audio-actions"><button type="button" class="voyage-book" data-book-voyage="tendre" aria-label="Réserver Tendre Distance">Réserver ce voyage</button></div>
     </div>
     </div>
   </div>
@@ -1110,7 +1110,6 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
               </div>
               <p class="m-option-story">Set cristallin et intimiste, inspiré par la beauté d'une relation humaine.</p>
               <p class="m-option-price">35 €</p>
-              <button type="button" class="express-btn" aria-label="Réserver Tendre Distance en 30 secondes">Réserver en 30 secondes</button>
             </div>
           </label>
           <label class="m-option"><input type="radio" name="massage" value="bugatti" data-price="40" data-duration="25" data-label="Bugatti">
@@ -1121,7 +1120,6 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
               </div>
               <p class="m-option-story">Playlist ambient conçue pour le Musée National de l'Automobile. Vibratoire, puissant et organique.</p>
               <p class="m-option-price">40 €</p>
-              <button type="button" class="express-btn" aria-label="Réserver Bugatti en 30 secondes">Réserver en 30 secondes</button>
             </div>
           </label>
           <label class="m-option"><input type="radio" name="massage" value="dome" data-price="20" data-duration="17" data-label="Dôme">
@@ -1132,7 +1130,6 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
               </div>
               <p class="m-option-story">Dernier chapitre du projet Sacré Cœur, composé pour une exposition au Theatre of Digital Art, à Dubaï. Angélique, jazzy, blanc.</p>
               <p class="m-option-price">20 €</p>
-              <button type="button" class="express-btn" aria-label="Réserver Dôme en 30 secondes">Réserver en 30 secondes</button>
             </div>
           </label>
           <label class="m-option"><input type="radio" name="massage" value="moncalme" data-price="70" data-duration="54" data-label="Mon Calme">
@@ -1143,7 +1140,6 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
               </div>
               <p class="m-option-story">Joué pour la première fois au coucher du soleil à Imsouane, sur la côte marocaine. Le socle de tout le projet : du premier souffle aux chants des mouettes.</p>
               <p class="m-option-price">70 €</p>
-              <button type="button" class="express-btn" aria-label="Réserver Mon Calme en 30 secondes">Réserver en 30 secondes</button>
             </div>
           </label>
         </div>
@@ -1176,7 +1172,7 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
           <label class="field-label">Votre adresse à Paris</label>
           <input type="text" name="adresse" id="rdv-adresse" placeholder="N°, rue, code postal" class="rdv-input">
         </div>
-        <p style="margin-top:14px;font-size:15px;color:var(--muted);font-style:italic;line-height:1.7;">Au cabinet : aucun frais de déplacement. À domicile, en hôtel ou en événementiel : un déplacement en supplément, sur devis selon l'adresse — je vous le confirme avant la séance. Le total ci-contre ne comprend que la séance.</p>
+        <p style="margin-top:14px;font-size:15px;color:var(--muted);font-style:italic;line-height:1.7;">Au cabinet : aucun frais de déplacement. À domicile, en hôtel ou en événementiel : un déplacement en supplément, sur devis selon l'adresse — je vous le confirme avant la séance. Le total affiché ne comprend que la séance.</p>
       </div>
 
       <!-- ÉTAPE 4 : Date & créneau -->
@@ -2192,8 +2188,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 <style>
 /* Réservation express */
-.express-btn{display:inline-block;margin-top:12px;background:transparent;border:0.5px solid rgba(201,169,110,0.45);color:var(--gold-light);font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;padding:9px 14px;cursor:pointer;transition:background .25s,border-color .25s;}
-.express-btn:hover{background:rgba(201,169,110,0.12);border-color:var(--gold-light);}
+.express-btn,.voyage-book{display:inline-block;margin-top:12px;background:transparent;border:0.5px solid rgba(201,169,110,0.45);color:var(--gold-light);font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;padding:9px 14px;cursor:pointer;transition:background .25s,border-color .25s;}
+.express-btn:hover,.voyage-book:hover{background:rgba(201,169,110,0.12);border-color:var(--gold-light);}
 .express-dialog{border:0.5px solid rgba(201,169,110,0.45);background:var(--dark);color:var(--cream);padding:0;width:min(560px,calc(100% - 32px));max-height:calc(100vh - 32px);margin:auto;}
 .express-dialog::backdrop{background:rgba(0,0,0,0.65);}
 .express-inner{padding:34px 30px 28px;position:relative;}
@@ -2219,52 +2215,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 @media (max-width:520px){.express-grid{grid-template-columns:1fr;}.express-inner{padding:30px 20px 24px;}}
 </style>
 <!-- RÉSERVATION EXPRESS -->
-<dialog class="express-dialog" id="express-dialog" aria-labelledby="express-title">
-  <div class="express-inner">
-    <button type="button" class="express-close" id="express-close" aria-label="Fermer">×</button>
-    <form id="express-form" novalidate>
-      <p class="express-title" id="express-title">Réservation express</p>
-      <p class="express-lede">Choisissez votre voyage et un créneau : Amaury vous confirme la séance, le lieu et l'heure exacte.</p>
-      <div class="express-grid">
-        <div class="express-field full">
-          <label for="express-voyage">Voyage sonore</label>
-          <select id="express-voyage" name="voyage" class="rdv-input rdv-select" required><option value="tendre" data-price="35" data-duration="24">Tendre Distance · 24 min · 35 €</option><option value="bugatti" data-price="40" data-duration="25">Bugatti · 25 min · 40 €</option><option value="dome" data-price="20" data-duration="17">Dôme · 17 min · 20 €</option><option value="moncalme" data-price="70" data-duration="54">Mon Calme · 54 min · 70 €</option></select>
-        </div>
-        <div class="express-field">
-          <label for="express-date">Date souhaitée</label>
-          <select id="express-date" name="date" class="rdv-input rdv-select"></select>
-        </div>
-        <div class="express-field">
-          <label for="express-creneau">Créneau préféré</label>
-          <select id="express-creneau" name="creneau" class="rdv-input rdv-select"><option value="">Choisir…</option><option value="matin">Matin (10h–13h)</option><option value="apres-midi">Après-midi (13h–17h)</option><option value="soir">Soir (17h–21h)</option><option value="flexible">Flexible</option></select>
-        </div>
-        <div class="express-field">
-          <label for="express-prenom">Prénom *</label>
-          <input type="text" id="express-prenom" name="prenom" class="rdv-input" autocomplete="given-name" required>
-        </div>
-        <div class="express-field">
-          <label for="express-email">Email *</label>
-          <input type="email" id="express-email" name="email" class="rdv-input" autocomplete="email" required>
-        </div>
-        <div class="express-field full">
-          <label for="express-tel">Téléphone</label>
-          <input type="tel" id="express-tel" name="tel" class="rdv-input" autocomplete="tel">
-        </div>
-      </div>
-      <p class="express-note">Cabinet le vendredi (21 rue Véron, Paris 18e), à domicile du lundi au jeudi sur Paris. Toucher intuitif et voyage olfactif inclus ; vous pourrez préciser vos envies en répondant à la confirmation. Vos coordonnées servent uniquement à organiser votre séance.</p>
-      <p class="express-total"><span>Total</span><strong id="express-total-value"></strong></p>
-      <button type="submit" class="cart-btn" id="express-submit">Envoyer ma demande</button>
-      <p class="express-status" id="express-status" role="status" aria-live="polite"></p>
-      <a href="#rdv" class="express-full" id="express-full">Composer ma séance en détail (options, lieu) →</a>
-    </form>
-    <div class="express-done" id="express-done" tabindex="-1">
-      <p class="express-done-title">Demande envoyée ✦</p>
-      <p>Amaury vous répondra dans les 24h pour confirmer.</p>
-      <p>Un lien de paiement sécurisé vous sera envoyé pour confirmer votre réservation. Vous pouvez aussi régler sur place.</p>
-      <a href="#" class="pay-link" data-pay-link hidden target="_blank" rel="noopener">Payer en ligne maintenant</a>
-    </div>
-  </div>
-</dialog>
+
 <script>
 // [À COMPLÉTER PAR AMAURY] Lien de paiement Stripe / SumUp (Payment Link générique).
 // Laisser vide tant qu'il n'existe pas : le bouton « payer » reste alors masqué.
@@ -2456,7 +2407,7 @@ window.MONCALME_PAYMENT_LINK = '';
 (function(){
   var wrap = document.querySelector('.rdv-wrap.wiz');
   if (!wrap) return;
-  var T = {"steps": ["Voyage", "Lieu & date", "Séance", "Coordonnées"], "back": "← Retour", "next": "Continuer", "last": "Vérifier et réserver", "total": "Total", "stepof": "Étape {n} sur 4", "err1": "Choisissez un voyage sonore pour continuer.", "err2a": "Choisissez le lieu de la séance.", "err2b": "Choisissez une date (ou « Je suis flexible »).", "err2c": "Cette date ne correspond pas au lieu choisi.", "nav": "Étapes de la réservation", "lang": "fr"};
+  var T = {"steps": ["Voyage", "Lieu & date", "Séance", "Coordonnées"], "back": "← Retour", "next": "Continuer", "last": "Vérifier et réserver", "total": "Total", "stepof": "Étape {n} sur 4", "err1": "Choisissez un voyage sonore pour continuer.", "err2a": "Choisissez le lieu de la séance.", "err2b": "Choisissez une date (ou « Je suis flexible »).", "err2c": "Cette date ne correspond pas au lieu choisi.", "nav": "Étapes de la réservation", "book": "Réserver ce voyage", "express30": "Réserver en 30 secondes", "lang": "fr"};
   var steps = wrap.querySelectorAll('.wiz-step');
   var crumbs = wrap.querySelectorAll('.wiz-progress li');
   var current = 1, reached = 1;
@@ -2497,6 +2448,17 @@ window.MONCALME_PAYMENT_LINK = '';
     }
     if (typeof gtag === 'function') gtag('event', 'rdv_step', { step: n, page_language: T.lang });
   }
+  // « Réserver ce voyage » (sous les extraits) : voyage pré-sélectionné, on passe au lieu et à la date
+  document.addEventListener('click', function(e){
+    var bk = e.target.closest('[data-book-voyage]');
+    if (!bk) return;
+    var r = document.querySelector('input[name="massage"][value="' + bk.getAttribute('data-book-voyage') + '"]');
+    if (!r) return;
+    if (!r.checked) { r.checked = true; r.dispatchEvent(new Event('change', { bubbles: true })); }
+    reached = Math.max(reached, 2);
+    go(2);
+    if (typeof gtag === 'function') gtag('event', 'book_from_audio', { voyage: r.value, page_language: T.lang });
+  });
   wrap.addEventListener('click', function(e){
     var nx = e.target.closest('[data-wiz-next]');
     if (nx) {
