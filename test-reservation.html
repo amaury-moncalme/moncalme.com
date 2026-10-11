@@ -1144,11 +1144,14 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
           </label>
         </div>
       </div>
+
+        <label class="check-row wiz-gift-check"><input type="checkbox" name="gift" id="wiz-gift" value="1"><span class="check-box"></span><span class="check-label">🎁 C'est pour offrir <span class="check-desc">— une carte cadeau, la personne choisira sa date avec moi</span></span></label>
         <p class="wiz-error" role="alert" hidden></p>
         <div class="wiz-nav"><p class="wiz-total"><span>Total</span> <strong data-wiz-total>—</strong></p><button type="button" class="wiz-next" data-wiz-next="1">Continuer</button></div>
       </div>
 
       <div class="wiz-step" data-step="2" role="group" aria-label="Étape 2 sur 4 : Lieu & date" hidden>
+        <p class="wiz-gift-note" hidden>🎁 Pour un cadeau, le lieu et la date sont facultatifs : la personne les choisira avec moi. Laissez « Je suis flexible » si vous ne savez pas.</p>
       <!-- ÉTAPE 4 : Lieu -->
       <div class="rdv-block">
         <p class="rdv-step-label">Choisissez le lieu</p>
@@ -1281,6 +1284,13 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
           <label class="field-label">Votre intention (optionnel)</label>
           <textarea name="intention" id="rdv-intention" placeholder="Décrivez ce que vous cherchez : stress, lâcher-prise, curiosité, cadeau…" rows="3" class="rdv-input" style="resize:vertical;"></textarea>
         </div>
+      </div>
+
+      <div class="rdv-block wiz-gift-fields" hidden>
+        <p class="rdv-step-label">🎁 Pour qui est ce cadeau ?</p>
+        <div class="field-wrap" style="margin-bottom:16px;"><label class="field-label" for="gift-name">Prénom de la personne *</label><input type="text" id="gift-name" class="rdv-input" placeholder="Son prénom"></div>
+        <div class="field-wrap"><label class="field-label" for="gift-msg">Un mot à glisser sur la carte (optionnel)</label><textarea id="gift-msg" rows="2" class="rdv-input" style="resize:vertical;" placeholder="Joyeux anniversaire…"></textarea></div>
+        <p class="wiz-gift-info">Je vous envoie par email une carte cadeau à imprimer ou à transférer, avec le lien de paiement.</p>
       </div>
         <p class="wiz-error" role="alert" hidden></p>
         <div class="wiz-nav"><button type="button" class="wiz-back" data-wiz-go="3">← Retour</button></div>
@@ -2155,6 +2165,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     formData.append('Intention', document.getElementById('rdv-intention').value || '—');
     formData.append('Récapitulatif commande', recap);
     formData.append('_subject', '[TEST] Nouvelle réservation Mon Calme — ' + massage.dataset.label + ' (' + total + ' €)');
+    if (typeof window.mcBeforeSend === 'function') window.mcBeforeSend(formData);
 
     cartBtn.disabled = true;
     document.getElementById('cart-error').hidden = true;
@@ -2379,6 +2390,12 @@ window.MONCALME_PAYMENT_LINK = '';
 [data-theme="light"] .wiz-error { color: #9A3A22; }
 .wiz-error[hidden] { display: none; }
 
+.wiz-gift-check { margin-top: -12px; }
+.wiz-gift-note, .wiz-gift-info { font-size: 15px; color: var(--muted); font-style: italic; line-height: 1.7; margin: 0; }
+.wiz-gift-note { border-left: 1px solid var(--gold); padding-left: 14px; }
+.wiz-gift-info { margin-top: 14px; }
+.wiz-gift-fields[hidden], .wiz-gift-note[hidden] { display: none; }
+.cart-line.gift .name { color: var(--gold-light); }
 /* Le bouton d'envoi n'apparaît qu'à la dernière étape */
 .wiz:not([data-wiz-step="4"]) #cart-submit { display: none; }
 
@@ -2407,12 +2424,13 @@ window.MONCALME_PAYMENT_LINK = '';
 (function(){
   var wrap = document.querySelector('.rdv-wrap.wiz');
   if (!wrap) return;
-  var T = {"steps": ["Voyage", "Lieu & date", "Séance", "Coordonnées"], "back": "← Retour", "next": "Continuer", "last": "Vérifier et réserver", "total": "Total", "stepof": "Étape {n} sur 4", "err1": "Choisissez un voyage sonore pour continuer.", "err2a": "Choisissez le lieu de la séance.", "err2b": "Choisissez une date (ou « Je suis flexible »).", "err2c": "Cette date ne correspond pas au lieu choisi.", "nav": "Étapes de la réservation", "book": "Réserver ce voyage", "express30": "Réserver en 30 secondes", "lang": "fr"};
+  var T = {"steps": ["Voyage", "Lieu & date", "Séance", "Coordonnées"], "back": "← Retour", "next": "Continuer", "last": "Vérifier et réserver", "total": "Total", "stepof": "Étape {n} sur 4", "err1": "Choisissez un voyage sonore pour continuer.", "err2a": "Choisissez le lieu de la séance.", "err2b": "Choisissez une date (ou « Je suis flexible »).", "err2c": "Cette date ne correspond pas au lieu choisi.", "nav": "Étapes de la réservation", "book": "Réserver ce voyage", "express30": "Réserver en 30 secondes", "gift": "C'est pour offrir", "giftDesc": "— une carte cadeau, la personne choisira sa date avec moi", "giftNote": "Pour un cadeau, le lieu et la date sont facultatifs : la personne les choisira avec moi. Laissez « Je suis flexible » si vous ne savez pas.", "giftTitle": "Pour qui est ce cadeau ?", "giftName": "Prénom de la personne *", "giftNamePh": "Son prénom", "giftMsg": "Un mot à glisser sur la carte (optionnel)", "giftMsgPh": "Joyeux anniversaire…", "giftInfo": "Je vous envoie par email une carte cadeau à imprimer ou à transférer, avec le lien de paiement.", "giftCart": "Carte cadeau", "giftErr": "Indiquez le prénom de la personne à qui vous offrez la séance.", "giftConfirm": "Je vous envoie la carte cadeau par email dès réception du paiement.", "giftSubject": "🎁 CARTE CADEAU — ", "depositNote": "Acompte de {a} € à régler en ligne pour confirmer, le solde sur place.", "depositBtn": "Régler l'acompte ({a} €)", "lang": "fr"};
   var steps = wrap.querySelectorAll('.wiz-step');
   var crumbs = wrap.querySelectorAll('.wiz-progress li');
   var current = 1, reached = 1;
 
   function q(sel){ return document.querySelector(sel); }
+  function isGift(){ var g = document.getElementById('wiz-gift'); return !!(g && g.checked); }
   function showError(n, msg){
     var e = steps[n-1].querySelector('.wiz-error');
     if (!msg) { e.hidden = true; return; }
@@ -2420,17 +2438,26 @@ window.MONCALME_PAYMENT_LINK = '';
   }
   function valid(n){
     if (n === 1 && !q('input[name="massage"]:checked')) return T.err1;
-    if (n === 2) {
+    if (n === 2 && !isGift()) {
       if (!q('input[name="lieu"]:checked')) return T.err2a;
       var d = document.getElementById('rdv-date');
       if (!d || d.selectedIndex < 1) return T.err2b;
       var h = document.getElementById('rdv-date-hint');
       if (h && h.classList.contains('error') && h.style.display !== 'none') return T.err2c;
     }
+    if (n === 2 && isGift()) {
+      var h2 = document.getElementById('rdv-date-hint');
+      if (h2 && h2.classList.contains('error') && h2.style.display !== 'none') return T.err2c;
+    }
     return '';
   }
-  function go(n, focus){
+  function go(n, focus, fromHistory){
     if (n < 1 || n > 4 || n > reached) return;
+    // Bouton « retour » du téléphone / navigateur : chaque étape est une entrée d'historique
+    if (!fromHistory && n !== current && window.history && history.pushState) {
+      if (!history.state || !history.state.wizStep) history.replaceState({ wizStep: current }, '');
+      history.pushState({ wizStep: n }, '');
+    }
     current = n;
     wrap.setAttribute('data-wiz-step', n);
     steps.forEach(function(s, i){ s.hidden = (i + 1 !== n); });
@@ -2472,6 +2499,70 @@ window.MONCALME_PAYMENT_LINK = '';
     var g = e.target.closest('[data-wiz-go]');
     if (g && !g.disabled) go(+g.getAttribute('data-wiz-go'));
   });
+  window.addEventListener('popstate', function(e){
+    if (wrap.classList.contains('is-sent')) return;
+    var n = (e.state && e.state.wizStep) || 1;
+    if (n !== current) go(Math.min(n, reached), true, true);
+  });
+
+  // ---- Cadeau
+  function syncGift(){
+    var on = isGift();
+    wrap.querySelectorAll('.wiz-gift-note, .wiz-gift-fields').forEach(function(el){ el.hidden = !on; });
+    var cc = document.getElementById('cart-content'), old = cc && cc.querySelector('.cart-gift');
+    if (old) old.remove();
+    if (on && cc && q('input[name="massage"]:checked')) {
+      var d = document.createElement('div');
+      d.className = 'cart-line included gift cart-gift';
+      d.innerHTML = '<span class="name">🎁 ' + T.giftCart + '</span><span class="price"></span>';
+      cc.insertBefore(d, cc.firstChild);
+    }
+    syncDeposit();
+  }
+  // Vérification avant envoi (le prénom de la personne est obligatoire pour un cadeau)
+  wrap.addEventListener('click', function(e){
+    if (!e.target.closest('#cart-submit') || !isGift()) return;
+    var name = document.getElementById('gift-name');
+    if (!name.value.trim()) {
+      e.stopPropagation(); e.preventDefault();
+      if (typeof mcCartError === 'function') mcCartError(T.giftErr);
+      name.focus();
+    }
+  }, true);
+  window.mcBeforeSend = function(fd){
+    wrap.classList.add('is-sent');
+    var gc = document.querySelector('.gift-confirm');
+    if (!isGift()) { if (gc) gc.hidden = true; return; }
+    fd.append('Cadeau', 'OUI — pour ' + document.getElementById('gift-name').value.trim());
+    fd.append('Mot sur la carte', document.getElementById('gift-msg').value.trim() || '—');
+    fd.set('_subject', T.giftSubject + fd.get('_subject'));
+    if (gc) gc.hidden = false;
+    if (typeof gtag === 'function') gtag('event', 'gift_request', { page_language: T.lang });
+  };
+  var confirmBox = document.getElementById('rdv-confirm');
+  if (confirmBox) {
+    var p = document.createElement('p');
+    p.className = 'gift-confirm'; p.hidden = true;
+    p.style.cssText = 'font-size:16px;color:var(--gold-light);margin-top:8px;';
+    p.textContent = '🎁 ' + T.giftConfirm;
+    confirmBox.insertBefore(p, confirmBox.children[2] || null);
+  }
+
+  // ---- Acompte (actif dès que le lien SumUp est renseigné, hors cadeau)
+  function syncDeposit(){
+    var link = window.MONCALME_PAYMENT_LINK, amount = window.MONCALME_DEPOSIT_AMOUNT;
+    if (!link || !amount) return;
+    var note = document.querySelector('#cart-total .cart-note');
+    if (note) {
+      if (!note.dataset.orig) note.dataset.orig = note.textContent;
+      note.textContent = isGift() ? note.dataset.orig : T.depositNote.replace('{a}', amount);
+    }
+    document.querySelectorAll('#rdv-confirm [data-pay-link]').forEach(function(a){
+      a.textContent = T.depositBtn.replace('{a}', amount);
+      a.hidden = isGift();
+    });
+  }
+
   // Total affiché dans la barre d'action + effacement des erreurs
   function syncTotal(){
     var v = document.getElementById('cart-total-value');
@@ -2479,9 +2570,9 @@ window.MONCALME_PAYMENT_LINK = '';
     wrap.querySelectorAll('[data-wiz-total]').forEach(function(el){ el.textContent = on ? v.textContent : '—'; });
   }
   wrap.addEventListener('change', function(){
-    setTimeout(function(){ syncTotal(); if (!valid(current)) showError(current, ''); }, 0);
+    setTimeout(function(){ syncTotal(); syncGift(); if (!valid(current)) showError(current, ''); }, 0);
   });
-  syncTotal();
+  syncTotal(); syncGift();
 })();
 </script>
 
