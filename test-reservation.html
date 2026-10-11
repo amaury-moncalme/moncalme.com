@@ -2230,7 +2230,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 <script>
 // [À COMPLÉTER PAR AMAURY] Lien de paiement Stripe / SumUp (Payment Link générique).
 // Laisser vide tant qu'il n'existe pas : le bouton « payer » reste alors masqué.
-window.MONCALME_PAYMENT_LINK = '';
+window.MONCALME_PAYMENT_LINK = 'https://pay.sumup.com/b2c/QHA8E6VG';
+// Montant de l'acompte demandé via ce lien (en €)
+window.MONCALME_DEPOSIT_AMOUNT = 20;
 (function(){
   if (window.MONCALME_PAYMENT_LINK) {
     document.querySelectorAll('[data-pay-link]').forEach(function(a){ a.href = window.MONCALME_PAYMENT_LINK; a.hidden = false; });
@@ -2424,7 +2426,7 @@ window.MONCALME_PAYMENT_LINK = '';
 (function(){
   var wrap = document.querySelector('.rdv-wrap.wiz');
   if (!wrap) return;
-  var T = {"steps": ["Voyage", "Lieu & date", "Séance", "Coordonnées"], "back": "← Retour", "next": "Continuer", "last": "Vérifier et réserver", "total": "Total", "stepof": "Étape {n} sur 4", "err1": "Choisissez un voyage sonore pour continuer.", "err2a": "Choisissez le lieu de la séance.", "err2b": "Choisissez une date (ou « Je suis flexible »).", "err2c": "Cette date ne correspond pas au lieu choisi.", "nav": "Étapes de la réservation", "book": "Réserver ce voyage", "express30": "Réserver en 30 secondes", "gift": "C'est pour offrir", "giftDesc": "— une carte cadeau, la personne choisira sa date avec moi", "giftNote": "Pour un cadeau, le lieu et la date sont facultatifs : la personne les choisira avec moi. Laissez « Je suis flexible » si vous ne savez pas.", "giftTitle": "Pour qui est ce cadeau ?", "giftName": "Prénom de la personne *", "giftNamePh": "Son prénom", "giftMsg": "Un mot à glisser sur la carte (optionnel)", "giftMsgPh": "Joyeux anniversaire…", "giftInfo": "Je vous envoie par email une carte cadeau à imprimer ou à transférer, avec le lien de paiement.", "giftCart": "Carte cadeau", "giftErr": "Indiquez le prénom de la personne à qui vous offrez la séance.", "giftConfirm": "Je vous envoie la carte cadeau par email dès réception du paiement.", "giftSubject": "🎁 CARTE CADEAU — ", "depositNote": "Acompte de {a} € à régler en ligne pour confirmer, le solde sur place.", "depositBtn": "Régler l'acompte ({a} €)", "lang": "fr"};
+  var T = {"steps": ["Voyage", "Lieu & date", "Séance", "Coordonnées"], "back": "← Retour", "next": "Continuer", "last": "Vérifier et réserver", "total": "Total", "stepof": "Étape {n} sur 4", "err1": "Choisissez un voyage sonore pour continuer.", "err2a": "Choisissez le lieu de la séance.", "err2b": "Choisissez une date (ou « Je suis flexible »).", "err2c": "Cette date ne correspond pas au lieu choisi.", "nav": "Étapes de la réservation", "book": "Réserver ce voyage", "express30": "Réserver en 30 secondes", "gift": "C'est pour offrir", "giftDesc": "— une carte cadeau, la personne choisira sa date avec moi", "giftNote": "Pour un cadeau, le lieu et la date sont facultatifs : la personne les choisira avec moi. Laissez « Je suis flexible » si vous ne savez pas.", "giftTitle": "Pour qui est ce cadeau ?", "giftName": "Prénom de la personne *", "giftNamePh": "Son prénom", "giftMsg": "Un mot à glisser sur la carte (optionnel)", "giftMsgPh": "Joyeux anniversaire…", "giftInfo": "Je vous envoie par email une carte cadeau à imprimer ou à transférer, avec le lien de paiement.", "giftCart": "Carte cadeau", "giftErr": "Indiquez le prénom de la personne à qui vous offrez la séance.", "giftConfirm": "Je vous envoie la carte cadeau par email dès réception du paiement.", "giftSubject": "🎁 CARTE CADEAU — ", "depositNote": "Acompte de {a} € à régler en ligne pour confirmer, le solde sur place.", "depositBtn": "Régler l'acompte ({a} €)", "depositConfirm": "Pour réserver votre créneau, réglez l'acompte de {a} € : il est déduit du prix de la séance, et remboursé si le créneau n'est pas disponible. Le solde se règle sur place.", "lang": "fr"};
   var steps = wrap.querySelectorAll('.wiz-step');
   var crumbs = wrap.querySelectorAll('.wiz-progress li');
   var current = 1, reached = 1;
@@ -2541,6 +2543,7 @@ window.MONCALME_PAYMENT_LINK = '';
   };
   var confirmBox = document.getElementById('rdv-confirm');
   if (confirmBox) {
+    if (confirmBox.children[2]) confirmBox.children[2].setAttribute('data-pay-text', '');
     var p = document.createElement('p');
     p.className = 'gift-confirm'; p.hidden = true;
     p.style.cssText = 'font-size:16px;color:var(--gold-light);margin-top:8px;';
@@ -2556,6 +2559,11 @@ window.MONCALME_PAYMENT_LINK = '';
     if (note) {
       if (!note.dataset.orig) note.dataset.orig = note.textContent;
       note.textContent = isGift() ? note.dataset.orig : T.depositNote.replace('{a}', amount);
+    }
+    var pt = document.querySelector('#rdv-confirm [data-pay-text]');
+    if (pt) {
+      if (!pt.dataset.orig) pt.dataset.orig = pt.textContent;
+      pt.textContent = isGift() ? pt.dataset.orig : T.depositConfirm.replace('{a}', amount);
     }
     document.querySelectorAll('#rdv-confirm [data-pay-link]').forEach(function(a){
       a.textContent = T.depositBtn.replace('{a}', amount);
