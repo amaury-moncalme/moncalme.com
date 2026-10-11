@@ -1002,7 +1002,7 @@ html{scroll-padding-top:76px;}
         <summary>Description of the excerpt (text)</summary>
         <p>The opening of the signature set, first played at sunset in Imsouane, on the Moroccan coast.</p>
       </details>
-      <div class="audio-actions"><button type="button" class="express-btn" data-voyage="moncalme" aria-label="Book Mon Calme in 30 seconds">Book in 30 seconds</button></div>
+      <div class="audio-actions"><button type="button" class="voyage-book" data-book-voyage="moncalme" aria-label="Book Mon Calme">Book this journey</button></div>
     </div>
     <div class="audio-card" data-audio-card data-voyage="bugatti">
       <p class="audio-name">Bugatti</p>
@@ -1014,7 +1014,7 @@ html{scroll-padding-top:76px;}
         <summary>Description of the excerpt (text)</summary>
         <p>The opening of the ambient playlist designed for the Musée National de l'Automobile: vibrant, powerful and organic.</p>
       </details>
-      <div class="audio-actions"><button type="button" class="express-btn" data-voyage="bugatti" aria-label="Book Bugatti in 30 seconds">Book in 30 seconds</button></div>
+      <div class="audio-actions"><button type="button" class="voyage-book" data-book-voyage="bugatti" aria-label="Book Bugatti">Book this journey</button></div>
     </div>
     <div class="audio-card" data-audio-card data-voyage="tendre">
       <p class="audio-name">Tendre Distance</p>
@@ -1026,7 +1026,7 @@ html{scroll-padding-top:76px;}
         <summary>Description of the excerpt (text)</summary>
         <p>The opening of a crystalline, intimate set, inspired by the beauty of a human relationship.</p>
       </details>
-      <div class="audio-actions"><button type="button" class="express-btn" data-voyage="tendre" aria-label="Book Tendre Distance in 30 seconds">Book in 30 seconds</button></div>
+      <div class="audio-actions"><button type="button" class="voyage-book" data-book-voyage="tendre" aria-label="Book Tendre Distance">Book this journey</button></div>
     </div>
     <div class="audio-card" data-voyage="dome">
       <p class="audio-name">Dôme</p>
@@ -1036,7 +1036,7 @@ html{scroll-padding-top:76px;}
         <summary>Description of the journey (text)</summary>
         <p>The final chapter of the Sacré Cœur project, composed for an exhibition at the Theatre of Digital Art in Dubai. Angelic, jazzy, white.</p>
       </details>
-      <div class="audio-actions"><button type="button" class="express-btn" data-voyage="dome" aria-label="Book Dôme in 30 seconds">Book in 30 seconds</button></div>
+      <div class="audio-actions"><button type="button" class="voyage-book" data-book-voyage="dome" aria-label="Book Dôme">Book this journey</button></div>
     </div>
     </div>
   </div>
@@ -1105,14 +1105,17 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
 
   <p style="text-align:center; font-size:15px; color:var(--muted); font-style:italic; margin-bottom:36px;">Every sound journey already includes the essentials — you then personalize it to your liking.</p>
 
-  <div class="rdv-wrap">
+  <div class="rdv-wrap wiz" data-wiz-step="1">
 
     <!-- STEPS -->
     <div class="rdv-steps">
 
+      <ol class="wiz-progress" aria-label="Booking steps"><li><button type="button" data-wiz-go="1" aria-current="step"><span class="wiz-num">1</span><span class="wiz-label">Journey</span></button></li><li><button type="button" data-wiz-go="2" disabled><span class="wiz-num">2</span><span class="wiz-label">Place & date</span></button></li><li><button type="button" data-wiz-go="3" disabled><span class="wiz-num">3</span><span class="wiz-label">Session</span></button></li><li><button type="button" data-wiz-go="4" disabled><span class="wiz-num">4</span><span class="wiz-label">Your details</span></button></li></ol>
+
+      <div class="wiz-step" data-step="1" role="group" aria-label="Step 1 of 4 : Journey">
       <!-- STEP 1: Massage -->
       <div class="rdv-block">
-        <p class="rdv-step-label"><span class="rdv-step-num">1</span> Choose your sound journey</p>
+        <p class="rdv-step-label">Choose your sound journey</p>
         <p style="font-size:13.5px; color:var(--muted); font-style:italic; margin:-4px 0 16px;">Scent journey included, plus a choice of touch — to personalize in the next step.</p>
         <div class="massage-options">
           <label class="m-option"><input type="radio" name="massage" value="dome" data-price="20" data-duration="17" data-label="Dôme">
@@ -1123,7 +1126,6 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
               </div>
               <p class="m-option-story">The final chapter of the Sacré Cœur project, composed for an exhibition at the Theatre of Digital Art in Dubai. Angelic, jazzy, white.</p>
               <p class="m-option-price">20 €</p>
-              <button type="button" class="express-btn" aria-label="Book Dôme in 30 seconds">Book in 30 seconds</button>
             </div>
           </label>
           <label class="m-option"><input type="radio" name="massage" value="tendre" data-price="35" data-duration="24" data-label="Tendre Distance">
@@ -1134,7 +1136,6 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
               </div>
               <p class="m-option-story">A crystalline, intimate set, inspired by the beauty of a human relationship.</p>
               <p class="m-option-price">35 €</p>
-              <button type="button" class="express-btn" aria-label="Book Tendre Distance in 30 seconds">Book in 30 seconds</button>
             </div>
           </label>
           <label class="m-option"><input type="radio" name="massage" value="bugatti" data-price="40" data-duration="25" data-label="Bugatti">
@@ -1145,7 +1146,6 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
               </div>
               <p class="m-option-story">An ambient playlist designed for the Musée National de l'Automobile. Vibrant, powerful and organic.</p>
               <p class="m-option-price">40 €</p>
-              <button type="button" class="express-btn" aria-label="Book Bugatti in 30 seconds">Book in 30 seconds</button>
             </div>
           </label>
           <label class="m-option"><input type="radio" name="massage" value="moncalme" data-price="70" data-duration="54" data-label="Mon Calme">
@@ -1156,15 +1156,73 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
               </div>
               <p class="m-option-story">First played at sunset in Imsouane, on the Moroccan coast. The foundation of the whole project: from the first breath to the cry of the seagulls.</p>
               <p class="m-option-price">70 €</p>
-              <button type="button" class="express-btn" aria-label="Book Mon Calme in 30 seconds">Book in 30 seconds</button>
             </div>
           </label>
         </div>
       </div>
 
+        <label class="check-row wiz-gift-check"><input type="checkbox" name="gift" id="wiz-gift" value="1"><span class="check-box"></span><span class="check-label">🎁 It's a gift <span class="check-desc">— a gift card; they'll choose their date with me</span></span></label>
+        <p class="wiz-error" role="alert" hidden></p>
+        <div class="wiz-nav"><p class="wiz-total"><span>Total</span> <strong data-wiz-total>—</strong></p><button type="button" class="wiz-next" data-wiz-next="1">Continue</button></div>
+      </div>
+
+      <div class="wiz-step" data-step="2" role="group" aria-label="Step 2 of 4 : Place & date" hidden>
+        <p class="wiz-gift-note" hidden>🎁 For a gift, place and date are optional: the recipient will choose them with me. Leave “I'm flexible” if you're not sure.</p>
+      <!-- STEP 4: Location -->
+      <div class="rdv-block">
+        <p class="rdv-step-label">Choose the location</p>
+        <div class="lieu-options">
+          <label class="lieu-option"><input type="radio" name="lieu" value="cabinet" data-label="Cabin · 21 rue Véron, Paris 18th (Tuesdays only)">
+            <div class="lieu-content">
+              <p class="lieu-name">At the cabin</p>
+              <p class="lieu-info">21 rue Véron, Paris 18th</p>
+              <p class="lieu-meta">Tuesdays only</p>
+            </div>
+          </label>
+          <label class="lieu-option"><input type="radio" name="lieu" value="domicile" data-label="At your place (Paris)">
+            <div class="lieu-content">
+              <p class="lieu-name">At your place</p>
+              <p class="lieu-info">I come to you</p>
+              <p class="lieu-meta">Every day except Tuesday · Paris</p>
+            </div>
+          </label>
+        </div>
+        <div class="field-wrap" id="adresse-wrap" style="margin-top:16px; display:none;">
+          <label class="field-label">Your address in Paris</label>
+          <input type="text" name="adresse" id="rdv-adresse" placeholder="Number, street, postal code" class="rdv-input">
+        </div>
+        <p style="margin-top:14px;font-size:15px;color:var(--muted);font-style:italic;line-height:1.7;">At the cabin: no travel fee. At your place, in a hotel, or for an event: a travel fee applies, quoted based on the address — I'll confirm it before the session. The total shown here covers the session only.</p>
+      </div>
+
+      <!-- STEP 5: Date & time slot -->
+      <div class="rdv-block">
+        <p class="rdv-step-label">Choose date & time slot</p>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+          <div class="field-wrap">
+            <label class="field-label">Preferred date</label>
+            <select name="date" id="rdv-date" class="rdv-input rdv-select"></select>
+            <p id="rdv-date-hint" class="rdv-hint" style="display:none;"></p>
+          </div>
+          <div class="field-wrap">
+            <label class="field-label">Preferred time slot</label>
+            <select name="creneau" id="rdv-creneau" class="rdv-input rdv-select">
+              <option value="" disabled selected>Choose…</option>
+              <option value="matin">Morning (10am–1pm)</option>
+              <option value="apres-midi">Afternoon (1pm–5pm)</option>
+              <option value="soir">Evening (5pm–9pm)</option>
+              <option value="flexible">Flexible</option>
+            </select>
+          </div>
+        </div>
+      </div>
+        <p class="wiz-error" role="alert" hidden></p>
+        <div class="wiz-nav"><button type="button" class="wiz-back" data-wiz-go="1">← Back</button><p class="wiz-total"><span>Total</span> <strong data-wiz-total>—</strong></p><button type="button" class="wiz-next" data-wiz-next="2">Continue</button></div>
+      </div>
+
+      <div class="wiz-step" data-step="3" role="group" aria-label="Step 3 of 4 : Session" hidden>
       <!-- STEP 2: Included personalization -->
       <div class="rdv-block">
-        <p class="rdv-step-label"><span class="rdv-step-num">2</span> Personalize your session <span style="color:var(--muted); font-weight:400;">(included)</span></p>
+        <p class="rdv-step-label">Personalize your session <span style="color:var(--muted); font-weight:400;">(included)</span></p>
 
         <p class="perso-label">Touch</p>
         <div class="toucher-toggle">
@@ -1185,7 +1243,7 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
 
       <!-- STEP 3: Add-on options -->
       <div class="rdv-block">
-        <p class="rdv-step-label"><span class="rdv-step-num">3</span> Add-on options <span style="color:var(--muted); font-weight:400;">(optional)</span></p>
+        <p class="rdv-step-label">Add-on options <span style="color:var(--muted); font-weight:400;">(optional)</span></p>
         <div class="modules-options">
           <label class="mod-option"><input type="checkbox" name="mod" value="live" data-price="20" data-label="Semi-improvised live set">
             <div class="mod-content">
@@ -1216,58 +1274,14 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
           </label>
         </div>
       </div>
-
-      <!-- STEP 4: Location -->
-      <div class="rdv-block">
-        <p class="rdv-step-label"><span class="rdv-step-num">4</span> Choose the location</p>
-        <div class="lieu-options">
-          <label class="lieu-option"><input type="radio" name="lieu" value="cabinet" data-label="Cabin · 21 rue Véron, Paris 18th (Tuesdays only)">
-            <div class="lieu-content">
-              <p class="lieu-name">At the cabin</p>
-              <p class="lieu-info">21 rue Véron, Paris 18th</p>
-              <p class="lieu-meta">Tuesdays only</p>
-            </div>
-          </label>
-          <label class="lieu-option"><input type="radio" name="lieu" value="domicile" data-label="At your place (Paris)">
-            <div class="lieu-content">
-              <p class="lieu-name">At your place</p>
-              <p class="lieu-info">I come to you</p>
-              <p class="lieu-meta">Every day except Tuesday · Paris</p>
-            </div>
-          </label>
-        </div>
-        <div class="field-wrap" id="adresse-wrap" style="margin-top:16px; display:none;">
-          <label class="field-label">Your address in Paris</label>
-          <input type="text" name="adresse" id="rdv-adresse" placeholder="Number, street, postal code" class="rdv-input">
-        </div>
-        <p style="margin-top:14px;font-size:15px;color:var(--muted);font-style:italic;line-height:1.7;">At the cabin: no travel fee. At your place, in a hotel, or for an event: a travel fee applies, quoted based on the address — I'll confirm it before the session. The total shown here covers the session only.</p>
+        <p class="wiz-error" role="alert" hidden></p>
+        <div class="wiz-nav"><button type="button" class="wiz-back" data-wiz-go="2">← Back</button><p class="wiz-total"><span>Total</span> <strong data-wiz-total>—</strong></p><button type="button" class="wiz-next" data-wiz-next="3">Continue</button></div>
       </div>
 
-      <!-- STEP 5: Date & time slot -->
-      <div class="rdv-block">
-        <p class="rdv-step-label"><span class="rdv-step-num">5</span> Choose date & time slot</p>
-        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
-          <div class="field-wrap">
-            <label class="field-label">Preferred date</label>
-            <select name="date" id="rdv-date" class="rdv-input rdv-select"></select>
-            <p id="rdv-date-hint" class="rdv-hint" style="display:none;"></p>
-          </div>
-          <div class="field-wrap">
-            <label class="field-label">Preferred time slot</label>
-            <select name="creneau" id="rdv-creneau" class="rdv-input rdv-select">
-              <option value="" disabled selected>Choose…</option>
-              <option value="matin">Morning (10am–1pm)</option>
-              <option value="apres-midi">Afternoon (1pm–5pm)</option>
-              <option value="soir">Evening (5pm–9pm)</option>
-              <option value="flexible">Flexible</option>
-            </select>
-          </div>
-        </div>
-      </div>
-
+      <div class="wiz-step" data-step="4" role="group" aria-label="Step 4 of 4 : Your details" hidden>
       <!-- STEP 6: Contact details -->
       <div class="rdv-block">
-        <p class="rdv-step-label"><span class="rdv-step-num">6</span> Your details</p>
+        <p class="rdv-step-label">Your details</p>
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
           <div class="field-wrap">
             <label class="field-label">First name *</label>
@@ -1286,6 +1300,16 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
           <label class="field-label">Your intention (optional)</label>
           <textarea name="intention" id="rdv-intention" placeholder="Describe what you're looking for: stress relief, letting go, curiosity, a gift…" rows="3" class="rdv-input" style="resize:vertical;"></textarea>
         </div>
+      </div>
+
+      <div class="rdv-block wiz-gift-fields" hidden>
+        <p class="rdv-step-label">🎁 Who is this gift for?</p>
+        <div class="field-wrap" style="margin-bottom:16px;"><label class="field-label" for="gift-name">Their first name *</label><input type="text" id="gift-name" class="rdv-input" placeholder="First name"></div>
+        <div class="field-wrap"><label class="field-label" for="gift-msg">A few words for the card (optional)</label><textarea id="gift-msg" rows="2" class="rdv-input" style="resize:vertical;" placeholder="Happy birthday…"></textarea></div>
+        <p class="wiz-gift-info">I'll email you a gift card to print or forward, along with the payment link.</p>
+      </div>
+        <p class="wiz-error" role="alert" hidden></p>
+        <div class="wiz-nav"><button type="button" class="wiz-back" data-wiz-go="3">← Back</button></div>
       </div>
 
     </div>
@@ -2157,6 +2181,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     formData.append('Intention', document.getElementById('rdv-intention').value || '—');
     formData.append('Order recap', recap);
     formData.append('_subject', 'New Mon Calme booking — ' + massage.dataset.label + ' (' + total + ' €)');
+    if (typeof window.mcBeforeSend === 'function') window.mcBeforeSend(formData);
 
     cartBtn.disabled = true;
     document.getElementById('cart-error').hidden = true;
@@ -2190,8 +2215,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 <style>
 /* Réservation express */
-.express-btn{display:inline-block;margin-top:12px;background:transparent;border:0.5px solid rgba(201,169,110,0.45);color:var(--gold-light);font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;padding:9px 14px;cursor:pointer;transition:background .25s,border-color .25s;}
-.express-btn:hover{background:rgba(201,169,110,0.12);border-color:var(--gold-light);}
+.express-btn,.voyage-book{display:inline-block;margin-top:12px;background:transparent;border:0.5px solid rgba(201,169,110,0.45);color:var(--gold-light);font-family:'Jost',sans-serif;font-weight:400;font-size:13px;letter-spacing:0.16em;text-transform:uppercase;padding:9px 14px;cursor:pointer;transition:background .25s,border-color .25s;}
+.express-btn:hover,.voyage-book:hover{background:rgba(201,169,110,0.12);border-color:var(--gold-light);}
 .express-dialog{border:0.5px solid rgba(201,169,110,0.45);background:var(--dark);color:var(--cream);padding:0;width:min(560px,calc(100% - 32px));max-height:calc(100vh - 32px);margin:auto;}
 .express-dialog::backdrop{background:rgba(0,0,0,0.65);}
 .express-inner{padding:34px 30px 28px;position:relative;}
@@ -2217,56 +2242,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 @media (max-width:520px){.express-grid{grid-template-columns:1fr;}.express-inner{padding:30px 20px 24px;}}
 </style>
 <!-- RÉSERVATION EXPRESS -->
-<dialog class="express-dialog" id="express-dialog" aria-labelledby="express-title">
-  <div class="express-inner">
-    <button type="button" class="express-close" id="express-close" aria-label="Close">×</button>
-    <form id="express-form" novalidate>
-      <p class="express-title" id="express-title">Express booking</p>
-      <p class="express-lede">Choose your journey and a time slot: Amaury will confirm the session, the place and the exact time.</p>
-      <div class="express-grid">
-        <div class="express-field full">
-          <label for="express-voyage">Sound journey</label>
-          <select id="express-voyage" name="voyage" class="rdv-input rdv-select" required><option value="dome" data-price="20" data-duration="17">Dôme · 17 min · 20 €</option><option value="tendre" data-price="35" data-duration="24">Tendre Distance · 24 min · 35 €</option><option value="bugatti" data-price="40" data-duration="25">Bugatti · 25 min · 40 €</option><option value="moncalme" data-price="70" data-duration="54">Mon Calme · 54 min · 70 €</option></select>
-        </div>
-        <div class="express-field">
-          <label for="express-date">Preferred date</label>
-          <select id="express-date" name="date" class="rdv-input rdv-select"></select>
-        </div>
-        <div class="express-field">
-          <label for="express-creneau">Preferred time slot</label>
-          <select id="express-creneau" name="creneau" class="rdv-input rdv-select"><option value="">Choose…</option><option value="matin">Morning (10am–1pm)</option><option value="apres-midi">Afternoon (1pm–5pm)</option><option value="soir">Evening (5pm–9pm)</option><option value="flexible">Flexible</option></select>
-        </div>
-        <div class="express-field">
-          <label for="express-prenom">First name *</label>
-          <input type="text" id="express-prenom" name="prenom" class="rdv-input" autocomplete="given-name" required>
-        </div>
-        <div class="express-field">
-          <label for="express-email">Email *</label>
-          <input type="email" id="express-email" name="email" class="rdv-input" autocomplete="email" required>
-        </div>
-        <div class="express-field full">
-          <label for="express-tel">Phone</label>
-          <input type="tel" id="express-tel" name="tel" class="rdv-input" autocomplete="tel">
-        </div>
-      </div>
-      <p class="express-note">Studio on Tuesdays (21 rue Véron, Paris 18th), at your home every day except Tuesday in Paris. Intuitive touch and olfactory journey included; you can share your wishes when replying to the confirmation. Your details are used only to organise your session.</p>
-      <p class="express-total"><span>Total</span><strong id="express-total-value"></strong></p>
-      <button type="submit" class="cart-btn" id="express-submit">Send my request</button>
-      <p class="express-status" id="express-status" role="status" aria-live="polite"></p>
-      <a href="#rdv" class="express-full" id="express-full">Build my session in detail (options, place) →</a>
-    </form>
-    <div class="express-done" id="express-done" tabindex="-1">
-      <p class="express-done-title">Request sent ✦</p>
-      <p>Amaury will get back to you within 24h to confirm.</p>
-      <p>A secure payment link will be sent to you to confirm your booking. You can also pay on-site.</p>
-      <a href="#" class="pay-link" data-pay-link hidden target="_blank" rel="noopener">Pay online now</a>
-    </div>
-  </div>
-</dialog>
+
 <script>
 // [À COMPLÉTER PAR AMAURY] Lien de paiement Stripe / SumUp (Payment Link générique).
 // Laisser vide tant qu'il n'existe pas : le bouton « payer » reste alors masqué.
-window.MONCALME_PAYMENT_LINK = '';
+window.MONCALME_PAYMENT_LINK = 'https://pay.sumup.com/b2c/QHA8E6VG';
+// Montant de l'acompte demandé via ce lien (en €)
+window.MONCALME_DEPOSIT_AMOUNT = 20;
 (function(){
   if (window.MONCALME_PAYMENT_LINK) {
     document.querySelectorAll('[data-pay-link]').forEach(function(a){ a.href = window.MONCALME_PAYMENT_LINK; a.hidden = false; });
@@ -2410,6 +2392,229 @@ window.MONCALME_PAYMENT_LINK = '';
     }
     d.addEventListener('change', apply); apply();
   });
+})();
+</script>
+
+
+<style>
+/* ===== Parcours de réservation par étapes ===== */
+.wiz .rdv-steps { gap: 0; }
+.wiz-step[hidden] { display: none !important; }
+.wiz-step { display: flex; flex-direction: column; gap: 40px; animation: wizIn .35s ease; }
+@keyframes wizIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .wiz-step { animation: none; } }
+
+.wiz-progress { list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin: 0 0 36px; padding: 0; scroll-margin-top: 90px; }
+.wiz-progress li { margin: 0; }
+.wiz-progress button { width: 100%; display: flex; align-items: center; gap: 10px; background: none; border: 0; border-top: 1px solid rgba(201,169,110,0.2); padding: 12px 0 0; color: var(--muted); font-family: 'Jost', sans-serif; font-size: 12.5px; letter-spacing: 0.14em; text-transform: uppercase; text-align: left; cursor: pointer; }
+.wiz-progress button:disabled { cursor: default; opacity: 0.55; }
+.wiz-progress .wiz-num { flex: none; width: 24px; height: 24px; border-radius: 50%; border: 0.5px solid rgba(201,169,110,0.45); display: inline-flex; align-items: center; justify-content: center; font-size: 12px; letter-spacing: 0; }
+.wiz-progress .is-done button { color: var(--gold-light); border-top-color: var(--gold); }
+.wiz-progress .is-done .wiz-num { background: rgba(201,169,110,0.15); }
+.wiz-progress button[aria-current="step"] { color: var(--cream); border-top: 2px solid var(--gold); padding-top: 11px; opacity: 1; }
+.wiz-progress button[aria-current="step"] .wiz-num { background: var(--gold); border-color: var(--gold); color: var(--dark); }
+.wiz-progress button:not(:disabled):hover .wiz-label { text-decoration: underline; text-underline-offset: 4px; }
+
+.wiz-nav { display: flex; align-items: center; gap: 16px; padding-top: 8px; }
+.wiz-back { background: none; border: 0; color: var(--muted); font-family: 'Jost', sans-serif; font-size: 14.5px; letter-spacing: 0.08em; cursor: pointer; padding: 14px 0; }
+.wiz-back:hover { color: var(--gold-light); }
+.wiz-next { margin-left: auto; background: transparent; border: 0.5px solid var(--gold); color: var(--gold-light); font-family: 'Jost', sans-serif; font-size: 14px; letter-spacing: 0.16em; text-transform: uppercase; padding: 15px 30px; cursor: pointer; transition: background .2s, color .2s; }
+.wiz-next:hover { background: var(--gold); color: var(--dark); }
+.wiz-total { display: none; margin: 0; font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.wiz-total strong { font-family: 'Cormorant Garamond', serif; font-size: 24px; letter-spacing: 0; color: var(--gold-light); font-weight: 400; margin-left: 4px; }
+.wiz-error { margin: -16px 0 0; font-size: 15.5px; color: #E3A08C; }
+[data-theme="light"] .wiz-error { color: #9A3A22; }
+.wiz-error[hidden] { display: none; }
+
+.wiz-gift-check { margin-top: -12px; }
+.wiz-gift-note, .wiz-gift-info { font-size: 15px; color: var(--muted); font-style: italic; line-height: 1.7; margin: 0; }
+.wiz-gift-note { border-left: 1px solid var(--gold); padding-left: 14px; }
+.wiz-gift-info { margin-top: 14px; }
+.wiz-gift-fields[hidden], .wiz-gift-note[hidden] { display: none; }
+.cart-line.gift .name { color: var(--gold-light); }
+/* Le bouton d'envoi n'apparaît qu'à la dernière étape */
+.wiz:not([data-wiz-step="4"]) #cart-submit { display: none; }
+
+@media (max-width: 900px) {
+  .wiz-progress { gap: 4px; margin-bottom: 28px; }
+  .wiz-progress button { flex-direction: column; align-items: flex-start; gap: 6px; font-size: 10.5px; letter-spacing: 0.08em; }
+  .wiz-progress .wiz-label { display: none; }
+  .wiz-progress button[aria-current="step"] .wiz-label { display: block; white-space: nowrap; }
+  /* Barre d'action collée en bas de l'écran, avec le total */
+  .wiz-nav { position: sticky; bottom: 0; z-index: 5; margin: 0 -20px; padding: 10px 20px calc(10px + env(safe-area-inset-bottom)); background: rgba(var(--dark-rgb),0.94); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border-top: 0.5px solid rgba(201,169,110,0.35); }
+  .wiz-total { display: block; }
+  .wiz-next { padding: 14px 20px; }
+  .wiz-back { font-size: 0; padding: 14px 4px; }
+  .wiz-back::before { content: '←'; font-size: 20px; }
+  .wiz-step[data-step="4"] .wiz-back { font-size: 14.5px; }
+  .wiz-step[data-step="4"] .wiz-back::before { content: none; }
+  .wiz-step[data-step="4"] .wiz-nav { position: static; background: none; border: 0; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  /* Le récapitulatif complet n'apparaît qu'à la dernière étape */
+  .wiz:not([data-wiz-step="4"]) .rdv-cart { display: none; }
+  .wiz { gap: 20px; }
+}
+</style>
+
+<script>
+// Parcours de réservation par étapes
+(function(){
+  var wrap = document.querySelector('.rdv-wrap.wiz');
+  if (!wrap) return;
+  var T = {"steps": ["Journey", "Place & date", "Session", "Your details"], "back": "← Back", "next": "Continue", "last": "Continue", "total": "Total", "stepof": "Step {n} of 4", "err1": "Choose a sound journey to continue.", "err2a": "Choose where the session takes place.", "err2b": "Choose a date (or “I'm flexible”).", "err2c": "This date doesn't match the chosen location.", "nav": "Booking steps", "book": "Book this journey", "express30": "Book in 30 seconds", "gift": "It's a gift", "giftDesc": "— a gift card; they'll choose their date with me", "giftNote": "For a gift, place and date are optional: the recipient will choose them with me. Leave “I'm flexible” if you're not sure.", "giftTitle": "Who is this gift for?", "giftName": "Their first name *", "giftNamePh": "First name", "giftMsg": "A few words for the card (optional)", "giftMsgPh": "Happy birthday…", "giftInfo": "I'll email you a gift card to print or forward, along with the payment link.", "giftCart": "Gift card", "giftErr": "Please enter the first name of the person you're offering the session to.", "giftConfirm": "I'll email you the gift card as soon as payment is received.", "giftSubject": "🎁 CARTE CADEAU — ", "depositNote": "A {a} € deposit, paid online, confirms your booking; the rest is paid on-site.", "depositBtn": "Pay the deposit ({a} €)", "depositConfirm": "To secure your slot, pay the {a} € deposit: it is deducted from the session price, and refunded if the slot isn't available. The rest is paid on-site.", "lang": "en"};
+  var steps = wrap.querySelectorAll('.wiz-step');
+  var crumbs = wrap.querySelectorAll('.wiz-progress li');
+  var current = 1, reached = 1;
+
+  function q(sel){ return document.querySelector(sel); }
+  function isGift(){ var g = document.getElementById('wiz-gift'); return !!(g && g.checked); }
+  function showError(n, msg){
+    var e = steps[n-1].querySelector('.wiz-error');
+    if (!msg) { e.hidden = true; return; }
+    e.textContent = msg; e.hidden = false;
+  }
+  function valid(n){
+    if (n === 1 && !q('input[name="massage"]:checked')) return T.err1;
+    if (n === 2 && !isGift()) {
+      if (!q('input[name="lieu"]:checked')) return T.err2a;
+      var d = document.getElementById('rdv-date');
+      if (!d || d.selectedIndex < 1) return T.err2b;
+      var h = document.getElementById('rdv-date-hint');
+      if (h && h.classList.contains('error') && h.style.display !== 'none') return T.err2c;
+    }
+    if (n === 2 && isGift()) {
+      var h2 = document.getElementById('rdv-date-hint');
+      if (h2 && h2.classList.contains('error') && h2.style.display !== 'none') return T.err2c;
+    }
+    return '';
+  }
+  function go(n, focus, fromHistory){
+    if (n < 1 || n > 4 || n > reached) return;
+    // Bouton « retour » du téléphone / navigateur : chaque étape est une entrée d'historique
+    if (!fromHistory && n !== current && window.history && history.pushState) {
+      if (!history.state || !history.state.wizStep) history.replaceState({ wizStep: current }, '');
+      history.pushState({ wizStep: n }, '');
+    }
+    current = n;
+    wrap.setAttribute('data-wiz-step', n);
+    steps.forEach(function(s, i){ s.hidden = (i + 1 !== n); });
+    crumbs.forEach(function(li, i){
+      var b = li.querySelector('button');
+      li.classList.toggle('is-done', i + 1 < n || (i + 1 <= reached && i + 1 !== n));
+      b.disabled = i + 1 > reached;
+      if (i + 1 === n) b.setAttribute('aria-current', 'step'); else b.removeAttribute('aria-current');
+    });
+    if (focus !== false) {
+      var top = wrap.querySelector('.wiz-progress').getBoundingClientRect().top + window.scrollY - 90;
+      if (Math.abs(window.scrollY - top) > 40) window.scrollTo({ top: top, behavior: 'smooth' });
+      var label = steps[n-1].querySelector('.rdv-step-label');
+      if (label) { label.setAttribute('tabindex', '-1'); label.focus({ preventScroll: true }); }
+    }
+    if (typeof gtag === 'function') gtag('event', 'rdv_step', { step: n, page_language: T.lang });
+  }
+  // « Réserver ce voyage » (sous les extraits) : voyage pré-sélectionné, on passe au lieu et à la date
+  document.addEventListener('click', function(e){
+    var bk = e.target.closest('[data-book-voyage]');
+    if (!bk) return;
+    var r = document.querySelector('input[name="massage"][value="' + bk.getAttribute('data-book-voyage') + '"]');
+    if (!r) return;
+    if (!r.checked) { r.checked = true; r.dispatchEvent(new Event('change', { bubbles: true })); }
+    reached = Math.max(reached, 2);
+    go(2);
+    if (typeof gtag === 'function') gtag('event', 'book_from_audio', { voyage: r.value, page_language: T.lang });
+  });
+  wrap.addEventListener('click', function(e){
+    var nx = e.target.closest('[data-wiz-next]');
+    if (nx) {
+      var n = +nx.getAttribute('data-wiz-next'), err = valid(n);
+      showError(n, err);
+      if (err) return;
+      reached = Math.max(reached, n + 1);
+      go(n + 1);
+      return;
+    }
+    var g = e.target.closest('[data-wiz-go]');
+    if (g && !g.disabled) go(+g.getAttribute('data-wiz-go'));
+  });
+  window.addEventListener('popstate', function(e){
+    if (wrap.classList.contains('is-sent')) return;
+    var n = (e.state && e.state.wizStep) || 1;
+    if (n !== current) go(Math.min(n, reached), true, true);
+  });
+
+  // ---- Cadeau
+  function syncGift(){
+    var on = isGift();
+    wrap.querySelectorAll('.wiz-gift-note, .wiz-gift-fields').forEach(function(el){ el.hidden = !on; });
+    var cc = document.getElementById('cart-content'), old = cc && cc.querySelector('.cart-gift');
+    if (old) old.remove();
+    if (on && cc && q('input[name="massage"]:checked')) {
+      var d = document.createElement('div');
+      d.className = 'cart-line included gift cart-gift';
+      d.innerHTML = '<span class="name">🎁 ' + T.giftCart + '</span><span class="price"></span>';
+      cc.insertBefore(d, cc.firstChild);
+    }
+    syncDeposit();
+  }
+  // Vérification avant envoi (le prénom de la personne est obligatoire pour un cadeau)
+  wrap.addEventListener('click', function(e){
+    if (!e.target.closest('#cart-submit') || !isGift()) return;
+    var name = document.getElementById('gift-name');
+    if (!name.value.trim()) {
+      e.stopPropagation(); e.preventDefault();
+      if (typeof mcCartError === 'function') mcCartError(T.giftErr);
+      name.focus();
+    }
+  }, true);
+  window.mcBeforeSend = function(fd){
+    wrap.classList.add('is-sent');
+    var gc = document.querySelector('.gift-confirm');
+    if (!isGift()) { if (gc) gc.hidden = true; return; }
+    fd.append('Cadeau', 'OUI — pour ' + document.getElementById('gift-name').value.trim());
+    fd.append('Mot sur la carte', document.getElementById('gift-msg').value.trim() || '—');
+    fd.set('_subject', T.giftSubject + fd.get('_subject'));
+    if (gc) gc.hidden = false;
+    if (typeof gtag === 'function') gtag('event', 'gift_request', { page_language: T.lang });
+  };
+  var confirmBox = document.getElementById('rdv-confirm');
+  if (confirmBox) {
+    if (confirmBox.children[2]) confirmBox.children[2].setAttribute('data-pay-text', '');
+    var p = document.createElement('p');
+    p.className = 'gift-confirm'; p.hidden = true;
+    p.style.cssText = 'font-size:16px;color:var(--gold-light);margin-top:8px;';
+    p.textContent = '🎁 ' + T.giftConfirm;
+    confirmBox.insertBefore(p, confirmBox.children[2] || null);
+  }
+
+  // ---- Acompte (actif dès que le lien SumUp est renseigné, hors cadeau)
+  function syncDeposit(){
+    var link = window.MONCALME_PAYMENT_LINK, amount = window.MONCALME_DEPOSIT_AMOUNT;
+    if (!link || !amount) return;
+    var note = document.querySelector('#cart-total .cart-note');
+    if (note) {
+      if (!note.dataset.orig) note.dataset.orig = note.textContent;
+      note.textContent = isGift() ? note.dataset.orig : T.depositNote.replace('{a}', amount);
+    }
+    var pt = document.querySelector('#rdv-confirm [data-pay-text]');
+    if (pt) {
+      if (!pt.dataset.orig) pt.dataset.orig = pt.textContent;
+      pt.textContent = isGift() ? pt.dataset.orig : T.depositConfirm.replace('{a}', amount);
+    }
+    document.querySelectorAll('#rdv-confirm [data-pay-link]').forEach(function(a){
+      a.textContent = T.depositBtn.replace('{a}', amount);
+      a.hidden = isGift();
+    });
+  }
+
+  // Total affiché dans la barre d'action + effacement des erreurs
+  function syncTotal(){
+    var v = document.getElementById('cart-total-value');
+    var on = document.getElementById('cart-total').style.display !== 'none';
+    wrap.querySelectorAll('[data-wiz-total]').forEach(function(el){ el.textContent = on ? v.textContent : '—'; });
+  }
+  wrap.addEventListener('change', function(){
+    setTimeout(function(){ syncTotal(); syncGift(); if (!valid(current)) showError(current, ''); }, 0);
+  });
+  syncTotal(); syncGift();
 })();
 </script>
 
