@@ -358,6 +358,9 @@ body {
   letter-spacing: 0.06em;
   color: var(--gold-light);
 }
+.location-pill { flex-direction: column; align-items: flex-start; gap: 8px; line-height: 1.5; }
+.loc-row { display: flex; align-items: baseline; gap: 10px; }
+.loc-row .dot { position: relative; top: -2px; }
 .dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
 
 /* ── SECTIONS ─────────────────────────────── */
@@ -849,10 +852,9 @@ html{scroll-padding-top:76px;}
     <p class="hero-desc">Experiencias sensoriales construidas en torno al sonido, la respiración y la presencia. En el corazón de cada sesión, un viaje sonoro único compuesto por Amaury, escuchado con auriculares o con un equipo de sonido audiófilo adaptado al espacio. El tacto y la música en directo son opciones que puedes añadir según tus deseos.</p>
     <a href="#rdv" class="hero-cta">Reservar mi sesión →</a>
     <div class="location-pill">
-      <span class="dot"></span>
-      Gabinete los martes · 21 rue Véron, 75018 París
+      <span class="loc-row"><span class="dot"></span>Gabinete los martes · 21 rue Véron, 75018 París</span>
+      <span class="loc-row"><span class="dot"></span>Los demás días · a domicilio en todo París</span>
     </div>
-    <p style="font-size: 15px; color: var(--muted); margin-top: 14px; font-style: italic; line-height: 1.7;">El resto de días, Amaury se desplaza a donde estés en París.</p>
   </div>
 </section>
 
