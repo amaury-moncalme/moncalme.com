@@ -1098,6 +1098,17 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
         <p class="rdv-step-label"><span class="rdv-step-num">1</span> Choisissez votre voyage sonore</p>
         <p style="font-size:13.5px; color:var(--muted); font-style:italic; margin:-4px 0 16px;">Voyage olfactif inclus, ainsi qu'un toucher au choix — à personnaliser à l'étape suivante.</p>
         <div class="massage-options">
+          <label class="m-option"><input type="radio" name="massage" value="dome" data-price="20" data-duration="17" data-label="Dôme">
+            <div class="m-option-content">
+              <div class="m-option-header">
+                <p class="m-option-name">Dôme</p>
+                <p class="m-option-meta">17 MIN</p>
+              </div>
+              <p class="m-option-story">Dernier chapitre du projet Sacré Cœur, composé pour une exposition au Theatre of Digital Art, à Dubaï. Angélique, jazzy, blanc.</p>
+              <p class="m-option-price">20 €</p>
+              <button type="button" class="express-btn" aria-label="Réserver Dôme en 30 secondes">Réserver en 30 secondes</button>
+            </div>
+          </label>
           <label class="m-option"><input type="radio" name="massage" value="tendre" data-price="35" data-duration="24" data-label="Tendre Distance">
             <div class="m-option-content">
               <div class="m-option-header">
@@ -1118,17 +1129,6 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
               <p class="m-option-story">Playlist ambient conçue pour le Musée National de l'Automobile. Vibratoire, puissant et organique.</p>
               <p class="m-option-price">40 €</p>
               <button type="button" class="express-btn" aria-label="Réserver Bugatti en 30 secondes">Réserver en 30 secondes</button>
-            </div>
-          </label>
-          <label class="m-option"><input type="radio" name="massage" value="dome" data-price="20" data-duration="17" data-label="Dôme">
-            <div class="m-option-content">
-              <div class="m-option-header">
-                <p class="m-option-name">Dôme</p>
-                <p class="m-option-meta">17 MIN</p>
-              </div>
-              <p class="m-option-story">Dernier chapitre du projet Sacré Cœur, composé pour une exposition au Theatre of Digital Art, à Dubaï. Angélique, jazzy, blanc.</p>
-              <p class="m-option-price">20 €</p>
-              <button type="button" class="express-btn" aria-label="Réserver Dôme en 30 secondes">Réserver en 30 secondes</button>
             </div>
           </label>
           <label class="m-option"><input type="radio" name="massage" value="moncalme" data-price="70" data-duration="54" data-label="Mon Calme">
@@ -2209,7 +2209,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
       <div class="express-grid">
         <div class="express-field full">
           <label for="express-voyage">Voyage sonore</label>
-          <select id="express-voyage" name="voyage" class="rdv-input rdv-select" required><option value="tendre" data-price="35" data-duration="24">Tendre Distance · 24 min · 35 €</option><option value="bugatti" data-price="40" data-duration="25">Bugatti · 25 min · 40 €</option><option value="dome" data-price="20" data-duration="17">Dôme · 17 min · 20 €</option><option value="moncalme" data-price="70" data-duration="54">Mon Calme · 54 min · 70 €</option></select>
+          <select id="express-voyage" name="voyage" class="rdv-input rdv-select" required><option value="dome" data-price="20" data-duration="17">Dôme · 17 min · 20 €</option><option value="tendre" data-price="35" data-duration="24">Tendre Distance · 24 min · 35 €</option><option value="bugatti" data-price="40" data-duration="25">Bugatti · 25 min · 40 €</option><option value="moncalme" data-price="70" data-duration="54">Mon Calme · 54 min · 70 €</option></select>
         </div>
         <div class="express-field">
           <label for="express-date">Date souhaitée</label>
