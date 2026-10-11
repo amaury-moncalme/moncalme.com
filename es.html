@@ -1005,12 +1005,10 @@ html{scroll-padding-top:76px;}
       </details>
       <div class="audio-actions"><button type="button" class="voyage-book" data-book-voyage="moncalme" aria-label="Reservar Mon Calme">Reservar este viaje</button></div>
     </div>
-    <div class="audio-card" data-audio-card data-voyage="bugatti">
+    <div class="audio-card" data-voyage="bugatti">
       <p class="audio-name">Bugatti</p>
       <p class="audio-meta">Musée National de l'Automobile · Los 2 primeros minutos</p>
-      <!-- Fichier : /audio/bugatti-extrait.mp3 (mp3) -->
-      <audio controls preload="none" aria-label="Bugatti — Los 2 primeros minutos"><source src="/audio/bugatti-extrait.mp3" type="audio/mpeg"></audio>
-      <p class="audio-fallback" hidden>Fragmento no disponible temporalmente.</p>
+      <div class="sc-player"><button type="button" class="sc-listen" data-sc-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/soundcloud%3Atracks%3A2417261265%3Fsecret_token%3Ds-Klv2wOHkkKm&color=%23c9a96e&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false" data-sc-title="Reproductor de SoundCloud: Bugatti (fragmento)">▶ Escuchar el fragmento</button></div>
       <details>
         <summary>Descripción del fragmento (texto)</summary>
         <p>El inicio de la playlist ambient creada para el Musée National de l'Automobile: vibrante, potente y orgánica.</p>
@@ -1058,15 +1056,17 @@ html{scroll-padding-top:76px;}
     });
   });
   // Dôme : le lecteur SoundCloud ne se charge qu'au clic (page plus légère, pas de cookies tiers avant)
-  var sc = document.querySelector('button.sc-listen');
-  if (sc) sc.addEventListener('click', function(){
-    document.querySelectorAll('[data-audio-card] audio').forEach(function(a){ a.pause(); });
-    var f = document.createElement('iframe');
-    f.src = sc.dataset.scSrc; f.title = sc.dataset.scTitle;
-    f.width = '100%'; f.height = '166'; f.setAttribute('frameborder', 'no'); f.setAttribute('scrolling', 'no');
-    f.allow = 'autoplay; encrypted-media';
-    sc.parentNode.replaceChild(f, sc);
-    if (typeof gtag === 'function') gtag('event', 'audio_play', { voyage: 'dome', source: 'soundcloud' });
+  document.querySelectorAll('button.sc-listen').forEach(function(sc){
+    sc.addEventListener('click', function(){
+      document.querySelectorAll('[data-audio-card] audio').forEach(function(a){ a.pause(); });
+      var f = document.createElement('iframe');
+      f.src = sc.dataset.scSrc; f.title = sc.dataset.scTitle;
+      f.width = '100%'; f.height = sc.dataset.scHeight || '166'; f.setAttribute('frameborder', 'no'); f.setAttribute('scrolling', 'no');
+      f.allow = 'autoplay; encrypted-media';
+      sc.parentNode.replaceChild(f, sc);
+      var card = f.closest('.audio-card');
+      if (typeof gtag === 'function') gtag('event', 'audio_play', { voyage: card ? card.dataset.voyage : '', source: 'soundcloud' });
+    });
   });
 })();
 </script>
