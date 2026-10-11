@@ -74,7 +74,7 @@
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Friday",
+        "dayOfWeek": "Tuesday",
         "opens": "10:00",
         "closes": "20:00"
       }
@@ -864,7 +864,7 @@ html{scroll-padding-top:76px;}
     <a href="#rdv" class="hero-cta">Réserver ma séance →</a>
     <div class="location-pill">
       <span class="dot"></span>
-      Cabinet le vendredi · 21 rue Véron, 75018 Paris
+      Cabinet le mardi · 21 rue Véron, 75018 Paris
     </div>
     <p style="font-size: 15px; color: var(--muted); margin-top: 14px; font-style: italic; line-height: 1.7;">Les autres jours, déplacement à domicile sur Paris.</p>
   </div>
@@ -1156,18 +1156,18 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
       <div class="rdv-block">
         <p class="rdv-step-label">Choisissez le lieu</p>
         <div class="lieu-options">
-          <label class="lieu-option"><input type="radio" name="lieu" value="cabinet" data-label="Cabinet · 21 rue Véron, Paris 18e (vendredi uniquement)">
+          <label class="lieu-option"><input type="radio" name="lieu" value="cabinet" data-label="Cabinet · 21 rue Véron, Paris 18e (mardi uniquement)">
             <div class="lieu-content">
               <p class="lieu-name">Au cabinet</p>
               <p class="lieu-info">21 rue Véron, Paris 18e</p>
-              <p class="lieu-meta">Vendredi uniquement</p>
+              <p class="lieu-meta">Mardi uniquement</p>
             </div>
           </label>
           <label class="lieu-option"><input type="radio" name="lieu" value="domicile" data-label="À domicile (Paris)">
             <div class="lieu-content">
               <p class="lieu-name">À domicile</p>
               <p class="lieu-info">Je me déplace chez vous</p>
-              <p class="lieu-meta">Du lundi au jeudi · Paris</p>
+              <p class="lieu-meta">Tous les jours sauf mardi · Paris</p>
             </div>
           </label>
         </div>
@@ -2032,15 +2032,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
       return true;
     }
     const day = new Date(dateField.value).getDay(); // 0=dim, 5=ven, 6=sam
-    if (lieu.value === 'cabinet' && day !== 5) {
-      dateHint.textContent = 'Le cabinet est ouvert uniquement le vendredi. Merci de choisir un vendredi.';
+    if (lieu.value === 'cabinet' && day !== 2) {
+      dateHint.textContent = 'Le cabinet est ouvert uniquement le mardi. Merci de choisir un mardi.';
       dateHint.className = 'rdv-hint error';
       dateHint.style.display = 'block';
       dateField.classList.add('invalid');
       return false;
     }
-    if (lieu.value === 'domicile' && (day === 5 || day === 6 || day === 0)) {
-      dateHint.textContent = 'Les déplacements à domicile ont lieu du lundi au jeudi.';
+    if (lieu.value === 'domicile' && day === 2) {
+      dateHint.textContent = 'Les déplacements à domicile ont lieu tous les jours sauf le mardi.';
       dateHint.className = 'rdv-hint error';
       dateHint.style.display = 'block';
       dateField.classList.add('invalid');
@@ -2060,9 +2060,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     if (!dateField.value) {
       // Afficher un hint préventif
       if (lieu.value === 'cabinet') {
-        dateHint.textContent = 'Au cabinet : vendredi uniquement.';
+        dateHint.textContent = 'Au cabinet : mardi uniquement.';
       } else {
-        dateHint.textContent = 'À domicile : du lundi au jeudi.';
+        dateHint.textContent = 'À domicile : tous les jours sauf le mardi (le vendredi à partir de 13h).';
       }
       dateHint.className = 'rdv-hint';
       dateHint.style.display = 'block';
@@ -2293,7 +2293,7 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
     data.append('Email', form.email.value.trim());
     data.append('Téléphone', form.tel.value.trim() || 'non renseigné');
     var dOpt = form.date.options[form.date.selectedIndex]; var dLieu = dOpt && dOpt.dataset.lieu;
-    data.append('Lieu', dLieu === 'cabinet' ? 'Cabinet · 21 rue Véron, Paris 18e (vendredi uniquement)' : dLieu === 'domicile' ? 'À domicile (Paris)' : 'à confirmer');
+    data.append('Lieu', dLieu === 'cabinet' ? 'Cabinet · 21 rue Véron, Paris 18e (mardi uniquement)' : dLieu === 'domicile' ? 'À domicile (Paris)' : 'à confirmer');
     data.append('Date souhaitée', form.date.value || 'flexible');
     data.append('Créneau', form.creneau.value || 'flexible');
     data.append('Récapitulatif commande', '— RÉSERVATION EXPRESS —\n' + label + ' (' + o.dataset.duration + ' min) — ' + price + ' €\nVoyage olfactif et toucher intuitif inclus\n\n— TOTAL —\n' + price + ' €\n(Paiement : lien sécurisé ou sur place)');
@@ -2318,7 +2318,7 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
 </script>
 
 <script>
-// Dates proposées : uniquement les jours possibles (cabinet le vendredi, domicile du lundi au jeudi)
+// Dates proposées : uniquement les jours possibles (cabinet le mardi, domicile tous les jours sauf le mardi ; le vendredi à partir de 13h)
 (function(){
   var LOCALE = 'fr-FR';
   function iso(d){ return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
@@ -2331,8 +2331,8 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
   function group(name, lieu, days){
     return '<optgroup label="' + name + '">' + days.map(function(d){ return '<option value="' + iso(d) + '" data-lieu="' + lieu + '">' + label(d) + '</option>'; }).join('') + '</optgroup>';
   }
-  var CAB = group('Au cabinet · vendredi', 'cabinet', nextDays(function(x){ return x === 5; }, 6));
-  var DOM = group('À domicile · lundi au jeudi', 'domicile', nextDays(function(x){ return x >= 1 && x <= 4; }, 12));
+  var CAB = group('Au cabinet · mardi', 'cabinet', nextDays(function(x){ return x === 2; }, 6));
+  var DOM = group('À domicile · tous les jours sauf mardi', 'domicile', nextDays(function(x){ return x !== 2; }, 18));
   var HEAD = '<option value="" disabled selected>Choisir une date…</option><option value="">Je suis flexible</option>';
   function fill(sel, lieu){
     var keep = sel.value;
@@ -2358,6 +2358,24 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
   // Réservation express : le choix de la date indique aussi le lieu
   var ex = document.getElementById('express-date');
   if (ex && ex.tagName === 'SELECT') fill(ex, '');
+})();
+</script>
+
+<script>
+// Vendredi : séances à domicile à partir de 13h uniquement (pas de créneau du matin)
+(function(){
+  [['rdv-date','rdv-creneau'],['express-date','express-creneau']].forEach(function(ids){
+    var d = document.getElementById(ids[0]), c = document.getElementById(ids[1]);
+    if (!d || !c) return;
+    var m = c.querySelector('option[value="matin"]');
+    if (!m) return;
+    function apply(){
+      var fri = d.value && new Date(d.value + 'T12:00:00').getDay() === 5;
+      m.disabled = !!fri;
+      if (fri && c.value === 'matin') c.value = '';
+    }
+    d.addEventListener('change', apply); apply();
+  });
 })();
 </script>
 
@@ -2715,7 +2733,7 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
       <div class="acces-info">
 
       <div class="acces-block">
-        <p class="acces-label">Cabinet · le vendredi</p>
+        <p class="acces-label">Cabinet · le mardi</p>
         <p class="acces-value">21 rue Véron<br>75018 Paris</p>
         <p class="acces-detail">Entre la rue Lepic et la rue des Abbesses</p>
       </div>
@@ -2848,8 +2866,8 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
   <p class="footer-logo">Mon Calme</p>
   <p class="footer-tagline">Respirer. Relâcher. Revenir.</p>
   <div class="footer-info">
-    <span>📍 Vendredi · 21 rue Véron, 75018 Paris</span>
-    <span>🏠 Lun–Jeu · Domicile (Paris)</span>
+    <span>📍 Mardi · 21 rue Véron, 75018 Paris</span>
+    <span>🏠 Sauf mardi · Domicile (Paris)</span>
     <a href="/massage-sonore/">Le massage sonore</a>
     <a href="/entreprises/">Entreprises</a>
     <a href="/faq/">FAQ</a>
