@@ -984,7 +984,8 @@ html{scroll-padding-top:76px;}
 .audio-card details{font-size:15.5px;color:rgba(var(--cream-rgb),0.88);line-height:1.7;}
 .audio-card summary{cursor:pointer;color:var(--gold-light);font-size:13.5px;letter-spacing:0.12em;text-transform:uppercase;}
 .audio-card details p{margin-top:8px;}
-.sc-listen{display:inline-block;align-self:flex-start;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);text-decoration:none;font-size:13.5px;letter-spacing:0.14em;text-transform:uppercase;padding:11px 16px;}
+.sc-player iframe{display:block;width:100%;border:0;}
+.sc-listen{display:inline-block;align-self:flex-start;cursor:pointer;background:transparent;font-family:'Jost',sans-serif;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);text-decoration:none;font-size:13.5px;letter-spacing:0.14em;text-transform:uppercase;padding:11px 16px;}
 .sc-listen:hover{background:rgba(201,169,110,0.12);}
 .audio-actions{margin-top:auto;}
 .audio-actions a{font-size:15px;color:var(--gold-light);text-decoration:none;border-bottom:0.5px solid rgba(201,169,110,0.4);}
@@ -1037,7 +1038,7 @@ html{scroll-padding-top:76px;}
     <div class="audio-card" data-voyage="dome">
       <p class="audio-name">Dôme</p>
       <p class="audio-meta">Sacré Cœur · Le voyage en entier · 17 min</p>
-      <a class="sc-listen" href="https://on.soundcloud.com/V5yTy1ed0e8WSIL7mv" target="_blank" rel="noopener" aria-label="Écouter Dôme en entier sur SoundCloud (nouvel onglet)">▶ Écouter en entier sur SoundCloud</a>
+      <div class="sc-player"><button type="button" class="sc-listen" data-sc-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1195659436&color=%23c9a96e&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false" data-sc-title="Lecteur SoundCloud : Dôme — Sacré Cœur">▶ Écouter le voyage en entier</button><noscript><a class="sc-listen" href="https://soundcloud.com/inategu/dome" target="_blank" rel="noopener">SoundCloud</a></noscript></div>
       <details>
         <summary>Description du voyage (texte)</summary>
         <p>Dernier chapitre du projet Sacré Cœur, composé pour une exposition au Theatre of Digital Art, à Dubaï. Angélique, jazzy, blanc.</p>
@@ -1062,8 +1063,17 @@ html{scroll-padding-top:76px;}
       if (typeof gtag === 'function') gtag('event', 'audio_play', { voyage: card.dataset.voyage });
     });
   });
-  var sc = document.querySelector('.sc-listen');
-  if (sc) sc.addEventListener('click', function(){ if (typeof gtag === 'function') gtag('event', 'soundcloud_listen', { voyage: 'dome' }); });
+  // Dôme : le lecteur SoundCloud ne se charge qu'au clic (page plus légère, pas de cookies tiers avant)
+  var sc = document.querySelector('button.sc-listen');
+  if (sc) sc.addEventListener('click', function(){
+    document.querySelectorAll('[data-audio-card] audio').forEach(function(a){ a.pause(); });
+    var f = document.createElement('iframe');
+    f.src = sc.dataset.scSrc; f.title = sc.dataset.scTitle;
+    f.width = '100%'; f.height = '166'; f.setAttribute('frameborder', 'no'); f.setAttribute('scrolling', 'no');
+    f.allow = 'autoplay; encrypted-media';
+    sc.parentNode.replaceChild(f, sc);
+    if (typeof gtag === 'function') gtag('event', 'audio_play', { voyage: 'dome', source: 'soundcloud' });
+  });
 })();
 </script>
 
