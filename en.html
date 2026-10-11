@@ -860,12 +860,17 @@ html{scroll-padding-top:76px;}
 
 <!-- BANDEAU ENTREPRISES -->
 <aside class="b2b-band" aria-label="Business offer">
-  <a href="/entreprises/en.html" class="b2b-band-link">Mon Calme for your company →</a>
+  <a href="/entreprises/en.html" class="b2b-band-link"><span class="b2b-band-text"><span class="b2b-band-title">Mon Calme for your company</span><span class="b2b-band-sub">Sound breaks, group journeys, off-sites: a real pause for your teams.</span></span><span class="b2b-band-cta">See the offer →</span></a>
 </aside>
 <style>
-.b2b-band{border-top:0.5px solid var(--sep);border-bottom:0.5px solid var(--sep);background:rgba(201,169,110,0.05);text-align:center;padding:18px 24px;}
-.b2b-band-link{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:var(--gold-light);text-decoration:none;border-bottom:0.5px solid rgba(201,169,110,0.45);transition:border-color .3s;}
-.b2b-band-link:hover{border-color:var(--gold-light);}
+.b2b-band{border-top:0.5px solid var(--sep);border-bottom:0.5px solid var(--sep);background:rgba(201,169,110,0.05);padding:0;}
+.b2b-band-link{display:flex;align-items:center;justify-content:center;gap:28px;max-width:1100px;margin:0 auto;padding:22px 24px;text-decoration:none;color:inherit;}
+.b2b-band-text{display:flex;flex-direction:column;gap:4px;text-align:left;}
+.b2b-band-title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:23px;color:var(--gold-light);line-height:1.2;}
+.b2b-band-sub{font-size:15px;color:rgba(var(--cream-rgb),0.82);line-height:1.5;}
+.b2b-band-cta{flex:none;border:0.5px solid var(--gold);color:var(--gold-light);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;padding:12px 20px;transition:background .25s,color .25s;}
+.b2b-band-link:hover .b2b-band-cta,.b2b-band-link:focus-visible .b2b-band-cta{background:var(--gold);color:var(--dark);}
+@media (max-width:700px){.b2b-band-link{flex-direction:column;gap:14px;padding:22px 20px;}.b2b-band-text{text-align:center;}}
 </style>
 
 <!-- THE EXPERIENCE -->
