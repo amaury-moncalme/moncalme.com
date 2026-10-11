@@ -737,7 +737,7 @@ html{scroll-padding-top:76px;}
 
 <style>
 /* Extraits audio */
-.audio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--sep);border:0.5px solid var(--sep);margin-top:28px;}
+.audio-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--sep);border:0.5px solid var(--sep);margin-top:28px;}
 .audio-card{background:var(--dark);padding:30px 28px;display:flex;flex-direction:column;gap:12px;}
 .audio-name{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:28px;color:var(--cream);line-height:1.1;}
 .audio-meta{font-size:12.5px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);}
@@ -746,14 +746,17 @@ html{scroll-padding-top:76px;}
 .audio-card details{font-size:15.5px;color:rgba(var(--cream-rgb),0.88);line-height:1.7;}
 .audio-card summary{cursor:pointer;color:var(--gold-light);font-size:13.5px;letter-spacing:0.12em;text-transform:uppercase;}
 .audio-card details p{margin-top:8px;}
+.sc-player iframe{display:block;width:100%;border:0;}
+.sc-listen{display:inline-block;align-self:flex-start;cursor:pointer;background:transparent;font-family:'Jost',sans-serif;border:0.5px solid rgba(201,169,110,0.6);color:var(--gold-light);text-decoration:none;font-size:13.5px;letter-spacing:0.14em;text-transform:uppercase;padding:11px 16px;}
+.sc-listen:hover{background:rgba(201,169,110,0.12);}
 .audio-actions{margin-top:auto;}
 .audio-actions a{font-size:15px;color:var(--gold-light);text-decoration:none;border-bottom:0.5px solid rgba(201,169,110,0.4);}
 .todo{display:inline-block;font-family:'Jost',sans-serif;font-style:normal;font-size:13.5px;letter-spacing:0.04em;line-height:1.5;color:var(--gold-light);border:1px dashed rgba(201,169,110,0.6);padding:3px 8px;}
 @media (max-width:900px){.audio-grid{grid-template-columns:1fr;}}
 </style>
   <div class="page-section" id="ecouter">
-    <h2 class="page-h2">Tres fragmentos, <em>antes de venir</em></h2>
-    <p class="page-p">Los primeros minutos de cada viaje, con auriculares si puedes.</p>
+    <h2 class="page-h2">Cuatro viajes, <em>antes de venir</em></h2>
+    <p class="page-p">Dôme y Bugatti completos, los primeros minutos de los otros dos. Con auriculares si puedes.</p>
     <div class="audio-grid">
     <div class="audio-card" data-audio-card data-voyage="moncalme">
       <p class="audio-name">Mon Calme</p>
@@ -767,15 +770,13 @@ html{scroll-padding-top:76px;}
       </details>
       <div class="audio-actions"><a href="/es.html#rdv">Reservar este viaje →</a></div>
     </div>
-    <div class="audio-card" data-audio-card data-voyage="bugatti">
+    <div class="audio-card" data-voyage="bugatti">
       <p class="audio-name">Bugatti</p>
-      <p class="audio-meta">Musée National de l'Automobile · Los 2 primeros minutos</p>
-      <!-- Fichier : /audio/bugatti-extrait.mp3 (mp3) -->
-      <audio controls preload="none" aria-label="Bugatti — Los 2 primeros minutos"><source src="/audio/bugatti-extrait.mp3" type="audio/mpeg"></audio>
-      <p class="audio-fallback" hidden>Fragmento no disponible temporalmente.</p>
+      <p class="audio-meta">Musée National de l'Automobile · El viaje completo · 25 min</p>
+      <div class="sc-player"><button type="button" class="sc-listen" data-sc-src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&autoplay=1&feed=%2Fmoncalme%2Fbugatti%2F" data-sc-title="Reproductor de Mixcloud: Bugatti" data-sc-height="60" data-sc-source="mixcloud">▶ Escuchar el viaje completo</button></div>
       <details>
-        <summary>Descripción del fragmento (texto)</summary>
-        <p>El inicio de la playlist ambient creada para el Musée National de l'Automobile: vibrante, potente y orgánica.</p>
+        <summary>Descripción del viaje (texto)</summary>
+        <p>La playlist ambient creada para el Musée National de l'Automobile: vibrante, potente y orgánica.</p>
       </details>
       <div class="audio-actions"><a href="/es.html#rdv">Reservar este viaje →</a></div>
     </div>
@@ -788,6 +789,16 @@ html{scroll-padding-top:76px;}
       <details>
         <summary>Descripción del fragmento (texto)</summary>
         <p>El inicio de un set cristalino e íntimo, inspirado en la belleza de una relación humana.</p>
+      </details>
+      <div class="audio-actions"><a href="/es.html#rdv">Reservar este viaje →</a></div>
+    </div>
+    <div class="audio-card" data-voyage="dome">
+      <p class="audio-name">Dôme</p>
+      <p class="audio-meta">Sacré Cœur · El viaje completo · 17 min</p>
+      <div class="sc-player"><button type="button" class="sc-listen" data-sc-src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1195659436&color=%23c9a96e&auto_play=true&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false" data-sc-title="Reproductor de SoundCloud: Dôme — Sacré Cœur">▶ Escuchar el viaje completo</button><noscript><a class="sc-listen" href="https://soundcloud.com/inategu/dome" target="_blank" rel="noopener">SoundCloud</a></noscript></div>
+      <details>
+        <summary>Descripción del viaje (texto)</summary>
+        <p>El último capítulo del proyecto Sacré Cœur, creado para una exposición en el Theatre of Digital Art de Dubái. Angelical, jazzy, blanco, reconciliador.</p>
       </details>
       <div class="audio-actions"><a href="/es.html#rdv">Reservar este viaje →</a></div>
     </div>
@@ -806,6 +817,19 @@ html{scroll-padding-top:76px;}
     audio.addEventListener('play', function(){
       document.querySelectorAll('[data-audio-card] audio').forEach(function(a){ if (a !== audio) a.pause(); });
       if (typeof gtag === 'function') gtag('event', 'audio_play', { voyage: card.dataset.voyage });
+    });
+  });
+  // Dôme : le lecteur SoundCloud ne se charge qu'au clic (page plus légère, pas de cookies tiers avant)
+  document.querySelectorAll('button.sc-listen').forEach(function(sc){
+    sc.addEventListener('click', function(){
+      document.querySelectorAll('[data-audio-card] audio').forEach(function(a){ a.pause(); });
+      var f = document.createElement('iframe');
+      f.src = sc.dataset.scSrc; f.title = sc.dataset.scTitle;
+      f.width = '100%'; f.height = sc.dataset.scHeight || '166'; f.setAttribute('frameborder', 'no'); f.setAttribute('scrolling', 'no');
+      f.allow = 'autoplay; encrypted-media';
+      sc.parentNode.replaceChild(f, sc);
+      var card = f.closest('.audio-card');
+      if (typeof gtag === 'function') gtag('event', 'audio_play', { voyage: card ? card.dataset.voyage : '', source: sc.dataset.scSource || 'soundcloud' });
     });
   });
 })();
