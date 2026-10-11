@@ -998,7 +998,7 @@ html{scroll-padding-top:76px;}
   <p class="section-label">Écouter</p>
   <div style="max-width:1100px; margin:0 auto;">
     <h2 id="ecouter-title" style="font-family:'Cormorant Garamond',serif; font-weight:300; font-size:34px; line-height:1.2; color:var(--cream);">Quatre voyages, <em>avant de venir</em></h2>
-    <p style="font-size:17px; color:rgba(var(--cream-rgb),0.88); margin-top:8px;">Dôme et Bugatti en entier, les premières minutes des deux autres. Au casque si possible.</p>
+    <p style="font-size:17px; color:rgba(var(--cream-rgb),0.88); margin-top:8px;">Les premières minutes de chaque voyage, et Dôme en entier. Au casque si possible.</p>
     <div class="audio-grid">
     <div class="audio-card" data-audio-card data-voyage="moncalme">
       <p class="audio-name">Mon Calme</p>
@@ -1012,13 +1012,15 @@ html{scroll-padding-top:76px;}
       </details>
       <div class="audio-actions"><button type="button" class="voyage-book" data-book-voyage="moncalme" aria-label="Réserver Mon Calme">Réserver ce voyage</button></div>
     </div>
-    <div class="audio-card" data-voyage="bugatti">
+    <div class="audio-card" data-audio-card data-voyage="bugatti">
       <p class="audio-name">Bugatti</p>
-      <p class="audio-meta">Musée National de l'Automobile · Le voyage en entier · 25 min</p>
-      <div class="sc-player"><button type="button" class="sc-listen" data-sc-src="https://player-widget.mixcloud.com/widget/iframe/?hide_cover=1&mini=1&autoplay=1&feed=%2Fmoncalme%2Fbugatti%2F" data-sc-title="Lecteur Mixcloud : Bugatti" data-sc-height="60" data-sc-source="mixcloud">▶ Écouter le voyage en entier</button></div>
+      <p class="audio-meta">Musée National de l'Automobile · Les 2 premières minutes</p>
+      <!-- Fichier : /audio/bugatti-extrait.mp3 (mp3) -->
+      <audio controls preload="none" aria-label="Bugatti — Les 2 premières minutes"><source src="/audio/bugatti-extrait.mp3" type="audio/mpeg"></audio>
+      <p class="audio-fallback" hidden>Extrait momentanément indisponible.</p>
       <details>
-        <summary>Description du voyage (texte)</summary>
-        <p>La playlist ambient conçue pour le Musée National de l'Automobile : vibratoire, puissant et organique.</p>
+        <summary>Description de l'extrait (texte)</summary>
+        <p>Début de la playlist ambient conçue pour le Musée National de l'Automobile : vibratoire, puissant et organique.</p>
       </details>
       <div class="audio-actions"><button type="button" class="voyage-book" data-book-voyage="bugatti" aria-label="Réserver Bugatti">Réserver ce voyage</button></div>
     </div>
@@ -1063,17 +1065,15 @@ html{scroll-padding-top:76px;}
     });
   });
   // Dôme : le lecteur SoundCloud ne se charge qu'au clic (page plus légère, pas de cookies tiers avant)
-  document.querySelectorAll('button.sc-listen').forEach(function(sc){
-    sc.addEventListener('click', function(){
-      document.querySelectorAll('[data-audio-card] audio').forEach(function(a){ a.pause(); });
-      var f = document.createElement('iframe');
-      f.src = sc.dataset.scSrc; f.title = sc.dataset.scTitle;
-      f.width = '100%'; f.height = sc.dataset.scHeight || '166'; f.setAttribute('frameborder', 'no'); f.setAttribute('scrolling', 'no');
-      f.allow = 'autoplay; encrypted-media';
-      sc.parentNode.replaceChild(f, sc);
-      var card = f.closest('.audio-card');
-      if (typeof gtag === 'function') gtag('event', 'audio_play', { voyage: card ? card.dataset.voyage : '', source: sc.dataset.scSource || 'soundcloud' });
-    });
+  var sc = document.querySelector('button.sc-listen');
+  if (sc) sc.addEventListener('click', function(){
+    document.querySelectorAll('[data-audio-card] audio').forEach(function(a){ a.pause(); });
+    var f = document.createElement('iframe');
+    f.src = sc.dataset.scSrc; f.title = sc.dataset.scTitle;
+    f.width = '100%'; f.height = '166'; f.setAttribute('frameborder', 'no'); f.setAttribute('scrolling', 'no');
+    f.allow = 'autoplay; encrypted-media';
+    sc.parentNode.replaceChild(f, sc);
+    if (typeof gtag === 'function') gtag('event', 'audio_play', { voyage: 'dome', source: 'soundcloud' });
   });
 })();
 </script>
