@@ -1286,16 +1286,22 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
         <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
           <div class="field-wrap">
             <label class="field-label">Nombre *</label>
-            <input type="text" name="prenom" id="rdv-prenom" placeholder="Tu nombre" required class="rdv-input">
+            <input type="text" name="prenom" id="rdv-prenom" autocomplete="given-name" placeholder="Tu nombre" required class="rdv-input">
           </div>
           <div class="field-wrap">
-            <label class="field-label">Email *</label>
-            <input type="email" name="email" id="rdv-email" placeholder="tu@email.com" required class="rdv-input">
+            <label class="field-label" for="rdv-nom">Apellido *</label>
+            <input type="text" name="nom" id="rdv-nom" placeholder="Tu apellido" required autocomplete="family-name" class="rdv-input">
           </div>
         </div>
-        <div class="field-wrap" style="margin-bottom:16px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="field-wrap">
+            <label class="field-label">Email *</label>
+            <input type="email" name="email" id="rdv-email" autocomplete="email" placeholder="tu@email.com" required class="rdv-input">
+          </div>
+          <div class="field-wrap">
           <label class="field-label">Teléfono</label>
-          <input type="tel" name="tel" id="rdv-tel" placeholder="+33 6 ..." class="rdv-input">
+          <input type="tel" name="tel" id="rdv-tel" autocomplete="tel" placeholder="+33 6 ..." class="rdv-input">
+          </div>
         </div>
         <div class="field-wrap">
           <label class="field-label">Tu intención (opcional)</label>
@@ -2119,6 +2125,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   cartBtn.addEventListener('click', async function() {
     const massage = document.querySelector('input[name="massage"]:checked');
     const prenom = document.getElementById('rdv-prenom').value.trim();
+    const nom = document.getElementById('rdv-nom').value.trim();
     const email = document.getElementById('rdv-email').value.trim();
 
     // Validation
@@ -2126,8 +2133,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
       mcCartError('Elige un masaje, por favor.');
       return;
     }
-    if (!prenom || !email) {
-      mcCartError('Indica tu nombre y tu email, por favor.');
+    if (!prenom || !nom || !email) {
+      mcCartError('Indica tu nombre, tu apellido y tu email, por favor.');
       document.getElementById('rdv-prenom').focus();
       return;
     }
@@ -2174,6 +2181,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     const adresse = document.getElementById('rdv-adresse').value;
 
     formData.append('First name', prenom);
+    formData.append('Apellido', nom);
     formData.append('Email', email);
     formData.append('Teléfono', document.getElementById('rdv-tel').value || 'not provided');
     formData.append('Location', lieuLabel + (adresse ? ' — ' + adresse : ''));
@@ -2181,7 +2189,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     formData.append('Time slot', creneauInput.value || 'flexible');
     formData.append('Intention', document.getElementById('rdv-intention').value || '—');
     formData.append('Order recap', recap);
-    formData.append('_subject', 'Nueva reserva Mon Calme [ES] — ' + massage.dataset.label + ' (' + total + ' €)');
+    formData.append('_subject', 'Nueva reserva Mon Calme [ES] — ' + prenom + ' ' + nom + ' — ' + massage.dataset.label + ' (' + total + ' €)');
     if (typeof window.mcBeforeSend === 'function') window.mcBeforeSend(formData);
 
     cartBtn.disabled = true;
