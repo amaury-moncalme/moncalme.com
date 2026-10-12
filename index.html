@@ -825,11 +825,17 @@ html{scroll-padding-top:76px;}
 </style>
 <style>:root{color-scheme:dark;}[data-theme="light"]{color-scheme:light;}</style>
 <script>
-// Cabinet rue Véron : un mardi sur deux, à partir du mardi 13 octobre 2026
+// Cabinet rue Véron : un mardi sur deux, à partir du mardi 10 novembre 2026
 window.mcCabWeek = function(d){
-  var ref = Date.UTC(2026, 9, 13), t = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
+  var ref = Date.UTC(2026, 10, 10), t = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
   var n = Math.round((t - ref) / 86400000);
-  return ((n % 14) + 14) % 14 === 0;
+  return n >= 0 && n % 14 === 0;
+};
+// Jours sans aucune séance (absence de Paris) — format AAAA-MM-JJ
+window.MC_OFF_DAYS = ['2026-10-27'];
+window.mcIsOff = function(d){
+  var s = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  return window.MC_OFF_DAYS.indexOf(s) !== -1;
 };
 </script>
 </head>
@@ -2365,7 +2371,7 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
   function label(d){ var s = d.toLocaleDateString(LOCALE, { weekday:'long', day:'numeric', month:'long' }); return s.charAt(0).toUpperCase() + s.slice(1); }
   function nextDays(test, count){
     var out = [], d = new Date(); d.setHours(12,0,0,0);
-    while (out.length < count) { d.setDate(d.getDate()+1); if (test(d.getDay(), d)) out.push(new Date(d)); }
+    while (out.length < count) { d.setDate(d.getDate()+1); if (test(d.getDay(), d) && !window.mcIsOff(d)) out.push(new Date(d)); }
     return out;
   }
   function group(name, lieu, days){
