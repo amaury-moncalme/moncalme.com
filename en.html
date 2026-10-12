@@ -818,6 +818,20 @@ html{scroll-padding-top:76px;}
 @media (max-width:400px){.site-header{gap:8px;padding:0 12px;}.site-brand{font-size:19px;letter-spacing:0.05em;}.site-tools{gap:5px;letter-spacing:0.08em;}.site-tools .theme-toggle{margin-left:4px;}.nav-burger{padding:7px 9px;letter-spacing:0.12em;margin-left:2px;}}
 </style>
 <style>:root{color-scheme:dark;}[data-theme="light"]{color-scheme:light;}</style>
+<script>
+// Cabinet rue Véron : un mardi sur deux, à partir du mardi 10 novembre 2026
+window.mcCabWeek = function(d){
+  var ref = Date.UTC(2026, 10, 10), t = Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
+  var n = Math.round((t - ref) / 86400000);
+  return n >= 0 && n % 14 === 0;
+};
+// Jours sans aucune séance (absence de Paris) — format AAAA-MM-JJ
+window.MC_OFF_DAYS = ['2026-10-27'];
+window.mcIsOff = function(d){
+  var s = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  return window.MC_OFF_DAYS.indexOf(s) !== -1;
+};
+</script>
 </head>
 <body>
 <header class="site-header"><a href="/en.html" class="site-brand" aria-label="Mon Calme — home">Mon Calme</a><nav class="site-nav" id="site-nav" aria-label="Main navigation"><a href="/massage-sonore/en.html">Sound massage</a><a href="/entreprises/en.html">For companies</a><a href="/faq/en.html">FAQ</a><a href="/a-propos/en.html">About</a><a href="#rdv" class="site-nav-cta">Book</a></nav><div class="site-tools"><a href="/" lang="fr">FR</a><span class="sep">/</span><a href="/en.html" lang="en" class="active">EN</a><span class="sep">/</span><a href="/es.html" lang="es">ES</a><button type="button" class="theme-toggle" aria-label="Toggle dark / light mode" title="Light / dark mode"><span class="icon-sun"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg></span><span class="icon-moon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span></button><button type="button" class="nav-burger" aria-expanded="false" aria-controls="site-nav" data-open="Menu" data-close="Close">Menu</button></div></header>
@@ -853,7 +867,7 @@ html{scroll-padding-top:76px;}
     <p class="hero-desc">Sensory experiences built around sound, breath and presence. At the heart of every session, a unique sound journey crafted by Amaury, played through headphones or an audiophile sound system suited to the space. Touch and live music are options you can add according to your wishes.</p>
     <a href="#rdv" class="hero-cta">Book my session →</a>
     <div class="location-pill">
-      <span class="loc-row"><span class="dot"></span>Cabin on Tuesdays · 21 rue Véron, 75018 Paris</span>
+      <span class="loc-row"><span class="dot"></span>Cabin every other Tuesday · 21 rue Véron, 75018 Paris</span>
       <span class="loc-row"><span class="dot"></span>Other days · at your place, anywhere in Paris</span>
     </div>
   </div>
@@ -1173,18 +1187,18 @@ function mcCartError(msg){ var e = document.getElementById('cart-error'); if (!e
       <div class="rdv-block">
         <p class="rdv-step-label">Choose the location</p>
         <div class="lieu-options">
-          <label class="lieu-option"><input type="radio" name="lieu" value="cabinet" data-label="Cabin · 21 rue Véron, Paris 18th (Tuesdays only)">
+          <label class="lieu-option"><input type="radio" name="lieu" value="cabinet" data-label="Cabin · 21 rue Véron, Paris 18th (every other Tuesday)">
             <div class="lieu-content">
               <p class="lieu-name">At the cabin</p>
               <p class="lieu-info">21 rue Véron, Paris 18th</p>
-              <p class="lieu-meta">Tuesdays only</p>
+              <p class="lieu-meta">Every other Tuesday</p>
             </div>
           </label>
           <label class="lieu-option"><input type="radio" name="lieu" value="domicile" data-label="At your place (Paris)">
             <div class="lieu-content">
               <p class="lieu-name">At your place</p>
               <p class="lieu-info">I come to you</p>
-              <p class="lieu-meta">Every day except Tuesday · Paris</p>
+              <p class="lieu-meta">All other days · Paris</p>
             </div>
           </label>
         </div>
@@ -2055,15 +2069,16 @@ input[type="date"]::-webkit-calendar-picker-indicator {
       return true;
     }
     const day = new Date(dateField.value).getDay(); // 0=Sun, 5=Fri, 6=Sat
-    if (lieu.value === 'cabinet' && day !== 2) {
-      dateHint.textContent = 'The cabin is only open on Tuesdays. Please choose a Tuesday.';
+    const isCab = day === 2 && typeof window.mcCabWeek === 'function' && window.mcCabWeek(new Date(dateField.value + 'T12:00:00'));
+    if (lieu.value === 'cabinet' && !isCab) {
+      dateHint.textContent = 'The cabin is open every other Tuesday. Please choose one of the listed dates.';
       dateHint.className = 'rdv-hint error';
       dateHint.style.display = 'block';
       dateField.classList.add('invalid');
       return false;
     }
-    if (lieu.value === 'domicile' && day === 2) {
-      dateHint.textContent = 'Sessions at your place take place every day except Tuesday.';
+    if (lieu.value === 'domicile' && isCab) {
+      dateHint.textContent = 'On that Tuesday I’m at the cabin: choose “At the cabin” or another day.';
       dateHint.className = 'rdv-hint error';
       dateHint.style.display = 'block';
       dateField.classList.add('invalid');
@@ -2083,9 +2098,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     if (!dateField.value) {
       // Show a preventive hint
       if (lieu.value === 'cabinet') {
-        dateHint.textContent = 'At the cabin: Tuesdays only.';
+        dateHint.textContent = 'At the cabin: every other Tuesday (dates listed).';
       } else {
-        dateHint.textContent = 'At your place: every day except Tuesday (Fridays from 1pm).';
+        dateHint.textContent = 'At your place: all other days, weekends included (Fridays from 1pm).';
       }
       dateHint.className = 'rdv-hint';
       dateHint.style.display = 'block';
@@ -2318,7 +2333,7 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
     data.append('Email', form.email.value.trim());
     data.append('Téléphone', form.tel.value.trim() || 'non renseigné');
     var dOpt = form.date.options[form.date.selectedIndex]; var dLieu = dOpt && dOpt.dataset.lieu;
-    data.append('Lieu', dLieu === 'cabinet' ? 'Cabinet · 21 rue Véron, Paris 18e (mardi uniquement)' : dLieu === 'domicile' ? 'À domicile (Paris)' : 'à confirmer');
+    data.append('Lieu', dLieu === 'cabinet' ? 'Cabinet · 21 rue Véron, Paris 18e (un mardi sur deux)' : dLieu === 'domicile' ? 'À domicile (Paris)' : 'à confirmer');
     data.append('Date souhaitée', form.date.value || 'flexible');
     data.append('Créneau', form.creneau.value || 'flexible');
     data.append('Récapitulatif commande', '— RÉSERVATION EXPRESS —\n' + label + ' (' + o.dataset.duration + ' min) — ' + price + ' €\nVoyage olfactif et toucher intuitif inclus\n\n— TOTAL —\n' + price + ' €\n(Payment: secure link or on-site)');
@@ -2343,21 +2358,21 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
 </script>
 
 <script>
-// Dates proposées : uniquement les jours possibles (cabinet le mardi, domicile tous les jours sauf le mardi ; le vendredi à partir de 13h)
+// Dates proposées : uniquement les jours possibles (cabinet un mardi sur deux, domicile les autres jours ; le vendredi à partir de 13h)
 (function(){
   var LOCALE = 'en-GB';
   function iso(d){ return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0'); }
   function label(d){ var s = d.toLocaleDateString(LOCALE, { weekday:'long', day:'numeric', month:'long' }); return s.charAt(0).toUpperCase() + s.slice(1); }
   function nextDays(test, count){
     var out = [], d = new Date(); d.setHours(12,0,0,0);
-    while (out.length < count) { d.setDate(d.getDate()+1); if (test(d.getDay())) out.push(new Date(d)); }
+    while (out.length < count) { d.setDate(d.getDate()+1); if (test(d.getDay(), d) && !window.mcIsOff(d)) out.push(new Date(d)); }
     return out;
   }
   function group(name, lieu, days){
     return '<optgroup label="' + name + '">' + days.map(function(d){ return '<option value="' + iso(d) + '" data-lieu="' + lieu + '">' + label(d) + '</option>'; }).join('') + '</optgroup>';
   }
-  var CAB = group('At the studio · Tuesday', 'cabinet', nextDays(function(x){ return x === 2; }, 6));
-  var DOM = group('At your home · every day except Tuesday', 'domicile', nextDays(function(x){ return x !== 2; }, 18));
+  var CAB = group('At the studio · every other Tuesday', 'cabinet', nextDays(function(x, d){ return x === 2 && window.mcCabWeek(d); }, 6));
+  var DOM = group('At your home', 'domicile', nextDays(function(x, d){ return !(x === 2 && window.mcCabWeek(d)); }, 18));
   var HEAD = '<option value="" disabled selected>Choose a date…</option><option value="">I&#39;m flexible</option>';
   function fill(sel, lieu){
     var keep = sel.value;
@@ -2758,7 +2773,7 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
       <div class="acces-info">
 
       <div class="acces-block">
-        <p class="acces-label">Cabin · Tuesdays</p>
+        <p class="acces-label">Cabin · every other Tuesday</p>
         <p class="acces-value">21 rue Véron<br>75018 Paris</p>
         <p class="acces-detail">Between rue Lepic and rue des Abbesses</p>
       </div>
@@ -2891,8 +2906,8 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
   <p class="footer-logo">Mon Calme</p>
   <p class="footer-tagline">Breathe. Release. Return.</p>
   <div class="footer-info">
-    <span>📍 Tuesdays · 21 rue Véron, 75018 Paris</span>
-    <span>🏠 Except Tue · At your place (Paris)</span>
+    <span>📍 Every other Tuesday · 21 rue Véron, 75018 Paris</span>
+    <span>🏠 Other days · At your place (Paris)</span>
     <a href="/massage-sonore/en.html">Sound massage</a>
     <a href="/entreprises/en.html">For companies</a>
     <a href="/faq/en.html">FAQ</a>
