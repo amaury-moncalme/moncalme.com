@@ -151,4 +151,34 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url>
+    <loc>https://moncalme.com/offrir/</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://moncalme.com/offrir/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moncalme.com/offrir/en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://moncalme.com/offrir/es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moncalme.com/offrir/"/>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://moncalme.com/offrir/en.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://moncalme.com/offrir/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moncalme.com/offrir/en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://moncalme.com/offrir/es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moncalme.com/offrir/"/>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://moncalme.com/offrir/es.html</loc>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://moncalme.com/offrir/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://moncalme.com/offrir/en.html"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://moncalme.com/offrir/es.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://moncalme.com/offrir/"/>
+    <lastmod>2026-11-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
