@@ -2655,6 +2655,15 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
     setTimeout(function(){ syncTotal(); syncGift(); if (!valid(current)) showError(current, ''); }, 0);
   });
   syncTotal(); syncGift();
+  // Lien direct (page Offrir) : ?cadeau=1 coche « C'est pour offrir », ?voyage=dome|tendre|bugatti|moncalme choisit le voyage
+  try {
+    var q = new URLSearchParams(location.search);
+    var g = document.getElementById('wiz-gift');
+    if (q.get('cadeau') === '1' && g && !g.checked) { g.checked = true; g.dispatchEvent(new Event('change', { bubbles: true })); }
+    var v = (q.get('voyage') || '').replace(/[^a-z]/g, '');
+    var rv = v && document.querySelector('input[name="massage"][value="' + v + '"]');
+    if (rv && !rv.checked) { rv.checked = true; rv.dispatchEvent(new Event('change', { bubbles: true })); }
+  } catch (e) {}
 })();
 </script>
 
@@ -2927,6 +2936,7 @@ window.MONCALME_DEPOSIT_AMOUNT = 20;
     <a href="/massage-sonore/en.html">Sound massage</a>
     <a href="/entreprises/en.html">For companies</a>
     <a href="/faq/en.html">FAQ</a>
+    <a href="/offrir/en.html">Gift card</a>
     <a href="/a-propos/en.html">About</a>
     <a href="https://www.instagram.com/moncalme.possible" target="_blank">@moncalme.possible</a>
     <a href="https://www.linkedin.com/company/111609376" target="_blank">LinkedIn</a>
